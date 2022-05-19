@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "0d4a0914-dea9-4b47-ab4e-6bb6a17385f3",
+		"name": "Example Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth Token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "client_id=XXXX&customer_registration_id=XXXX&mailer_id=XXXX&client_secret=XXXX&grant_type=client_credentials"
+				},
+				"url": {
+					"raw": "https://api.usps.com/minimum-oauth-implementation/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"minimum-oauth-implementation",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "introspect",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "XXXX",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "XXXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "token_type_hint=accesstoken&token=XXXX"
+				},
+				"url": {
+					"raw": "https://api.usps.com/minimum-oauth-implementation/introspect",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"minimum-oauth-implementation",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.usps.com/addresses/v1/address?Address1=29851 Aventura&AddressLine2=Suite 20&State=CA&Zip5=92688",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"address"
+					],
+					"query": [
+						{
+							"key": "Address1",
+							"value": "29851 Aventura"
+						},
+						{
+							"key": "AddressLine2",
+							"value": "Suite 20"
+						},
+						{
+							"key": "State",
+							"value": "CA"
+						},
+						{
+							"key": "Zip5",
+							"value": "92688"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Location",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/locations/v1/dropOffLocations?destinationZIPCode=00601",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"locations",
+						"v1",
+						"dropOffLocations"
+					],
+					"query": [
+						{
+							"key": "destinationZIPCode",
+							"value": "00601"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prices - Base Rates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"searchType\":\"SSF\",\r\n\t\"originZIP\":\"63104\",\r\n\t\"destinationZIP\":\"63102\",\r\n\t\"weight\":\"1.2\",\r\n\t\"length\":\"1\",\r\n\t\"width\":\"1\",\r\n\t\"height\":\"2\",\r\n\t\"mailClassCode\":\"PS\",\r\n\t\"processingCat\":\"3\",\r\n\t\"destRateInd\":\"N\",\r\n\t\"rateInd\":\"SP\",\r\n\t\"parcelRoutingBarcode\":\"0\",\r\n\t\"isPoundBased\":\"N\",\r\n\t\"priceType\":\"C\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/prices/external/v1/baseRates/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"prices",
+						"external",
+						"v1",
+						"baseRates",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prices - Extra Service Rates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"extraServiceCode\":\"955\",\r\n\t\"mailClassCode\":\"PS\",\r\n\t\"priceType\":\"Commercial\",\r\n\t\"weight\":\"1.0\",\r\n\t\"mailingDate\":\"2021-12-26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/prices/external/v1/extraServiceRates/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"prices",
+						"external",
+						"v1",
+						"extraServiceRates",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "authorization",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"accountType\":\"EPS\",\"accountNumber\":\"XXXX\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/labels/v1/payment",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"labels",
+						"v1",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Label Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"imageInfo\": {\r\n        \"imageType\":\"PDF\"\r\n           }, \r\n    \"toAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"address1\": \"1100 Wyoming\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"zip5\": 63118\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Smith\",\r\n        \"address1\": \"4120 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"zip5\": \"63116\"\r\n    },\r\n    \"packageDescription\":{\r\n        \"mailClass\": \"PS\",\r\n        \"container\":\"SP\",\r\n        \"weightUOM\":\"LB\",\r\n        \"weight\": \"1\",\r\n        \"dimensionsUOM\":\"IN\",\r\n        \"length\":2.0,\r\n        \"height\":4.0,\r\n        \"width\":3.0,\r\n        \"machinable\":\"3\",\r\n        \"shipDateTime\":\"YYYY-MM-DDT13:00:00\",\r\n        \"extraServices\": [920],\r\n        \"destinationEntryFacilityType\":\"D\",\r\n        \"destinationEntryFacilityAddress\":{\r\n            \"address1\":\"1100 Wyoming\",\r\n            \"city\": \"St. Louis\",\r\n            \"state\": \"MO\",\r\n            \"zip5\": \"63116\"\r\n           }\r\n      }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/labels/v1/label",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"labels",
+						"v1",
+						"label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single Tracking Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.usps.com/tracking/v1/tracking/9305510923000967979600?expand=detail",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"tracking",
+						"v1",
+						"tracking",
+						"9305510923000967979600"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "detail"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email Notification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/tygbd0/tracking.txt"
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/tracking/v1/tracking/9305510923000967979600/notifications",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"tracking",
+						"v1",
+						"tracking",
+						"9305510923000967979600",
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Standard",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/sdc-services/v1/standards?originZipCode=40504&destinationZipCode=95823&mailClass=PRIORITY_MAIL&destType=HOLD_FOR_PICKUP",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"sdc-services",
+						"v1",
+						"standards"
+					],
+					"query": [
+						{
+							"key": "originZipCode",
+							"value": "40504"
+						},
+						{
+							"key": "destinationZipCode",
+							"value": "95823"
+						},
+						{
+							"key": "mailClass",
+							"value": "PRIORITY_MAIL"
+						},
+						{
+							"key": "destType",
+							"value": "HOLD_FOR_PICKUP"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Standard Calculator",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/sdc-services/v1/estimates?originZipCode=40504&destinationZipCode=95823&acceptDate=2022-05-11&mailClass=PRIORITY_MAIL&destType=HOLD_FOR_PICKUP",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"sdc-services",
+						"v1",
+						"estimates"
+					],
+					"query": [
+						{
+							"key": "originZipCode",
+							"value": "40504"
+						},
+						{
+							"key": "destinationZipCode",
+							"value": "95823"
+						},
+						{
+							"key": "acceptDate",
+							"value": "2022-05-11"
+						},
+						{
+							"key": "mailClass",
+							"value": "PRIORITY_MAIL"
+						},
+						{
+							"key": "destType",
+							"value": "HOLD_FOR_PICKUP"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
