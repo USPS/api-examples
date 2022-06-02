@@ -159,8 +159,8 @@ curl "https://api.usps.com/prices/external/v1/baseRates/search" \
                 "startDate": "2022-01-09",
                 "endDate": ""
             },
-            "rateRef": https://api.usps.com/prices/v1/baseRates/DVXP0XXXXC01020,
-            "skuRef": https://api.usps.com/prices/v1/baseSkus/DVXP0XXXXC01020
+            "rateRef": "https://api.usps.com/prices/v1/baseRates/DVXP0XXXXC01020",
+            "skuRef": "https://api.usps.com/prices/v1/baseSkus/DVXP0XXXXC01020"
         }
     ]
 }
