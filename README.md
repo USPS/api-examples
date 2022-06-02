@@ -275,8 +275,8 @@ curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXX/notifications" \
      -H "accept: application/json" \
      -H "Content-Type: application/json" \
      --data-binary "@tracking.txt"\
-     -H "Authorization: Bearer $TOKEN" 
-     ```
+     -H "Authorization: Bearer $TOKEN"
+```
 ```json
 {
 	"PTSEMAILRESULT":{
