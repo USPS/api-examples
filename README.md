@@ -127,7 +127,7 @@ curl "https://api.usps.com/locations/v1/dropOffLocations?destinationZIP=52228" \
      -H "Authorization: Bearer $TOKEN"
 ```
 Response:
-[dropoff-location-response.json](dropoff-location-response.json)
+[dropoff-location-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-response.json)
 
 
 ## Prices
