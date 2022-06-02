@@ -205,7 +205,7 @@ curl "https://api.usps.com/labels/v1/payment" \
 ```
 
 ### Label Request
-Save the example request body to a file: [label-request.json](https://github.com/USPS/api-examples/label-request.json)
+Save the example request body to a file: [label-request.json](https://github.com/USPS/api-examples/blob/main/label-request.json)
 ```
 curl "https://api.usps.com/labels/v1/label" \
      -H "accept: application/json" \
@@ -214,7 +214,7 @@ curl "https://api.usps.com/labels/v1/label" \
      --data-binary @label-request.json \
      
 ```
-Response: [label-response.json](https://github.com/USPS/api-examples/label-response.json)
+Response: [label-response.json](https://github.com/USPS/api-examples/blob/main/label-response.json)
 
 
 ## Tracking
