@@ -358,4 +358,4 @@ curl "https://api.usps.com/sdc-services/v1/estimates?originZipCode=40504&destina
 ## Postman Collection
 Here is a Postman Collection of the above curl commands above that you can utilize to help in getting a jump start of using USPS APIs. 
 
-Example postman collection file: [Example postman collection.json](https://github.com/USPS/api-examples/Example-Postman.postman_collection.json)
+Example postman collection file: [Example postman collection.json](https://github.com/USPS/api-examples/blob/main/Example-Postman.postman_collection.json)
