@@ -269,7 +269,7 @@ curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXX?expand=detail" \
 }
 ```
 ### Email Notification Request
-Save the example request body to a file: [tracking.txt](https://github.com/USPS/api-examples/tracking.txt)
+Save the example request body to a file: [tracking.txt](https://github.com/USPS/api-examples/blob/main/tracking.txt)
 ```sh
 curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXX/notifications" \
      -H "accept: application/json" \
