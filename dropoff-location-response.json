@@ -1,0 +1,86 @@
+{
+    "locations": [
+        {
+            "destinationZIPCode": "006",
+            "dropshipKey": "EV17273",
+            "dropsitePhoneNo": "7876221795",
+            "facilityAddress": {
+                "firstName": null,
+                "lastName": null,
+                "firm": null,
+                "address1": "585 AVE FD ROOSEVELT STE 370",
+                "address2": null,
+                "city": "SAN JUAN",
+                "state": "PR",
+                "urbanization": null,
+                "zip5": "00936",
+                "zip4": "9312",
+                "pobox": null
+            },
+            "facilityName": "SAN JUAN",
+            "destinationEntryFacilityType": "DSCF",
+            "acceptedPackageTypes": [
+                {
+                    "mailClass": [
+                        "BOUND_PRINTED_MATTER",
+                        "LIBRARY_MAIL",
+                        "MEDIA_MAIL"
+                    ],
+                    "shape": "FLATS",
+                    "palletized": "BOTH"
+                }
+            ],
+            "dropshipFacilityDetails": {
+                "dock": {
+                    "dockDepth": 25,
+                    "dockHeight": 32,
+                    "dockWidth": 12
+                },
+                "canopyClearance": 0,
+                "liftTypes": {
+                    "manualLift": true,
+                    "electricGasLift": true,
+                    "cageStackerLift": false,
+                    "rollerTableExtenderLift": false
+                },
+                "ramp": {
+                    "numberOfInclinedRamps": 1,
+                    "widestInclinedRamp": 7
+                },
+                "truckManeuveringArea": {
+                    "length": 0,
+                    "width": 0,
+                    "surfaceType": "Asphalt"
+                },
+                "levelers": {
+                    "manualLevelers": 0,
+                    "hydraulicLevelers": 0,
+                    "scissorLevelers": 0
+                },
+                "doorDetails": {
+                    "doorHeight": 0,
+                    "doorWidth": 0,
+                    "steps": 0
+                },
+                "overpassDetails": {
+                    "numberOfOverpasses": 0,
+                    "lowestOverpass": 0
+                }
+            },
+            "dropShipAcceptanceTimes": {
+                "monday": [],
+                "tuesday": [],
+                "wednesday": [],
+                "thursday": [],
+                "friday": [],
+                "saturday": [],
+                "sunday": []
+            },
+            "uspsConnect": {
+                "sundayDelivery": false,
+                "sameDayPickUp": "0000",
+                "nextDayPickUp": "0000",
+                "sameNextDayDelivery": false
+            }
+        }
+}

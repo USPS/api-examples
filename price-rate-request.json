@@ -1,0 +1,16 @@
+{
+	"searchType":"SSF",
+	"originZIP":"63104",
+	"destinationZIP":"63102",
+	"weight":"1.2",
+	"length":"1",
+	"width":"1",
+	"height":"2",
+	"mailClassCode":"PS",
+	"processingCat":"3",
+	"destRateInd":"N",
+	"rateInd":"SP",
+	"parcelRoutingBarcode":"0",
+	"isPoundBased":"N",
+	"priceType":"C"
+}
