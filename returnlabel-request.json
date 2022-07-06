@@ -1,0 +1,46 @@
+{
+    "imageInfo": {
+        "imageType":"PDF", 
+        "returnLabel": true
+    }, 
+    "toAddress": {
+        "firstName": "Leroy",
+        "lastName": "Brown",
+        "streetAddress": "1100 Wyoming",
+        "city": "St. Louis",
+        "state": "MO",
+        "ZIPCode": 63118
+    },
+    "fromAddress": {
+        "firstName": "John",
+        "lastName": "Smith",
+        "streetAddress": "4120 Bingham",
+        "city": "St. Louis",
+        "state": "MO",
+        "ZIPCode": "63116"
+    },
+    "returnAddress": {
+        "firstName": "return",
+        "lastName": "Address",
+        "streetAddress": "4122 Bingham",
+        "city": "St. Louis",
+        "state": "MO",
+        "ZIPCode": "63116"
+    },
+    "packageDescription": {
+        "mailClass": "GROUND",
+        "rateIndicator": "SP",
+        "weightUOM": "lb",
+        "weight": "1.5",
+        "dimensionsUOM": "in",
+        "length": 1.0,
+        "height": 2.0,
+        "width": 1.0,
+        "processiingCategory": "MACHINABLE",
+        "destinationEntryFacilityType": "NONE",
+        "customerReference":[{
+            "referenceNumber": "EE66GG87",
+            "printReferenceNumber": "true"
+        }]
+    }
+}

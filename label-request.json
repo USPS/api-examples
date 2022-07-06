@@ -1,41 +1,41 @@
  {
-  "imageInfo": {
+    "imageInfo": {
         "imageType":"PDF"
-           }, 
+    },  
     "toAddress": {
         "firstName": "Leroy",
         "lastName": "Brown",
-        "address1": "1100 Wyoming",
+        "streetAddress": "1100 Wyoming",
         "city": "St. Louis",
         "state": "MO",
-        "zip5": 63118
+        "ZIPCode": 63118
     },
     "fromAddress": {
         "firstName": "John",
         "lastName": "Smith",
-        "address1": "4120 Bingham",
+        "streetAddress": "4120 Bingham",
         "city": "St. Louis",
         "state": "MO",
-        "zip5": "63116"
+        "ZIPCode": "63116"
     },
     "packageDescription":{
-        "mailClass": "PS",
-        "container":"SP",
-        "weightUOM":"LB",
+        "mailClass": "PARCEL_SELECT",
+        "rateIndicator":"SP",
+        "weightUOM":"lb",
         "weight": "1",
-        "dimensionsUOM":"IN",
+        "dimensionsUOM":"in",
         "length":2.0,
         "height":4.0,
         "width":3.0,
-        "machinable":"3",
-        "shipDateTime":"2022-05-10T13:00:00",
+        "processingCategory":"MACHINABLE",
+        "mailingDate":"2022-07-20",
         "extraServices": [920],
-        "destinationEntryFacilityType":"D",
+        "destinationEntryFacilityType":"DESTINATION_DELIVERY_UNIT",
         "destinationEntryFacilityAddress":{
-            "address1":"1100 Wyoming",
+            "streetAddress":"1100 Wyoming",
             "city": "St. Louis",
             "state": "MO",
-            "zip5": "63116"
-           }
+            "ZIPCode": "63116"
+           }        
       }
 }

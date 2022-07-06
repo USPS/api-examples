@@ -1,7 +1,15 @@
 ﻿# USPS API
-The USPS Developer Portal is for software developers who would like to integrate Postal Service functionality into their ecommerce, shipping, or logistics systems. Access and use USPS tools and resources conveniently within your site or application.
+The USPS Developer Portal is for software developers who would like to integrate Postal Service functionality into their ecommerce, shipping, or logistics systems. Access and use USPS tools and resources conveniently within your site or application. You have the ability to try out the APIs in the our Test environment.
 
-## Getting Started
+## Getting Started in Test Environment
+To use the USPS APIs in the Test Environment uou must be a registered user.
+1. Apply for a free USPS.com account.
+2. Access the [Test Business Customer Gateway](https://gateway-cat.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
+3.	Using your USPS account, access the [USPS Test Developer Portal](htps://developer-cat.usps.com) by clicking the Sign-Up button. 
+4.	Registering your application and retrieve your consumer key and consumer secret from the credential section.
+5.	Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
+
+## Getting Started in Production
 To use the USPS APIs you must be a registered user.
 1. Apply for a free USPS.com account.
 2. Access the [Business Customer Gateway](https://gateway.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
@@ -9,6 +17,8 @@ To use the USPS APIs you must be a registered user.
 4.	Registering your application and retrieve your consumer key and consumer secret from the credential section.
 5.	Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
+## Using the APIs in the USPS Test Environment
+All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://api.usps.com to https://api-cat.usps.com.
 
 ## OAuth
 All USPS APIs require an OAuth 2.0 access token to be conveyed in the Authorization header, using the Bearer token scheme.  To retrieve your Bearer Token you will need the consumer key(client_id), consumer secret(client_secret), customer_registration_id(CRID), and mailer_id(MID).
@@ -21,9 +31,9 @@ CUSTOMER_REGISTRATION_ID=XXXX
 MAILER_ID=XXXX
 ```
 
-Example OAuth token request:
+### Example OAuth token request:
 ```sh
-curl "https://api.usps.com/minimum-oauth-implementation/token" \
+curl "https://api.usps.com/oauth2/v1/token" \
      -H 'Content-Type:application/x-www-form-urlencoded;charset=utf-8' \
      --data-urlencode "grant_type=client_credentials" \
      --data-urlencode "client_id=$CLIENT_ID" \
@@ -54,9 +64,9 @@ Set your access token to an environment variable for use in subsequent requests.
 export $TOKEN=<access_token>
 ```
 
-Inspect the values associated with the OAuth access token profile:
+###  Inspect the values associated with the OAuth access token profile:
 ```sh
-curl "https://api.usps.com/minimum-oauth-implementation/introspect" \
+curl "https://api.usps.com/oauth2/v1/introspect" \
      -H 'Content-Type:application/x-www-form-urlencoded;charset=utf-8' \
      -u "$CLIENT_ID:$CLIENT_SECRET" \
      --data-urlencode "token_type_hint=accesstoken" \
@@ -84,45 +94,99 @@ curl "https://api.usps.com/minimum-oauth-implementation/introspect" \
 }
 ```
 
-## Address
+## Addresses
+
+###  Address
 This API is to be used to proactively verify and fix addresses early in the shipment process so that deliveries are as accurate as possible. This API provides resources to lookup ZIP codes, the city and state represented by a ZIP code, and to verify and standardize an address prior to shipment.
 ```sh
 curl --get "https://api.usps.com/addresses/v1/address" \
      -H "accept: application/json"  \
      -H "authorization: Bearer $TOKEN" \
-     --data-urlencode "Address1=29851 Aventura" \
-     --data-urlencode "AddressLine2=SUITE K" \
-     --data-urlencode "State=CA" \
-     --data-urlencode "Zip5=92688"
+     --data-urlencode "streetAddress=4120 BINGHAM AVE" \
+     --data-urlencode "city=Saint Louis" \
+     --data-urlencode "state=MO" \
+     --data-urlencode "ZIPCode=63116"
 ```
 ```json
 {
+    "firm": null,
     "address": {
-        "Address1": "4120 BINGHAM AVE",
-        "City": "SAINT LOUIS",
-        "State": "MO",
-        "Zip5": "63116",
-        "Zip4": "2520",
-        "ZipCode": "63116-2520"
+        "streetAddress": "4120 BINGHAM AVE",
+        "streetAddressAbbreviation": null,
+        "secondaryAddress": null,
+        "city": "SAINT LOUIS",
+        "cityAbbreviation": null,
+        "state": "MO",
+        "postalCode": null,
+        "province": null,
+        "ZIPCode": "63116",
+        "ZIPPlus4": "2520",
+        "urbanization": null,
+        "country": null,
+        "countryISOCode": null
     },
     "addressAdditionalInfo": {
-        "DeliveryPoint": "20",
-        "CarrierRoute": "C014",
+        "deliveryPoint": "20",
+        "carrierRoute": "C014",
         "DPVConfirmation": "Y",
         "DPVCMRA": "N",
-        "Business": "N",
-        "CentralDeliveryPoint": "N",
-        "Vacant": "Y"
+        "business": "N",
+        "centralDeliveryPoint": "N",
+        "vacant": "Y"
     },
     "addressCorrections": null,
     "addressMatches": null
+}
+```
+###  City and State
+Returns city and state corresponding to a given ZIP code.
+```sh
+curl --get "https://api.usps.com/addresses/v1/city-state" \
+     -H "accept: application/json"  \
+     -H "authorization: Bearer $TOKEN" \
+     --data-urlencode "ZIPCode=63116"
+```
+```json
+{
+    "city": "SAINT LOUIS",
+    "state": "MO",
+} 
+```
+###  ZIPCode
+Returns ZIPCode and ZIPPlus4 corresponding to a given address, city, and state
+```sh
+curl --get "https://api.usps.com/addresses/v1/zipcode" \
+     -H "accept: application/json"  \
+     -H "authorization: Bearer $TOKEN" \
+     --data-urlencode "streetAddress=520 MARYVILLE CENTRE DR"\
+     --data-urlencode "city=Saint Louis" \
+     --data-urlencode "state=MO" 
+```
+```json
+{
+    "firm": null,
+    "address": {
+        "streetAddress": "520 MARYVILLE CENTRE DR",
+        "streetAddressAbbreviation": null,
+        "secondaryAddress": null,
+        "city": "SAINT LOUIS",
+        "cityAbbreviation": null,
+        "state": "MO",
+        "postalCode": null,
+        "province": null,
+        "ZIPCode": "63141",
+        "ZIPPlus4": "5820",
+        "urbanization": null,
+        "country": null,
+        "countryISOCode": null
+    }
 }
 ```
 
 ## Location
 This API supports returning destination entry facilities (i.e., drop off locations) for a given ZIP Code to enable Parcel Select Destination Entry, USPS Connect, and Parcel Select Lightweight. This API also provides additional information about working hours, delivery type, mail class, shape, palletization, and facility type.
 ```sh
-curl "https://api.usps.com/locations/v1/dropOffLocations?destinationZIP=52228" \
+curl "https://api.usps.gov/locations/v1/dropoff-locations?destinationZIPCode=63116&mailClass=USPS_CONNECT_LOCAL" \
      -H "accept: application/json" \
      -H "Authorization: Bearer $TOKEN"
 ```
@@ -159,8 +223,8 @@ curl "https://api.usps.com/prices/external/v1/baseRates/search" \
                 "startDate": "2022-01-09",
                 "endDate": ""
             },
-            "rateRef": "https://api.usps.com/prices/v1/baseRates/DVXP0XXXXC01020",
-            "skuRef": "https://api.usps.com/prices/v1/baseSkus/DVXP0XXXXC01020"
+            "rateRef": https://api.usps.com/prices/v1/baseRates/DVXP0XXXXC01020,
+            "skuRef": https://api.usps.com/prices/v1/baseSkus/DVXP0XXXXC01020
         }
     ]
 }
@@ -188,9 +252,9 @@ curl "https://api.usps.com/prices/external/v1/extraServiceRates/search" \
 ## Label
 This API supports creation of domestic shipping labels with Intelligent Mail Package Barcodes (IMpb). Along with label and barcode creation in both PDF and JPEG format, validates addresses, confirms product availability, calculates postage, and generates the Shipping Services File in accordance with USPS Publication 199 required for shipping with USPS. This label API currently supports Parcel Select, Parcel Select Lightweight, Connect Local, Connect Regional, Priority Mail, Priority Mail Express, First Class Package Services, Bound Printed Matter, Library Mail, and Media Mail mail classes.  This API requires payment to be added to the Bearer Token
 
-Set the payment account for Label:
+###  Set the payment account for Label:
 ```sh
-curl "https://api.usps.com/labels/v1/payment" \
+curl "https://api.usps.com/labels/v1/payment-account" \
      -H "Content-Type: application/json" \
      -d "{\"accountType\":\"EPS\",\"accountNumber\":\"XXXXXXXXX\"}" \
      -H "authorization: Bearer $TOKEN"
@@ -208,13 +272,26 @@ curl "https://api.usps.com/labels/v1/payment" \
 Save the example request body to a file: [label-request.json](https://github.com/USPS/api-examples/blob/main/label-request.json)
 ```
 curl "https://api.usps.com/labels/v1/label" \
-     -H "accept: application/json" \
+     -H "accept: multipart/mixed" \
      -H "Content-Type: application/json" \
      -H "authorization: Bearer $TOKEN" \
      --data-binary @label-request.json \
      
 ```
 Response: [label-response.json](https://github.com/USPS/api-examples/blob/main/label-response.json)
+
+
+### Return Label Request
+Save the example request body to a file: [returnlabel-request.json](https://github.com/USPS/api-examples/blob/main/returnlabel-request.json)
+```
+curl "https://api.usps.com/labels/v1/return-label" \
+     -H "accept: multipart/mixed" \
+     -H "Content-Type: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+     --data-binary @returnlabel-request.json \
+     
+```
+Response: [returnlabel-response.json](https://github.com/USPS/api-examples/blob/main/returnlabel-response.json)
 
 
 ## Tracking
@@ -358,4 +435,4 @@ curl "https://api.usps.com/sdc-services/v1/estimates?originZipCode=40504&destina
 ## Postman Collection
 Here is a Postman Collection of the above curl commands above that you can utilize to help in getting a jump start of using USPS APIs. 
 
-Example postman collection file: [Example postman collection.json](https://github.com/USPS/api-examples/blob/main/Example-Postman.postman_collection.json)
+Example postman collection file: [Example postman collection.json](https://github.com/USPS/api-examples/Example-Postman.postman_collection.json)
