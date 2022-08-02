@@ -442,183 +442,6 @@
 			"response": []
 		},
 		{
-			"name": "Prices - Base Rates",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "XXXX",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"searchType\":\"SSF\",\r\n\t\"originZIP\":\"63104\",\r\n\t\"destinationZIP\":\"63102\",\r\n\t\"weight\":\"1.2\",\r\n\t\"length\":\"1\",\r\n\t\"width\":\"1\",\r\n\t\"height\":\"2\",\r\n\t\"mailClassCode\":\"PS\",\r\n\t\"processingCat\":\"3\",\r\n\t\"destRateInd\":\"N\",\r\n\t\"rateInd\":\"SP\",\r\n\t\"parcelRoutingBarcode\":\"0\",\r\n\t\"isPoundBased\":\"N\",\r\n\t\"priceType\":\"C\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://api.usps.com/prices/external/v1/baseRates/search",
-					"protocol": "https",
-					"host": [
-						"api",
-						"usps",
-						"com"
-					],
-					"path": [
-						"prices",
-						"external",
-						"v1",
-						"baseRates",
-						"search"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Prices - Extra Service Rates",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "XXXX",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"extraServiceCode\":\"955\",\r\n\t\"mailClassCode\":\"PS\",\r\n\t\"priceType\":\"Commercial\",\r\n\t\"weight\":\"1.0\",\r\n\t\"mailingDate\":\"2021-12-26\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://api.usps.com/prices/external/v1/extraServiceRates/search",
-					"protocol": "https",
-					"host": [
-						"api",
-						"usps",
-						"com"
-					],
-					"path": [
-						"prices",
-						"external",
-						"v1",
-						"extraServiceRates",
-						"search"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Single Tracking Request",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "XXXX",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://api.usps.com/tracking/v1/tracking/9305510923000967979600?expand=detail",
-					"protocol": "https",
-					"host": [
-						"api",
-						"usps",
-						"com"
-					],
-					"path": [
-						"tracking",
-						"v1",
-						"tracking",
-						"9305510923000967979600"
-					],
-					"query": [
-						{
-							"key": "expand",
-							"value": "detail"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Email Notification",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "XXXX",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "file",
-					"file": {
-						"src": "/C:/Users/tygbd0/tracking.txt"
-					}
-				},
-				"url": {
-					"raw": "https://api.usps.com/tracking/v1/tracking/9305510923000967979600/notifications",
-					"protocol": "https",
-					"host": [
-						"api",
-						"usps",
-						"com"
-					],
-					"path": [
-						"tracking",
-						"v1",
-						"tracking",
-						"9305510923000967979600",
-						"notifications"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Service Standard - Standards",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -652,7 +475,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.com/sdc-services/v1/standards?originZipCode=40504&destinationZipCode=95823&mailClass=PRIORITY_MAIL&destType=HOLD_FOR_PICKUP",
+					"raw": "https://api.usps.com/service-standards/v1/standards?originZIPCode=40504&destinationZIPCode=95823&mailClass=PARCEL_SELECT&destinationType=STREET",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -660,26 +483,26 @@
 						"com"
 					],
 					"path": [
-						"sdc-services",
+						"service-standards",
 						"v1",
 						"standards"
 					],
 					"query": [
 						{
-							"key": "originZipCode",
+							"key": "originZIPCode",
 							"value": "40504"
 						},
 						{
-							"key": "destinationZipCode",
+							"key": "destinationZIPCode",
 							"value": "95823"
 						},
 						{
 							"key": "mailClass",
-							"value": "PRIORITY_MAIL"
+							"value": "PARCEL_SELECT"
 						},
 						{
-							"key": "destType",
-							"value": "HOLD_FOR_PICKUP"
+							"key": "destinationType",
+							"value": "STREET"
 						}
 					]
 				}
@@ -714,7 +537,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.com/sdc-services/v1/estimates?originZipCode=40504&destinationZipCode=95823&acceptDate=2022-05-11&mailClass=PRIORITY_MAIL&destType=HOLD_FOR_PICKUP",
+					"raw": "https://api.usps.com/service-standards/v1/estimates?originZIPCode=63011&destinationZIPCode=63118&acceptanceDate=2022-08-01&mailClass=PARCEL_SELECT&destinationType=STREET",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -722,31 +545,300 @@
 						"com"
 					],
 					"path": [
-						"sdc-services",
+						"service-standards",
 						"v1",
 						"estimates"
 					],
 					"query": [
 						{
-							"key": "originZipCode",
-							"value": "40504"
+							"key": "originZIPCode",
+							"value": "63011"
 						},
 						{
-							"key": "destinationZipCode",
-							"value": "95823"
+							"key": "destinationZIPCode",
+							"value": "63118"
 						},
 						{
-							"key": "acceptDate",
-							"value": "2022-05-11"
+							"key": "acceptanceDate",
+							"value": "2022-08-01"
 						},
 						{
 							"key": "mailClass",
-							"value": "PRIORITY_MAIL"
+							"value": "PARCEL_SELECT"
 						},
 						{
-							"key": "destType",
-							"value": "HOLD_FOR_PICKUP"
+							"key": "destinationType",
+							"value": "STREET"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Domestic Prices - Base Rates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"searchType\":\"SSF\",\r\n\t\"originZIPCode\":\"22407\",\r\n\t\"destinationZIPCode\":\"63118\",\r\n\t\"weight\":\"1.2\",\r\n\t\"length\":\"1\",\r\n\t\"width\":\"1\",\r\n\t\"height\":\"2\",\r\n\t\"mailClass\":\"PARCEL_SELECT\",\r\n\t\"processingCategory\":\"MACHINABLE\",\r\n\t\"destinationEntryFacilityType\":\"NONE\",\r\n\t\"rateIndicator\":\"SP\",\r\n\t\"parcelRoutingBarcode\":\"0\",\r\n\t\"isPoundBased\":\"N\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n    \"mailingDate\":\"2022-07-20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.gov/prices/v1/base-rates/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"gov"
+					],
+					"path": [
+						"prices",
+						"v1",
+						"base-rates",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Domestic Prices - Extra Service Rates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"extraService\":\"930\",\r\n\t\"mailClass\":\"PARCEL_SELECT\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n\t\"weight\":1.0,\r\n\t\"mailingDate\":\"2022-07-20\",\r\n    \"itemValue\":99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.gov/prices/v1/extra-service-rates/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"gov"
+					],
+					"path": [
+						"prices",
+						"v1",
+						"extra-service-rates",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "International Prices - Base Rate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "X397JEikaASAdVVazABhAGA4Fqst",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"searchType\":\"SSF\",\r\n\t\"originZIP\":\"22407\",\r\n\t\"weight\":1.2,\r\n\t\"length\":10,\r\n\t\"width\":6,\r\n\t\"height\":4,\r\n\t\"mailClass\":\"PRIORITY_MAIL_INTERNATIONAL\",\r\n\t\"processingCategory\":\"MACHINABLE\",\r\n\t\"destinationEntryFacilityType\":\"INTERNATIONAL_SERVICE_CENTER\",\r\n\t\"rateIndicator\":\"SP\",\r\n\t\"parcelRoutingBarcode\":\"0\",\r\n\t\"isPoundBased\":\"N\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n    \"mailingDate\":\"2022-08-10\",\r\n    \"foreignPostalCode\":\"A0Z9Z0\",\r\n    \"destinationCountryCode\":\"CA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.gov/international-prices/v1/base-rates/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"gov"
+					],
+					"path": [
+						"international-prices",
+						"v1",
+						"base-rates",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "International Prices - Extra Service Rates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "X397JEikaASAdVVazABhAGA4Fqst",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"extraService\":\"931\",\r\n\t\"mailClass\":\"PRIORITY_MAIL_INTERNATIONAL\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n    \"rateIndicator\":\"SP\",\r\n    \"destinationCountryCode\":\"CA\",\r\n\t\"weight\":1.2,\r\n\t\"mailingDate\":\"2022-08-20\",\r\n    \"itemValue\":500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.gov/international-prices/v1/extra-service-rates/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"gov"
+					],
+					"path": [
+						"international-prices",
+						"v1",
+						"extra-service-rates",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tracking - Single Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX?expand=detail",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"tracking",
+						"v1",
+						"tracking",
+						"XXXXXXXXXXXXXXXXXXXXXXXXXX"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "detail"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tracking - Email Notification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"PTSEmailRequest\": {\r\n    \"ApproximateIntakeDate\": \"\",\r\n    \"UniqueTrackingID\": \"\",\r\n    \"notifyEventTypes\": \"EMAIL_alert\",\r\n    \"FirstName\": \"John\",\r\n    \"LastName\": \"Doe\",\r\n    \"notifications\": [\r\n      \"user@example2.com\",\r\n      1112223333\r\n    ]\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX/notifications",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"tracking",
+						"v1",
+						"tracking",
+						"XXXXXXXXXXXXXXXXXXXXXXXXXX",
+						"notifications"
 					]
 				}
 			},

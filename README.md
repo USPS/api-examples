@@ -186,7 +186,7 @@ curl --get "https://api.usps.com/addresses/v1/zipcode" \
 ## Location
 This API supports returning destination entry facilities (i.e., drop off locations) for a given ZIP Code to enable Parcel Select Destination Entry, USPS Connect, and Parcel Select Lightweight. This API also provides additional information about working hours, delivery type, mail class, shape, palletization, and facility type.
 ```sh
-curl "https://api.usps.gov/locations/v1/dropoff-locations?destinationZIPCode=63116&mailClass=USPS_CONNECT_LOCAL" \
+curl "https://api.usps.com/locations/v1/dropoff-locations?destinationZIPCode=63116&mailClass=USPS_CONNECT_LOCAL" \
      -H "accept: application/json" \
      -H "Authorization: Bearer $TOKEN"
 ```
@@ -194,63 +194,144 @@ Response:
 [dropoff-location-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-response.json)
 
 
-## Prices
-This API provides USPS product pricing based on the characteristics of what is being shipped. Given inputs, such as origin and destination ZIP Codes, package weight and dimensions, processing category, destination rate indicator, price type, and desired Mail Class and Extra Services, this API will return the price of postage. 
+## Domestic Prices
+This API provides Domestic USPS product pricing based on the characteristics of what is being shipped for Parcel Select, Parcel Select Lightweight, Priority Mail, Priority Mail Express, First Class Package Services, Library Mail, Media Mail, and Bound Printed Matter.  Given inputs, such as origin and destination ZIP Codes, package weight and dimensions, processing category, destination rate indicator, price type, and desired Mail Class and Extra Services, this API will return the price of postage.  
 
-### Base Rates Request
-
-Save the example request body to a file: [prices-rate-request.json](https://github.com/USPS/api-examples/blob/main/price-rate-request.json)
+### Domestic Prices - Base Rates Request
 ```sh
-curl "https://api.usps.com/prices/external/v1/baseRates/search" \
+curl "https://api.usps.com/prices/v1/base-rates/search" \
      -H "Content-Type: application/json" \
      -H "Accept: application/json" \
      -H "Authorization: Bearer $TOKEN" \
-     --data-binary @prices-rate-request.json \
+     --data-raw '{
+		"searchType":"SSF",
+		"originZIPCode":"22407",
+		"destinationZIPCode":"63118",
+		"weight":"1.2",
+		"length":"1",
+		"width":"1",
+		"height":"2",
+		"mailClass":"PARCEL_SELECT",
+		"processingCategory":"MACHINABLE",
+		"destinationEntryFacilityType":"NONE",
+		"rateIndicator":"SP",
+		"parcelRoutingBarcode":"0",
+		"isPoundBased":"N",
+		"priceType":"COMMERCIAL",
+		"mailingDate":"2022-08-01"
+		}'
 ```
 ```json
-{
-    "rates": [
-        {
-            "rate": {
-                "rateId": null,
-                "sku": "DVXP0XXXXC01020",
-                "contractType": "CB",
-                "rate": 7.28,
-                "gla": "41419",
-                "aic": "211",
-                "maxWeight": 2,
-                "fees": [],
-                "startDate": "2022-01-09",
-                "endDate": ""
-            },
-            "rateRef": https://api.usps.com/prices/v1/baseRates/DVXP0XXXXC01020,
-            "skuRef": https://api.usps.com/prices/v1/baseSkus/DVXP0XXXXC01020
-        }
-    ]
-}
+[
+    {
+        "rateId": null,
+        "SKU": "DVXP0XXXXC05020",
+        "contractType": "CB",
+        "price": 8.22,
+        "maxWeight": 2,
+        "fees": [],
+        "startDate": "",
+        "endDate": ""
+    }
+]
 ```
-### Extra Services Rates Request
-Save the example request body to a file: [prices-extra-services-request.json](https://github.com/USPS/api-examples/blob/main/prices-extra-services-request.json)
-
+### Domestic Prices - Extra Services Rates Request
 ```sh
-curl "https://api.usps.com/prices/external/v1/extraServiceRates/search" \
+curl "https://api.usps.com/prices/v1/extra-service-rates/search" \
      -H "Content-Type: application/json" \
      -H "Accept: application/json" \
      -H "Authorization: Bearer $TOKEN" \
-     --data-binary @prices-extra-services-request.json
+	--data-raw '{
+		"extraService":"930",
+		"mailClass":"PARCEL_SELECT",
+		"priceType":"COMMERCIAL",
+		"weight":1.0,
+		"mailingDate":"2022-08-01",
+		"itemValue":99
+	}'
 ```
 ```json
-{
-    "sku": "DXRX0XXXXCX0000",
-    "rate": 3.05,
-    "contractType": "CB",
-    "extraServiceCode": "955",
-    "description": "Return Receipt"
-}
+[
+    {
+        "rateId": "",
+        "SKU": "DXIX0XXXXCX0100",
+        "price": 3.35,
+        "contractType": "CB"
+    }
+]
+```
+## International Prices
+The International Prices API provides International USPS product pricing based on the characteristics of what is being shipped for Global Express Guaranteed, Priority Mail Express International, Priority Mail International, and First-Class Package International. Given inputs, such as origin and destination ZIP Codes, package weight and dimensions, processing category, destination rate indicator, price type, and desired Mail Class and Extra Services, this API will return the price of postage and Extra Services.
+
+### International Prices - Base Rates Request
+```sh
+curl "https://api.usps.com/international-prices/v1/base-rates/search" \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/json" \
+     -H "Authorization: Bearer $TOKEN" \
+     --data-raw '{
+		"searchType":"SSF",
+		"originZIP":"22407",
+		"weight":1.2,
+		"length":10,
+		"width":6,
+		"height":4,
+		"mailClass":"PRIORITY_MAIL_INTERNATIONAL",
+		"processingCategory":"MACHINABLE",
+		"destinationEntryFacilityType":"INTERNATIONAL_SERVICE_CENTER",
+		"rateIndicator":"SP",
+		"parcelRoutingBarcode":"0",
+		"isPoundBased":"N",
+		"priceType":"COMMERCIAL",
+		"mailingDate":"2022-08-10",
+		"foreignPostalCode":"A0Z9Z0",
+		"destinationCountryCode":"CA"
+		}'
+```
+```json
+[
+    {
+        "rateId": null,
+        "SKU": "CPXX0XXXXB03020",
+        "contractType": "CB",
+        "price": 40.46,
+        "maxWeight": 2,
+        "fees": [],
+        "startDate": "",
+        "endDate": ""
+    }
+]
+```
+### International Prices - Extra Services Rates Request
+```sh
+curl "https://api.usps.com/international-prices/v1/extra-service-rates/search" \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/json" \
+     -H "Authorization: Bearer $TOKEN" \
+	--data-raw '{
+		"extraService":"931",
+		"mailClass":"PRIORITY_MAIL_INTERNATIONAL",
+		"priceType":"COMMERCIAL",
+		"rateIndicator":"SP",
+		"destinationCountryCode":"CA",
+		"weight":1.2,
+		"mailingDate":"2022-08-20",
+		"itemValue":500
+	}'
+```
+```json
+[
+    {
+        "rateId": "",
+        "SKU": "IXIP0XXXXCX0500",
+        "price": 10.95,
+        "contractType": "CB"
+    }
+]
 ```
 
 ## Label
-This API supports creation of domestic shipping labels with Intelligent Mail Package Barcodes (IMpb). Along with label and barcode creation in both PDF and JPEG format, validates addresses, confirms product availability, calculates postage, and generates the Shipping Services File in accordance with USPS Publication 199 required for shipping with USPS. This label API currently supports Parcel Select, Parcel Select Lightweight, Connect Local, Connect Regional, Priority Mail, Priority Mail Express, First Class Package Services, Bound Printed Matter, Library Mail, and Media Mail mail classes.  This API requires payment to be added to the Bearer Token
+This API supports creation of domestic shipping labels with Intelligent Mail Package Barcodes (IMpb). Along with label and barcode creation in TIFF, PDF, SVG, or JPG format, this API validates addresses, confirms product availability, calculates postage, and generates the required Shipping Services File in accordance with USPS Publication 199 required for shipping with USPS. This label API currently supports Priority, Priority Express, First-class, Parcel Select Ground, Library, media and BPM classes.  This API requires payment to be added to the Bearer Token
 
 ###  Set the payment account for Label:
 ```sh
@@ -297,140 +378,178 @@ Response: [returnlabel-response.json](https://github.com/USPS/api-examples/blob/
 ## Tracking
 This API returns tracking status and related details for a given USPS package, including scan events and their date, time, and location. Provides the latest status and delivery expectations.  
 
-### Single Tracking Request
+### Tracking - Single Request
 ```sh
-curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXX?expand=detail" \ 
+curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX?expand=detail" \ 
      -H "accept: application/json" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer $TOKEN" 
 ```
 ```json
-{"TrackResults":
-		{"RequestSeqNumber":null,
-		"TrackInfo":{"@ID":"9305510923000967979600",
-		"Class":"Priority Mail<SUP>&reg;<\/SUP>",
-		"ClassOfMailCode":"PM",
-		"DestinationCity":"CLARENCE",
-		"DestinationState":"NY",
-		"DestinationZip":"14031",
-		"EmailEnabled":"true",
-		"KahalaIndicator":"false",
-		"MailTypeCode":"DM",
-		"MPDATE":"2022-01-07 14:19:57.000000",
-		"MPSUFFIX":"725949550",
-		"OriginCity":"PORTLAND",
-		"OriginState":"OR",
-		"OriginZip":"97215",
-		"PodEnabled":"false",
-		"TPodEnabled":"false",
-		"RestoreEnabled":"false",
-		"RramEnabled":"false",
-		"RreEnabled":"false",
-		"Service":["USPS Tracking<SUP>&#174;<\/SUP>", "Up to $100 insurance included"],
-		"ServiceTypeCode":"055",
-		"Status":"USPS in possession of item",
-		"StatusCategory":"Accepted",
-		"StatusSummary":"USPS is now in possession of your item as of 12:19 pm on January 7, 2022 in PORTLAND, OR 97215.",
-		"TABLECODE":"T",
-		"TrackSummary":{"EventTime":"12:19 pm",
-		"EventDate":"January 7, 2022",
-		"Event":"USPS in possession of item",
-		"EventCity":"PORTLAND",
-		"EventState":"OR",
-		"EventZIPCode":"97215",
-		"EventCountry":null,
-		"FirmName":null,
-		"Name":null,
-		"AuthorizedAgent":"false",
-		"EventCode":"03"}}}
+{
+    "TrackResults": {
+        "RequestSeqNumber": null,
+        "TrackInfo": {
+            "@ID": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "Class": "Parcel Select Lightweight",
+            "ClassOfMailCode": "LW",
+            "DestinationCity": "GREENSBORO",
+            "DestinationState": "NC",
+            "DestinationZip": "27455",
+            "EmailEnabled": "true",
+            "KahalaIndicator": "false",
+            "MailTypeCode": "DM",
+            "MPDATE": "2021-11-30 07:43:33.000000",
+            "MPSUFFIX": "586939372",
+            "OriginCity": "GREENSBORO",
+            "OriginState": "NC",
+            "OriginZip": "27401",
+            "PodEnabled": "false",
+            "TPodEnabled": "false",
+            "RestoreEnabled": "false",
+            "RramEnabled": "false",
+            "RreEnabled": "false",
+            "Service": "USPS Tracking<SUP>&#174;</SUP>",
+            "ServiceTypeCode": "748",
+            "Status": "Notice Left (No Secure Location Available)",
+            "StatusCategory": "Delivery Attempt",
+            "StatusSummary": "We attempted to deliver your item at 1:00 pm on November 30, 2021 in BIRMINGHAM, AL 35215 and a notice was left because no secure delivery location was available. ",
+            "TABLECODE": "T",
+            "TrackSummary": {
+                "EventTime": "1:00 pm",
+                "EventDate": "November 30, 2021",
+                "Event": "Notice Left (No Secure Location Available)",
+                "EventCity": "BIRMINGHAM",
+                "EventState": "AL",
+                "EventZIPCode": "35215",
+                "EventCountry": null,
+                "FirmName": null,
+                "Name": null,
+                "AuthorizedAgent": "false",
+                "EventCode": "55",
+                "GMT": "2021-11-30 19:00:00.000000",
+                "GMTOffset": "-06:00"
+            },
+            "TrackDetail": {
+                "EventTime": null,
+                "EventDate": "November 30, 2021",
+                "Event": "Pre-Shipment Info Sent to USPS, USPS Awaiting Item",
+                "EventCity": null,
+                "EventState": null,
+                "EventZIPCode": null,
+                "EventCountry": null,
+                "FirmName": null,
+                "Name": null,
+                "AuthorizedAgent": "false",
+                "EventCode": "MA",
+                "GMT": null,
+                "GMTOffset": null
+            }
+        }
+    }
 }
 ```
-### Email Notification Request
-Save the example request body to a file: [tracking.txt](https://github.com/USPS/api-examples/blob/main/tracking.txt)
+### Tracking - Email Notification Request
 ```sh
-curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXX/notifications" \
+curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX/notifications" \
      -H "accept: application/json" \
      -H "Content-Type: application/json" \
-     --data-binary "@tracking.txt"\
-     -H "Authorization: Bearer $TOKEN"
+     -H "Authorization: Bearer $TOKEN" \
+     --data-raw '{
+	  "PTSEmailRequest": {
+		"ApproximateIntakeDate": "",
+		"UniqueTrackingID": "",
+		"notifyEventTypes": "EMAIL_alert",
+		"FirstName": "John",
+		"LastName": "Doe",
+		"notifications": [
+		  "user@example2.com",
+		  1112223333
+		]
+	  }
+	}'
 ```
 ```json
 {
-	"PTSEMAILRESULT":{
-	"ResultText":"When new tracking activity is available, 	you'll get notifications based on your selections.",
-	"ReturnCode":"0"}
+    "NotificationAcknowledgment": {
+        "ResultText": "When new tracking activity is available, you'll get notifications based on your selections.",
+        "ReturnCode": "0"
+    }
 }
 ```
 
 ## Service Standards
 This API supports service standard for the number of days between the acceptance and delivery of a piece of mail that the Postal Service™ considers to be timely delivery. Service standards are delivery benchmarks for how long customers can expect for the Postal Service to deliver different types of mail from origin to destination — Point A to Point B. Service standards are not necessarily the same as the actual service performance.
 
-### Service Standards Request
+### Service Standards - Standards Request
 ```sh
-curl "https://api.usps.com/sdc-services/v1/standards?originZipCode=40504&destinationZipCode=95823&mailClass=PRIORITY_MAIL&destType=HOLD_FOR_PICKUP" \ 
+curl "https://api.usps.com/service-standards/v1/standards?originZIPCode=40504&destinationZIPCode=95823&mailClass=PARCEL_SELECT&destinationType=STREET" \ 
      -H "accept: application/json" \
      -H "Authorization: Bearer $TOKEN"
 ```
 ```json
-{
-    "standards": {
-        "mailClass": "PRIORITY_MAIL",
-        "originZipCode": "40504",
-        "destinationZipCode": "95823",
-        "days": "2",
-        "effectiveAcceptanceDate": "2022-05-10",
-        "scheduledDeliveryDate": "2022-05-12"
+[
+    {
+        "mailClass": "PARCEL_SELECT",
+        "originZIPCode": "40504",
+        "destinationZIPCode": "95823",
+        "days": "7",
+        "effectiveAcceptanceDate": "2022-08-01",
+        "scheduledDeliveryDate": "2022-08-08"
     }
-}
+]
 ```
-### Service Delivery Calculator
+### Service Standards - Estimates Request
 ```sh
-curl "https://api.usps.com/sdc-services/v1/estimates?originZipCode=40504&destinationZipCode=95823&acceptDate=2022-05-11&mailClass=PRIORITY_MAIL&destType=HOLD_FOR_PICKUP" \
+curl "https://api.usps.com/service-standards/v1/estimates?originZIPCode=63011&destinationZIPCode=63118&acceptanceDate=2022-08-01&mailClass=PARCEL_SELECT&destinationType=STREET" \
      -H "accept: application/json" \
      -H "Authorization: Bearer $TOKEN"
 ```
 ```json
-{
-    "standards": {
-        "mailClass": "PRIORITY_MAIL",
-        "destType": "HOLD_FOR_PICKUP",
-        "acceptanceDateTime": "2022-05-11",
-        "effectiveAcceptanceDate": "2022-05-11",
-        "cutOffTime": "1700",
+[
+    {
+        "mailClass": "PARCEL_SELECT",
+        "destinationType": "STREET",
+        "acceptanceDateTime": "2022-08-01T12:00:00Z",
+        "effectiveAcceptanceDate": "2022-08-01",
+        "cutOffTime": "1800",
         "serviceStandard": "2",
-        "serviceStandardMessage": "2-Day",
-        "#text": "-->\n            \n            ",
-        "acceptanceLocations": {
-            "facilityType": "POST OFFICE",
-            "addressLine1": "1729 ALEXANDRIA DR",
-            "city": "LEXINGTON",
-            "state": "KY",
-            "zip5": "40504",
-            "zip4": "9998"
-        },
-        "delivery": {
-            "scheduledDeliveryDateTime": "2022-05-13",
-            "holdForPickupLocation": {
-                "facilityName": "PARKWAY",
-                "addressLine1": "4301 BROOKFIELD DR",
-                "city": "SACRAMENTO",
-                "state": "CA",
-                "zip5": "95823",
-                "zip4": "9998",
-                "closeTimes": {
-                    "m": "1700",
-                    "tu": "1700",
-                    "w": "1700",
-                    "th": "1700",
-                    "f": "1700",
-                    "sa": "1500",
-                    "su": "0000",
-                    "hol": "0000"
-                }
+        "serviceStandardMessage": "2 Days",
+        "acceptanceLocations": [
+            {
+                "facilityType": null,
+                "streetAddress": null,
+                "city": null,
+                "state": null,
+                "ZIPCode": null,
+                "ZIPPlus4": null
             }
+        ],
+        "delivery": {
+            "scheduledDeliveryDateTime": "2022-08-03",
+            "holdForPickupLocation": [
+                {
+                    "facilityName": null,
+                    "streetAddress": null,
+                    "city": null,
+                    "state": null,
+                    "ZIPCode": null,
+                    "ZIPPlus4": null,
+                    "closeTimes": {
+                        "Monday": null,
+                        "Tuesday": null,
+                        "Wednesday": null,
+                        "Thursday": null,
+                        "Friday": null,
+                        "Saturday": null,
+                        "Sunday": null,
+                        "holidays": null
+                    }
+                }
+            ]
         }
     }
-}
+]
 ```
 ## Postman Collection
 Here is a Postman Collection of the above curl commands above that you can utilize to help in getting a jump start of using USPS APIs. 
