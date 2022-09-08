@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+# WARNING: Do not post secrets or personally identifiable information in this form
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
