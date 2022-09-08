@@ -6,6 +6,7 @@ labels: ''
 assignees: ''
 
 ---
+# WARNING: Do not post secrets or personally identifiable information in this form
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
