@@ -351,7 +351,7 @@ curl "https://api.usps.com/labels/v1/payment-account" \
 
 ### Label Request
 Save the example request body to a file: [label-request.json](https://github.com/USPS/api-examples/blob/main/label-request.json)
-```
+```sh
 curl "https://api.usps.com/labels/v1/label" \
      -H "accept: multipart/mixed" \
      -H "Content-Type: application/json" \
@@ -364,7 +364,7 @@ Response: [label-response.json](https://github.com/USPS/api-examples/blob/main/l
 
 ### Return Label Request
 Save the example request body to a file: [returnlabel-request.json](https://github.com/USPS/api-examples/blob/main/returnlabel-request.json)
-```
+```sh
 curl "https://api.usps.com/labels/v1/return-label" \
      -H "accept: multipart/mixed" \
      -H "Content-Type: application/json" \
@@ -374,13 +374,21 @@ curl "https://api.usps.com/labels/v1/return-label" \
 ```
 Response: [returnlabel-response.json](https://github.com/USPS/api-examples/blob/main/returnlabel-response.json)
 
+### Cancel Label Request
+This endpoint provides the ability to cancel label requests
+```sh
+curl "https://api.usps.com/labels/v1/label/{Tracking Number}" \
+     -H "authorization: Bearer $TOKEN" \
+     
+```
+Response: 200 OK if successful
 
 ## Tracking
 This API returns tracking status and related details for a given USPS package, including scan events and their date, time, and location. Provides the latest status and delivery expectations.  
 
 ### Tracking - Single Request
 ```sh
-curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX?expand=detail" \ 
+curl "https://api.usps.com/tracking/v1/tracking/{Tracking Number}?expand=detail" \ 
      -H "accept: application/json" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer $TOKEN" 
@@ -451,7 +459,7 @@ curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX?expan
 ```
 ### Tracking - Email Notification Request
 ```sh
-curl "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX/notifications" \
+curl "https://api.usps.com/tracking/v1/tracking/{Tracking Number}/notifications" \
      -H "accept: application/json" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer $TOKEN" \
@@ -550,6 +558,396 @@ curl "https://api.usps.com/service-standards/v1/estimates?originZIPCode=63011&de
         }
     }
 ]
+```
+## Carrier Pickup
+The API supports customers scheduling a carrier to pick up your packages on the next USPS delivery day (Monday through Saturday, excluding holidays) for free. Carrier Pickup is available for sending packages using Priority Mail Express, Priority Mail, First Class Package Service Commercial, international delivery services, or for returned merchandise.  You are able check availability, schedule, change, cancel and inquire on a carrier pickup.
+
+### Carrier Pickup - Eligibility
+```sh
+curl "https://api.usps.com/pickup/v1/carrier-pickup/eligibility?streetAddress=407 Pennsylvania Ave&secondaryAddress=Suite 201&city=Joplin&state=MO&ZIPCode=64801" \
+     -H "Content-Type: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+```
+```json
+{
+    "pickupAddress": {
+        "firstName": null,
+        "lastName": null,
+        "firm": null,
+        "address": {
+            "streetAddress": "string",
+            "secondaryAddress": null,
+            "city": "string",
+            "state": "XX",
+            "ZIPCode": "XXXXX",
+            "ZIPPlus4": "XXXX",
+            "urbanization": null
+        },
+        "contact": [
+            {
+                "eMail": null
+            },
+            {
+                "phone": null,
+                "extension": null
+            }
+        ]
+    }
+}
+```
+### Carrier Pickup - Create
+```sh
+curl "https://api.usps.com/pickup/v1/carrier-pickup" \
+     -H "accept: application/json" \
+     -H "Content-Type: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+     --data-raw '{
+		  "pickupDate": "2022-09-09",
+		  "pickupAddress": {
+			"firstName": "Bob",
+			"lastName": "Fish",
+			"firm": "Seafood",
+			"address": {
+			  "streetAddress": "407 S PENNSYLVANIA AVE",
+			  "streetAddressAbbreviation": "",
+			  "secondaryAddress": "Suite 201",
+			  "city": "Joplin",
+			  "cityAbbreviation": "",
+			  "state": "MO",
+			  "postalCode": "",
+			  "province": "",
+			  "ZIPCode": "64801",
+			  "ZIPPlus4": "2281",
+			  "urbanization": ""
+			},
+			"contact": [
+			  {"email":"emails"},
+			  {"phone": "3333333333"}
+			]
+		  },
+		  "packages": [
+			{
+			  "packageType": "FIRST-CLASS_PACKAGE_SERVICE",
+			  "packageCount": 1
+			}
+		  ],
+		  "estimatedWeight": 5,
+		  "pickupLocation": {
+			"packageLocation": "OFFICE",
+			"specialInstructions": "Have a nice day"
+  }
+}' 
+```
+```json
+{
+    "confirmationNumber": "{Confirmation Number}",
+    "pickupAddress": {
+        "firstName": "string",
+        "lastName": "string",
+        "firm": "string",
+        "address": {
+            "streetAddress": "string",
+            "secondaryAddress": null,
+            "city": "string",
+            "state": "XX",
+            "ZIPCode": "XXXXX",
+            "ZIPPlus4": "XXXX",
+            "urbanization": null
+        },
+        "contact": [
+            {
+                "email": null
+            },
+            {
+                "phone": null,
+                "extension": null
+            }
+        ]
+    },
+    "packages": [
+        {
+            "packageType": "FIRST-CLASS_PACKAGE_SERVICE",
+            "packageCount": "1"
+        },
+        {
+            "packageType": "PRIORITY_MAIL_EXPRESS",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "PRIORITY_MAIL",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "RETURNS",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "INTERNATIONAL",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "OTHER",
+            "packageCount": "0"
+        }
+    ],
+    "estimatedWeight": "5",
+    "pickupLocation": {
+        "packageLocation": "OFFICE",
+        "specialInstructions": "HAVE A NICE DAY"
+    },
+    "pickupDate": "2022-09-10"
+}
+```
+### Carrier Pickup - Get
+ ```sh
+curl "https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}" \
+     -H "accept: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+```
+```json
+{
+    "confirmationNumber": "{Confirmation Number}",
+    "pickupAddress": {
+        "firstName": "string",
+        "lastName": "string",
+        "firm": "string",
+        "address": {
+            "streetAddress": "string",
+            "secondaryAddress": null,
+            "city": "string",
+            "state": "XX",
+            "ZIPCode": "XXXXX",
+            "ZIPPlus4": "XXXX",
+            "urbanization": null
+        },
+        "contact": [
+            {
+                "email": null
+            },
+            {
+                "phone": "nullnullnull",
+                "extension": null
+            }
+        ]
+    },
+    "packages": [
+        {
+            "packageType": "FIRST-CLASS_PACKAGE_SERVICE",
+            "packageCount": "1"
+        },
+        {
+            "packageType": "PRIORITY_MAIL_EXPRESS",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "PRIORITY_MAIL",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "RETURNS",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "INTERNATIONAL",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "OTHER",
+            "packageCount": "0"
+        }
+    ],
+    "estimatedWeight": "5",
+    "pickupLocation": {
+        "packageLocation": "OFFICE",
+        "specialInstructions": "HAVE A NICE DAY"
+    },
+    "pickupDate": "2022-09-10"
+}
+```
+### Carrier Pickup - Update
+ ```sh
+curl "https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}" \
+     -H "accept: application/json" \
+     -H "Content-Type: application/json" \
+	 -H "if-Match: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+     --data-raw '{
+		  "confirmationNumber": "{Confirmation Number}",
+		  "pickupDate": "2022-09-10",
+		  "pickupAddress": {
+			"firstName": "string",
+			"lastName": "string",
+			"firm": "string",
+			"address": {
+			  "streetAddress": "string",
+			  "streetAddressAbbreviation": "",
+			  "secondaryAddress": "string",
+			  "city": "string",
+			  "cityAbbreviation": "",
+			  "state": "XX",
+			  "postalCode": "",
+			  "province": "",
+			  "ZIPCode": "XXXXX",
+			  "ZIPPlus4": "",
+			  "urbanization": "",
+			  "country": "",
+			  "countryISOCode": ""
+			},
+			"contact": [
+			  {"email":"emails"},
+			  {"phone": "3333333333"}
+			]
+		  },
+		  "packages": [
+			{
+			  "packageType": "FIRST-CLASS_PACKAGE_SERVICE",
+			  "packageCount": 5
+			}
+		  ],
+		  "estimatedWeight": 15,
+		  "pickupLocation": {
+			"packageLocation": "OFFICE",
+			"specialInstructions": "Have a nice day"
+		  }
+		}'   
+```
+```json
+{
+    "confirmationNumber": "{Confirmation Number}",
+    "pickupAddress": {
+        "firstName": "string",
+        "lastName": "string",
+        "firm": "string",
+        "address": {
+            "streetAddress": "string",
+            "secondaryAddress": null,
+            "city": "string",
+            "state": "XX",
+            "ZIPCode": "XXXXX",
+            "ZIPPlus4": "XXXX",
+            "urbanization": null
+        },
+        "contact": [
+            {
+                "email": null
+            },
+            {
+                "phone": "nullnullnull",
+                "extension": null
+            }
+        ]
+    },
+    "packages": [
+        {
+            "packageType": "FIRST-CLASS_PACKAGE_SERVICE",
+            "packageCount": "1"
+        },
+        {
+            "packageType": "PRIORITY_MAIL_EXPRESS",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "PRIORITY_MAIL",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "RETURNS",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "INTERNATIONAL",
+            "packageCount": "0"
+        },
+        {
+            "packageType": "OTHER",
+            "packageCount": "0"
+        }
+    ],
+    "estimatedWeight": "5",
+    "pickupLocation": {
+        "packageLocation": "OFFICE",
+        "specialInstructions": "HAVE A NICE DAY"
+    },
+    "pickupDate": "2022-09-10"
+}
+```
+### Carrier Pickup - Delete
+ ```sh
+curl "https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}" \
+     -H "accept: application/json" \
+     -H "Content-Type: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+```
+Response: 200 OK if successful
+
+## Organizations
+The API supports registration of new companies to USPS.  This API will create a new customer registration ID and mailer ID if the customer is not known to USPS.  If USPS has a record of the company, the API will not create a new customer registration ID or mailer ID.  
+ ```sh
+curl "https://api.usps.com/organizations/v1/organizations" \
+     -H "accept: application/json" \
+     -H "Content-Type: application/json" \
+     -H "authorization: Bearer $TOKEN" \
+	 --data-raw '{
+		  "id": "",
+		  "name": "string",
+		  "parentCRID": "",
+		  "locations": [
+			{
+			  "firstName": "string",
+			  "lastName": "string",
+			  "firmName": "string",
+			  "streetAddress": "string",
+			  "secondaryAddress": "string",
+			  "city": "string",
+			  "state": "MO",
+			  "ZIPCode": "XXXXX",
+			  "ZIPPlus4": "",
+			  "urbanization": "",
+			  "country": "840 UNITED STATES",
+			  "countryISOCode": "840"
+			}
+		  ],
+		  "customers": [],
+		  "contact": {
+			"phoneRecipients": [
+			  {
+				"type": "BUS",
+				"number": "333-333-3333",
+				"extension": ""
+			  }
+			]
+		  }
+		}'
+ ```
+```json
+{
+    "organization": {
+        "Id": "XXXXXXXX",
+        "name": "string",
+        "CRID": "XXXXXXXX",
+        "location": {
+            "firm": "string",
+            "streetAddress": "string",
+            "secondaryAddress": null,
+            "city": "string",
+            "state_province": "MO",
+            "postalCode": "XXXXX-XXXX",
+            "urbanization": null,
+            "country_name": "UNITED STATES",
+            "country_iso_code": "840",
+            "CRID": "XXXXXXXX",
+            "MIDs": {
+                "mid": "XXXXXXXXX"
+            }
+        },
+        "contact": {
+            "phone": {
+                "type": "BUS",
+                "number": "333-333-3333"
+            }
+        }
+    }
+}
 ```
 ## Postman Collection
 Here is a Postman Collection of the above curl commands above that you can utilize to help in getting a jump start of using USPS APIs. 

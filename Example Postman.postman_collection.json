@@ -16,7 +16,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
@@ -120,12 +120,18 @@
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "token_type_hint=accesstoken&token=XXXX"
+					"raw": "{\r\n\"token_type_hint\":\"accesstoken\",\r\n\"token\":\"XXXXXXXXXXXXXXXXX\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://api.usps.com/oauth2/v1/introspect",
@@ -244,7 +250,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "RMpkduAffoBiYuWQh39ndouyhSa9",
+							"value": "xxxxxxxx",
 							"type": "string"
 						}
 					]
@@ -310,7 +316,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"imageInfo\": {\r\n        \"imageType\":\"PDF\"\r\n    },  \r\n    \"toAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"streetAddress\": \"1100 Wyoming\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": 63118\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Smith\",\r\n        \"streetAddress\": \"4120 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"packageDescription\":{\r\n        \"mailClass\": \"PARCEL_SELECT\",\r\n        \"rateIndicator\":\"SP\",\r\n        \"weightUOM\":\"lb\",\r\n        \"weight\": \"1\",\r\n        \"dimensionsUOM\":\"in\",\r\n        \"length\":2.0,\r\n        \"height\":4.0,\r\n        \"width\":3.0,\r\n        \"processingCategory\":\"MACHINABLE\",\r\n        \"mailingDate\":\"2022-07-20\",\r\n        \"extraServices\": [920],\r\n        \"destinationEntryFacilityType\":\"DESTINATION_DELIVERY_UNIT\",\r\n        \"destinationEntryFacilityAddress\":{\r\n            \"streetAddress\":\"1100 Wyoming\",\r\n            \"city\": \"St. Louis\",\r\n            \"state\": \"MO\",\r\n            \"ZIPCode\": \"63116\"\r\n           }        \r\n      }\r\n}",
+					"raw": " {\r\n    \"imageInfo\": {\r\n        \"imageType\":\"PDF\"\r\n    },  \r\n    \"toAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"streetAddress\": \"1100 Wyoming\",\r\n        \"secondaryAddress\": \"Suite 150\",    \r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": 63118,\r\n        \"ignoreBadAddress\":false\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Smith\",\r\n        \"streetAddress\": \"4120 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"packageDescription\":{\r\n        \"mailClass\": \"PARCEL_SELECT\",\r\n        \"container\":\"SP\",\r\n        \"weightUOM\":\"lb\",\r\n        \"weight\": \"1\",\r\n        \"dimensionsUOM\":\"in\",\r\n        \"length\":2.0,\r\n        \"height\":4.0,\r\n        \"width\":3.0,\r\n        \"processingCategory\":\"MACHINABLE\",\r\n        \"mailingDate\":\"2022-09-10\",\r\n        \"extraServices\": [920],\r\n        \"destinationEntryFacilityType\":\"DESTINATION_DELIVERY_UNIT\",\r\n        \"destinationEntryFacilityAddress\":{\r\n            \"streetAddress\":\"1100 Wyoming\",\r\n            \"city\": \"St. Louis\",\r\n            \"state\": \"MO\",\r\n            \"ZIPCode\": \"63116\"\r\n           }\r\n      }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -357,7 +363,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"imageInfo\": {\r\n        \"imageType\":\"PDF\", \r\n        \"returnLabel\": true\r\n    }, \r\n    \"toAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"streetAddress\": \"1100 Wyoming\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": 63118\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Smith\",\r\n        \"streetAddress\": \"4120 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"returnAddress\": {\r\n        \"firstName\": \"return\",\r\n        \"lastName\": \"Address\",\r\n        \"streetAddress\": \"4122 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"packageDescription\": {\r\n        \"mailClass\": \"GROUND\",\r\n        \"rateIndicator\": \"SP\",\r\n        \"weightUOM\": \"lb\",\r\n        \"weight\": \"1.5\",\r\n        \"dimensionsUOM\": \"in\",\r\n        \"length\": 1.0,\r\n        \"height\": 2.0,\r\n        \"width\": 1.0,\r\n        \"processiingCategory\": \"MACHINABLE\",\r\n        \"destinationEntryFacilityType\": \"NONE\",\r\n        \"customerReference\":[{\r\n            \"referenceNumber\": \"EE66GG87\",\r\n            \"printReferenceNumber\": \"true\"\r\n        }]\r\n    }\r\n}\r\n",
+					"raw": "{\r\n    \"imageInfo\": {\r\n        \"imageType\":\"PDF\", \r\n        \"returnLabel\": true\r\n    }, \r\n    \"toAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"streetAddress\": \"1100 Wyoming\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": 63118\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Smith\",\r\n        \"streetAddress\": \"4120 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"returnAddress\": {\r\n        \"firstName\": \"return\",\r\n        \"lastName\": \"Address\",\r\n        \"streetAddress\": \"4122 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"packageDescription\": {\r\n        \"mailClass\": \"GROUND\",\r\n        \"rateIndicator\": \"SP\",\r\n        \"weightUOM\": \"lb\",\r\n        \"weight\": \"1.5\",\r\n        \"dimensionsUOM\": \"in\",\r\n        \"length\": 1.0,\r\n        \"height\": 2.0,\r\n        \"width\": 1.0,\r\n        \"processiingCategory\": \"MACHINABLE\",\r\n        \"destinationEntryFacilityType\": \"NONE\",\r\n        \"customerReference\":[{\r\n            \"referenceNumber\": \"EE66GG87\",\r\n            \"printReferenceNumber\": \"true\"\r\n        }]\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -365,17 +371,50 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.gov/labels/v1/return-label",
+					"raw": "https://api.usps.com/labels/v1/return-label",
 					"protocol": "https",
 					"host": [
 						"api",
 						"usps",
-						"gov"
+						"com"
 					],
 					"path": [
 						"labels",
 						"v1",
 						"return-label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Label",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.usps.com/labels/v1/label/{Tracking Number}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"labels",
+						"v1",
+						"label",
+						"{Tracking Number}"
 					]
 				}
 			},
@@ -401,7 +440,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
@@ -415,12 +454,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.gov/locations/v1/dropoff-locations?destinationZIPCode=63116&mailClass=USPS_CONNECT_LOCAL",
+					"raw": "https://api.usps.com/locations/v1/dropoff-locations?destinationZIPCode=19311&mailClass=PARCEL_SELECT&destinationEntryFacilityType=DNDC&palletized=BOTH",
 					"protocol": "https",
 					"host": [
 						"api",
 						"usps",
-						"gov"
+						"com"
 					],
 					"path": [
 						"locations",
@@ -430,11 +469,85 @@
 					"query": [
 						{
 							"key": "destinationZIPCode",
-							"value": "63116"
+							"value": "19311"
 						},
 						{
 							"key": "mailClass",
-							"value": "USPS_CONNECT_LOCAL"
+							"value": "PARCEL_SELECT"
+						},
+						{
+							"key": "destinationEntryFacilityType",
+							"value": "DNDC"
+						},
+						{
+							"key": "palletized",
+							"value": "BOTH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Standard - Estimates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/service-standards/v1/estimates?originZIPCode=40504&destinationZIPCode=95823&acceptanceDate=2022-08-04&mailClass=PRIOIRTY_MAIL&destinationType=STREET",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"service-standards",
+						"v1",
+						"estimates"
+					],
+					"query": [
+						{
+							"key": "originZIPCode",
+							"value": "40504"
+						},
+						{
+							"key": "destinationZIPCode",
+							"value": "95823"
+						},
+						{
+							"key": "acceptanceDate",
+							"value": "2022-08-04"
+						},
+						{
+							"key": "mailClass",
+							"value": "PRIOIRTY_MAIL"
+						},
+						{
+							"key": "destinationType",
+							"value": "STREET"
 						}
 					]
 				}
@@ -510,72 +623,6 @@
 			"response": []
 		},
 		{
-			"name": "Service Standard - Estimates",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "XXXX",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://api.usps.com/service-standards/v1/estimates?originZIPCode=63011&destinationZIPCode=63118&acceptanceDate=2022-08-01&mailClass=PARCEL_SELECT&destinationType=STREET",
-					"protocol": "https",
-					"host": [
-						"api",
-						"usps",
-						"com"
-					],
-					"path": [
-						"service-standards",
-						"v1",
-						"estimates"
-					],
-					"query": [
-						{
-							"key": "originZIPCode",
-							"value": "63011"
-						},
-						{
-							"key": "destinationZIPCode",
-							"value": "63118"
-						},
-						{
-							"key": "acceptanceDate",
-							"value": "2022-08-01"
-						},
-						{
-							"key": "mailClass",
-							"value": "PARCEL_SELECT"
-						},
-						{
-							"key": "destinationType",
-							"value": "STREET"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Domestic Prices - Base Rates",
 			"request": {
 				"auth": {
@@ -600,12 +647,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.gov/prices/v1/base-rates/search",
+					"raw": "https://api.usps.com/prices/v1/base-rates/search",
 					"protocol": "https",
 					"host": [
 						"api",
 						"usps",
-						"gov"
+						"com"
 					],
 					"path": [
 						"prices",
@@ -634,7 +681,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"extraService\":\"930\",\r\n\t\"mailClass\":\"PARCEL_SELECT\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n\t\"weight\":1.0,\r\n\t\"mailingDate\":\"2022-07-20\",\r\n    \"itemValue\":99\r\n}",
+					"raw": "{\r\n\t\"extraService\":\"930\",\r\n\t\"mailClass\":\"PARCEL_SELECT\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n\t\"weight\":1.0,\r\n\t\"mailingDate\":\"2022-08-20\",\r\n    \"itemValue\":\"99\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -642,12 +689,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.gov/prices/v1/extra-service-rates/search",
+					"raw": "https://api.usps.com/prices/v1/extra-service-rates/search",
 					"protocol": "https",
 					"host": [
 						"api",
 						"usps",
-						"gov"
+						"com"
 					],
 					"path": [
 						"prices",
@@ -667,7 +714,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "X397JEikaASAdVVazABhAGA4Fqst",
+							"value": "XXXX",
 							"type": "string"
 						}
 					]
@@ -690,12 +737,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.gov/international-prices/v1/base-rates/search",
+					"raw": "https://api.usps.com/international-prices/v1/base-rates/search",
 					"protocol": "https",
 					"host": [
 						"api",
 						"usps",
-						"gov"
+						"com"
 					],
 					"path": [
 						"international-prices",
@@ -715,7 +762,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "X397JEikaASAdVVazABhAGA4Fqst",
+							"value": "XXXX",
 							"type": "string"
 						}
 					]
@@ -730,7 +777,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"extraService\":\"931\",\r\n\t\"mailClass\":\"PRIORITY_MAIL_INTERNATIONAL\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n    \"rateIndicator\":\"SP\",\r\n    \"destinationCountryCode\":\"CA\",\r\n\t\"weight\":1.2,\r\n\t\"mailingDate\":\"2022-08-20\",\r\n    \"itemValue\":500\r\n}",
+					"raw": "{\r\n\t\"extraService\":\"930\",\r\n\t\"mailClass\":\"PRIORITY_MAIL_INTERNATIONAL\",\r\n\t\"priceType\":\"COMMERCIAL\",\r\n    \"rateIndicator\":\"FS\",\r\n    \"destinationCountryCode\":\"CR\",\r\n\t\"weight\":5,\r\n\t\"mailingDate\":\"2022-08-20\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -738,12 +785,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.usps.gov/international-prices/v1/extra-service-rates/search",
+					"raw": "https://api.usps.com/international-prices/v1/extra-service-rates/search",
 					"protocol": "https",
 					"host": [
 						"api",
 						"usps",
-						"gov"
+						"com"
 					],
 					"path": [
 						"international-prices",
@@ -777,7 +824,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX?expand=detail",
+					"raw": "https://api.usps.com/tracking/v1/tracking/{Tracking NUmber}?expand=detail",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -788,7 +835,7 @@
 						"tracking",
 						"v1",
 						"tracking",
-						"XXXXXXXXXXXXXXXXXXXXXXXXXX"
+						"{Tracking NUmber}"
 					],
 					"query": [
 						{
@@ -823,10 +870,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"PTSEmailRequest\": {\r\n    \"ApproximateIntakeDate\": \"\",\r\n    \"UniqueTrackingID\": \"\",\r\n    \"notifyEventTypes\": \"EMAIL_alert\",\r\n    \"FirstName\": \"John\",\r\n    \"LastName\": \"Doe\",\r\n    \"notifications\": [\r\n      \"user@example2.com\",\r\n      1112223333\r\n    ]\r\n  }\r\n}"
+					"raw": "{\r\n  \"PTSEmailRequest\": {\r\n    \"ApproximateIntakeDate\": \"\",\r\n    \"UniqueTrackingID\": \"\",\r\n    \"notifyEventTypes\": \"EMAIL_alert\",\r\n    \"FirstName\": \"John\",\r\n    \"LastName\": \"Doe\",\r\n    \"notifications\": [\r\n      \"user@example2.com\",\r\n      6468645922\r\n    ]\r\n  }\r\n}\r\n"
 				},
 				"url": {
-					"raw": "https://api.usps.com/tracking/v1/tracking/XXXXXXXXXXXXXXXXXXXXXXXXXX/notifications",
+					"raw": "https://api.usps.com/tracking/v1/tracking/{Tracking Number}/notifications",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -837,8 +884,387 @@
 						"tracking",
 						"v1",
 						"tracking",
-						"XXXXXXXXXXXXXXXXXXXXXXXXXX",
+						"{Tracking Number}",
 						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carrier Pickup - Eligibility",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "appplication/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/pickup/v1/carrier-pickup/eligibility?streetAddress=STRING&secondaryAddress=STRING&city=STRING&state=XX&ZIPCode=XXXXX",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"pickup",
+						"v1",
+						"carrier-pickup",
+						"eligibility"
+					],
+					"query": [
+						{
+							"key": "streetAddress",
+							"value": "STRING"
+						},
+						{
+							"key": "secondaryAddress",
+							"value": "STRING"
+						},
+						{
+							"key": "city",
+							"value": "STRING"
+						},
+						{
+							"key": "state",
+							"value": "XX"
+						},
+						{
+							"key": "ZIPCode",
+							"value": "XXXXX"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carrier Pickup - Create",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "appplication/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pickupDate\": \"2022-09-10\",\r\n  \"pickupAddress\": {\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"firm\": \"string\",\r\n    \"address\": {\r\n      \"streetAddress\": \"string\",\r\n      \"streetAddressAbbreviation\": \"\",\r\n      \"secondaryAddress\": \"string\",\r\n      \"city\": \"string\",\r\n      \"cityAbbreviation\": \"\",\r\n      \"state\": \"XX\",\r\n      \"postalCode\": \"\",\r\n      \"province\": \"\",\r\n      \"ZIPCode\": \"XXXXX\",\r\n      \"ZIPPlus4\": \"\",\r\n      \"urbanization\": \"\"\r\n    },\r\n    \"contact\": [\r\n      {\"email\":\"email\"},\r\n      {\"phone\": \"3333333333\"}\r\n    ]\r\n  },\r\n  \"packages\": [\r\n    {\r\n      \"packageType\": \"FIRST-CLASS_PACKAGE_SERVICE\",\r\n      \"packageCount\": 1\r\n    }\r\n  ],\r\n  \"estimatedWeight\": 5,\r\n  \"pickupLocation\": {\r\n    \"packageLocation\": \"OFFICE\",\r\n    \"specialInstructions\": \"Have a nice day\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/pickup/v1/carrier-pickup",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"pickup",
+						"v1",
+						"carrier-pickup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carrier Pickup - Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "appplication/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"pickup",
+						"v1",
+						"carrier-pickup",
+						"{Confirmation Number}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carrier Pickup - Update",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "If-Match",
+						"value": "5dDDgUNzJ9hCVaXHbmyUhAmWiqOevnhqxWgSH9USq94=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"confirmationNumber\": \"{Confirmation Number}\",\r\n  \"pickupDate\": \"2022-09-13\",\r\n  \"pickupAddress\": {\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"firm\": \"string\",\r\n    \"address\": {\r\n      \"streetAddress\": \"string\",\r\n      \"streetAddressAbbreviation\": \"\",\r\n      \"secondaryAddress\": \"string\",\r\n      \"city\": \"string\",\r\n      \"cityAbbreviation\": \"\",\r\n      \"state\": \"XX\",\r\n      \"postalCode\": \"\",\r\n      \"province\": \"\",\r\n      \"ZIPCode\": \"XXXXX\",\r\n      \"ZIPPlus4\": \"\",\r\n      \"urbanization\": \"\"\r\n    },\r\n    \"contact\": [\r\n      {\"email\":\"email\"},\r\n      {\"phone\": \"3333333333\"}\r\n    ]\r\n  },\r\n  \"packages\": [\r\n    {\r\n      \"packageType\": \"FIRST-CLASS_PACKAGE_SERVICE\",\r\n      \"packageCount\": 5\r\n    }\r\n  ],\r\n  \"estimatedWeight\": 15,\r\n  \"pickupLocation\": {\r\n    \"packageLocation\": \"OFFICE\",\r\n    \"specialInstructions\": \"Have a nice day\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-cat.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}",
+					"protocol": "https",
+					"host": [
+						"api-cat",
+						"usps",
+						"com"
+					],
+					"path": [
+						"pickup",
+						"v1",
+						"carrier-pickup",
+						"{Confirmation Number}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carrier Pickup - Delete",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "appplication/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"pickup",
+						"v1",
+						"carrier-pickup",
+						"{Confirmation Number}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Organization",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XXXX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"\",\r\n  \"name\": \"string\",\r\n  \"parentCRID\": \"\",\r\n  \"locations\": [\r\n    {\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"firmName\": \"string\",\r\n      \"streetAddress\": \"string\",\r\n      \"secondaryAddress\": \"string\",\r\n      \"city\": \"string\",\r\n      \"state\": \"XX\",\r\n      \"ZIPCode\": \"XXXXXX\",\r\n      \"ZIPPlus4\": \"\",\r\n      \"urbanization\": \"\",\r\n      \"country\": \"840 UNITED STATES\",\r\n      \"countryISOCode\": \"840\"\r\n    }\r\n  ],\r\n  \"customers\": [],\r\n  \"contact\": {\r\n    \"phoneRecipients\": [\r\n      {\r\n        \"type\": \"BUS\",\r\n        \"number\": \"111-111-1111\",\r\n        \"extension\": \"\"\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.usps.com/organizations/v1/organizations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"usps",
+						"com"
+					],
+					"path": [
+						"organizations",
+						"v1",
+						"organizations"
 					]
 				}
 			},

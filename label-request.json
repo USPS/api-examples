@@ -6,9 +6,11 @@
         "firstName": "Leroy",
         "lastName": "Brown",
         "streetAddress": "1100 Wyoming",
+        "secondaryAddress": "Suite 150",    
         "city": "St. Louis",
         "state": "MO",
-        "ZIPCode": 63118
+        "ZIPCode": 63118,
+        "ignoreBadAddress":false
     },
     "fromAddress": {
         "firstName": "John",
@@ -20,7 +22,7 @@
     },
     "packageDescription":{
         "mailClass": "PARCEL_SELECT",
-        "rateIndicator":"SP",
+        "container":"SP",
         "weightUOM":"lb",
         "weight": "1",
         "dimensionsUOM":"in",
@@ -28,7 +30,7 @@
         "height":4.0,
         "width":3.0,
         "processingCategory":"MACHINABLE",
-        "mailingDate":"2022-07-20",
+        "mailingDate":"2022-09-15",
         "extraServices": [920],
         "destinationEntryFacilityType":"DESTINATION_DELIVERY_UNIT",
         "destinationEntryFacilityAddress":{
@@ -36,6 +38,6 @@
             "city": "St. Louis",
             "state": "MO",
             "ZIPCode": "63116"
-           }        
+           }
       }
 }
