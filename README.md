@@ -949,7 +949,7 @@ curl "https://api.usps.com/organizations/v1/organizations" \
     }
 }
 ```
-## Postman Collection
+## PostMan Collection
 
 Here is a Postman Collection of the above curl commands above that you can utilize to help in getting a jump start of using USPS APIs. 
 
