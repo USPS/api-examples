@@ -1,151 +1,129 @@
-[
-    {
-        "destinationZIPCode": "63116",
-        "dropshipKey": "4012149",
-        "dropsitePhoneNo": "3148959275",
-        "facilityAddress": {
-            "firstName": null,
-            "lastName": null,
-            "firm": null,
-            "address1": "4039 BINGHAM AVE",
-            "address2": null,
-            "city": "SAINT LOUIS",
-            "state": "MO",
-            "urbanization": null,
-            "zip5": "63116",
-            "zip4": "9998",
-            "pobox": null
-        },
-        "facilityName": "GRAVOIS CARRIER ANNEX",
-        "destinationEntryFacilityType": "DDU",
-        "acceptedPackageTypes": [
-            {
-                "mailClass": [
-                    "USPS_CONNECT_LOCAL"
-                ],
-                "shape": "IRREGULAR",
-                "palletized": "BOTH"
+{
+    "locations": [
+        {
+            "destinationZIPCode": "30342",
+            "dropshipKey": "SX10540",
+            "dropsitePhoneNo": "4047657578",
+            "facilityAddress": {
+                "firstName": null,
+                "lastName": null,
+                "firm": null,
+                "address1": "5400 GLENRIDGE DR",
+                "address2": null,
+                "city": "ATLANTA",
+                "state": "GA",
+                "zip5": "30342",
+                "zip4": "4937",
+                "pobox": null,
+                "urbanization": null
             },
-            {
-                "mailClass": [
-                    "USPS_CONNECT_LOCAL"
-                ],
-                "shape": "MACHINABLE",
-                "palletized": "BOTH"
+            "facilityName": "GLENRIDGE",
+            "destinationEntryFacilityType": "DESTINATION_DELIVERY_UNIT",
+            "acceptedPackageTypes": [
+                {
+                    "mailClass": [
+                        "USPS_CONNECT_LOCAL"
+                    ],
+                    "processingCategory": "IRREGULAR",
+                    "palletized": "BOTH"
+                },
+                {
+                    "mailClass": [
+                        "USPS_CONNECT_LOCAL"
+                    ],
+                    "processingCategory": "MACHINABLE",
+                    "palletized": "BOTH"
+                },
+                {
+                    "mailClass": [
+                        "USPS_CONNECT_LOCAL"
+                    ],
+                    "processingCategory": "NON_MACHINABLE",
+                    "palletized": "BOTH"
+                }
+            ],
+            "dropshipFacilityDetails": {
+                "dock": {
+                    "dockDepth": 19,
+                    "dockHeight": 47,
+                    "dockWidth": 59
+                },
+                "canopyClearance": 15,
+                "liftTypes": {
+                    "manualLift": true,
+                    "electricGasLift": false,
+                    "cageStackerLift": false,
+                    "rollerTableExtenderLift": false
+                },
+                "ramp": {
+                    "numberOfInclinedRamps": 1,
+                    "widestInclinedRamp": 6
+                },
+                "truckManeuveringArea": {
+                    "length": 94,
+                    "width": 55,
+                    "surfaceType": "CONCRETE"
+                },
+                "levelers": {
+                    "manualLevelers": 1,
+                    "hydraulicLevelers": 0,
+                    "scissorLevelers": 2
+                },
+                "doorDetails": {
+                    "doorHeight": 0,
+                    "doorWidth": 0,
+                    "steps": 0
+                },
+                "overpassDetails": {
+                    "numberOfOverpasses": 0,
+                    "lowestOverpass": 0
+                }
             },
-            {
-                "mailClass": [
-                    "USPS_CONNECT_LOCAL"
+            "dropShipAcceptanceTimes": {
+                "monday": [
+                    {
+                        "openTime": "05:00",
+                        "closeTime": "16:00"
+                    }
                 ],
-                "shape": "NON_MACHINABLE",
-                "palletized": "BOTH"
+                "tuesday": [
+                    {
+                        "openTime": "05:00",
+                        "closeTime": "16:00"
+                    }
+                ],
+                "wednesday": [
+                    {
+                        "openTime": "05:00",
+                        "closeTime": "16:00"
+                    }
+                ],
+                "thursday": [
+                    {
+                        "openTime": "05:00",
+                        "closeTime": "16:00"
+                    }
+                ],
+                "friday": [
+                    {
+                        "openTime": "05:00",
+                        "closeTime": "16:00"
+                    }
+                ],
+                "saturday": [
+                    {
+                        "openTime": "05:00",
+                        "closeTime": "14:00"
+                    }
+                ],
+                "sunday": []
+            },
+            "uspsConnect": {
+                "sameNextDayDelivery": true,
+                "sundayDelivery": true,
+                "sameDayPickUp": "0000",
+                "nextDayPickUp": "0000"
             }
-        ],
-        "dropshipFacilityDetails": {
-            "dock": {
-                "dockDepth": 8,
-                "dockHeight": 54,
-                "dockWidth": 20
-            },
-            "canopyClearance": 30,
-            "liftTypes": {
-                "manualLift": true,
-                "electricGasLift": false,
-                "cageStackerLift": false,
-                "rollerTableExtenderLift": false
-            },
-            "ramp": {
-                "numberOfInclinedRamps": 1,
-                "widestInclinedRamp": 12
-            },
-            "truckManeuveringArea": {
-                "length": 40,
-                "width": 32,
-                "surfaceType": "Concrete"
-            },
-            "levelers": {
-                "manualLevelers": 1,
-                "hydraulicLevelers": 1,
-                "scissorLevelers": 0
-            },
-            "doorDetails": {
-                "doorHeight": 0,
-                "doorWidth": 0,
-                "steps": 0
-            },
-            "overpassDetails": {
-                "numberOfOverpasses": 0,
-                "lowestOverpass": 0
-            }
-        },
-        "dropShipAcceptanceTimes": {
-            "monday": [
-                {
-                    "openTime": "05:00",
-                    "closeTime": "07:00"
-                },
-                {
-                    "openTime": "10:00",
-                    "closeTime": "15:30"
-                }
-            ],
-            "tuesday": [
-                {
-                    "openTime": "05:00",
-                    "closeTime": "07:00"
-                },
-                {
-                    "openTime": "10:00",
-                    "closeTime": "15:30"
-                }
-            ],
-            "wednesday": [
-                {
-                    "openTime": "05:00",
-                    "closeTime": "07:00"
-                },
-                {
-                    "openTime": "10:00",
-                    "closeTime": "15:30"
-                }
-            ],
-            "thursday": [
-                {
-                    "openTime": "05:00",
-                    "closeTime": "07:00"
-                },
-                {
-                    "openTime": "10:00",
-                    "closeTime": "15:30"
-                }
-            ],
-            "friday": [
-                {
-                    "openTime": "05:00",
-                    "closeTime": "07:00"
-                },
-                {
-                    "openTime": "10:00",
-                    "closeTime": "15:30"
-                }
-            ],
-            "saturday": [
-                {
-                    "openTime": "05:00",
-                    "closeTime": "07:00"
-                },
-                {
-                    "openTime": "10:00",
-                    "closeTime": "15:30"
-                }
-            ],
-            "sunday": []
-        },
-        "uspsConnect": {
-            "sundayDelivery": false,
-            "sameDayPickUp": "0000",
-            "nextDayPickUp": "0000",
-            "sameNextDayDelivery": false
         }
-    }
-]
+    ]
+}
