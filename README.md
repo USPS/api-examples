@@ -594,7 +594,8 @@ curl 	-X 'POST' 'https://api.usps.com/labels/v2/label' \
 		--data @domesticlabel-request \
      
 ```
-Response: [domesticlabel-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-response.json)
+Response: 
+[domesticlabel-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-response.json)
 
 
 ## Domestic Prices
@@ -763,7 +764,7 @@ The Locations APIs can be used to find USPS facility addresses, hours of operati
 
 ### Dropoff-locations
 ```sh
-curl 	--location 'https://api.usps.com/locations/v1/dropoff-locations?mailClass=USPS_CONNECT_LOCAL&destinationZIPCode=30342' \
+curl 	-X 'GET' 'https://api.usps.com/locations/v1/dropoff-locations?mailClass=USPS_CONNECT_LOCAL&destinationZIPCode=30342' \
 		--header 'Authorization: Bearer $TOKEN'
 ```
 
@@ -771,16 +772,15 @@ Response:
 [dropoff-location-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-response.json)
 
 ### Post Office Locator
-
-
 ```sh
-curl	
-
+curl	-X 'GET' 'https://api.usps.com/locations/v1/post-office-locations?ZIPCode=48197&radius=30&offset=2&limit=3' \
+	--header 'Accept: application/json' \
+	--header 'Authorization: Bearer $TOKEN' \
 ```
+
+
 Response:
-```json
-
-```
+[postoffice-locator-response.json](https://github.com/USPS/api-examples/blob/main/postoffice-locator-response.json)
 
 ## Tracking
 This API returns tracking status and related details for a given USPS package, including scan events and their date, time, and location. The Tracking APIs allow you to integrate the status of your shipment into your customer-facing experience and internal fulfillment processes that will benefit your company by:
@@ -918,7 +918,8 @@ curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
 		--data @SCANForm-LabelShipment-request.json \
      
 ```
-Response: [SCANForm-LabelShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-response.json)
+Response: 
+[SCANForm-LabelShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-response.json)
 
 ### SCAN Form - MID Shipment
 Save the example request body to a file: [SCANForm-MIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-request.json)
@@ -929,7 +930,8 @@ curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
 		--data @SCANForm-MIDShipment-request.json \
      
 ```
-Response: [SCANForm-MIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-response.json)
+Response: 
+[SCANForm-MIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-response.json)
 
 ### SCAN Form - Manifest MID Shipment
 Save the example request body to a file: [SCANForm-ManifestMIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-request.json)
@@ -940,7 +942,8 @@ curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
 		--data @SCANForm-ManifestMIDShipment-request.json \
      
 ```
-Response: [SCANForm-ManifestMIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-response.json)
+Response: 
+[SCANForm-ManifestMIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-response.json)
 
 
 ## Service Standards
