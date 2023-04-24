@@ -1,0 +1,31 @@
+{
+    "form": "5630",
+    "imageType": "PDF",
+    "labelType": "8.5x11LABEL",
+    "mailingDate": "2023-04-19",
+    "entryFacilityZIPCode": "45011",
+    "entryFacilityZIPPlus4": "",
+    "destinationEntryFacilityType": "NONE",
+    "overwriteMailingDate": false,
+    "shipment": {
+        "manifestMID": "XXXXXXXXX"
+    },
+    "fromAddress": {
+        "firstName": "Leroy",
+        "lastName": "Brown",
+        "firm": "USPS",
+        "address": {
+            "streetAddress": "1100 Wyoming",
+            "streetAddressAbbreviation": "",
+            "secondaryAddress": "APT N",
+            "city": "St. Louis",
+            "cityAbbreviation": "STL",
+            "state": "MO",
+            "ZIPCode": "63118",
+            "ZIPPlus4": "8312",
+            "urbanization": "URB Fair Oaks",
+            "country": "United States",
+            "countryISOCode": 840
+        }
+    }
+}

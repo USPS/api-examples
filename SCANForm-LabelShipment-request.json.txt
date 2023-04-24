@@ -1,0 +1,33 @@
+{
+    "form": "5630",
+    "imageType": "PDF",
+    "labelType": "8.5x11LABEL",
+    "mailingDate": "2023-04-19",
+    "entryFacilityZIPCode": "45011",
+    "entryFacilityZIPPlus4": "",
+    "destinationEntryFacilityType": "NONE",
+    "overwriteMailingDate": false,
+    "shipment": {
+        "trackingNumbers": [
+            "XXXXXXXXXXXXXXXXXXXXXX"
+        ]
+    },
+    "fromAddress": {
+        "firstName": "Leroy",
+        "lastName": "Brown",
+        "firm": "USPS",
+        "address": {
+            "streetAddress": "4261 Port Union Road",
+            "streetAddressAbbreviation": "",
+            "secondaryAddress": "APT N",
+            "city": "West Chester",
+            "cityAbbreviation": "",
+            "state": "OH",
+            "ZIPCode": "45011",
+            "ZIPPlus4": "1175",
+            "urbanization": "URB Fair Oaks",
+            "country": "United States",
+            "countryISOCode": 840
+        }
+    }
+}
