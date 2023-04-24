@@ -21,7 +21,10 @@ To use the USPS APIs you must be a registered user.
 All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://api.usps.com to https://api-cat.usps.com.
 
 ## OAuth Token
-All USPS APIs require an OAuth 2.0 access token to be conveyed in the Authorization header, using the Bearer token scheme.  To retrieve your Bearer Token you will need the consumer key(client_id), consumer secret(client_secret), customer_registration_id(CRID), and mailer_id(MID).
+Your exclusive access to USPS APIs is protected using OAuth 2.0 industry standards. All USPS APIs require an OAuth 2.0 access token to be conveyed in the `Authorization` header, using the `Bearer` token scheme. Once you sign-in to the API developer portal, you may get the OAuth credentials you will need to register your application `Add App`. See "Getting Started" for further information about signing-in, registering your application, and additional USPS account credentials you will need to integrate your application with USPS APIs. You are responsible for securing the application credentials once issued. Please contact USPS if your credentials have been disclosed to external parties and we will issue new credentials.
+
+OAuth 2.0 API
+OAuth access tokens are used to grant authorized access to USPS APIs. Access tokens will expire, requiring applications to periodically check the expiration time and get new ones. The OAuth 2.0 client credentials grant type is the only OAuth flow presently supported. Other OAuth flows will become supported in future releases. You will need to add an app in the API Developer Portal to get Consumer Key and Consumer Secret values. You will need a valid customer registration ID (CRID) and mailer ID (MID) in order to get an access token. Contact your USPS Business Customer Gateway Business System Administrator (BSA) for this information.
 
 Prepare your credentials for use in the following examples:
 ```sh
