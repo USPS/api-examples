@@ -530,7 +530,7 @@ The following fields are used to assure that a label is generated:
 
 ###  Set the payment account for Domestic Label:
 ```sh
-curl 	-X 'POST' 'https://api-cat.usps.com/payments/v2/payment-authorization' \
+curl 	-X 'POST' 'https://api.usps.com/payments/v2/payment-authorization' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
