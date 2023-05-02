@@ -1977,6 +1977,158 @@
 						}
 					},
 					"response": []
+				},
+{
+					"name": "POLocator (Post Office Locator)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{cat_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.usps.com/minimum-oauth-implementation/token",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{client_id}}",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.usps.com/locations/v1/post-office-locations?radius=1&ZIPCode=10462",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"locations",
+								"v1",
+								"post-office-locations"
+							],
+							"query": [
+								{
+									"key": "postOfficeType",
+									"value": "POST_OFFICE",
+									"disabled": true
+								},
+								{
+									"key": "servicesOperator",
+									"value": "AND",
+									"disabled": true
+								},
+								{
+									"key": "radius",
+									"value": "1"
+								},
+								{
+									"key": "units",
+									"value": "MI",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "asc(distance)",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "40",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "mailingService",
+									"value": "CARRIER_SERVICES",
+									"disabled": true
+								},
+								{
+									"key": "mailingService",
+									"value": "GENERAL_DELIVERY",
+									"disabled": true
+								},
+								{
+									"key": "businessService",
+									"value": "CALL_REFERRAL",
+									"disabled": true
+								},
+								{
+									"key": "passportService",
+									"value": "PASSPORT_APPOINTMENT",
+									"disabled": true
+								},
+								{
+									"key": "pickupService",
+									"value": "PICKUP_HOLD_MAIL",
+									"disabled": true
+								},
+								{
+									"key": "financialService",
+									"value": "MONEY_ORDER_DOMESTIC",
+									"disabled": true
+								},
+								{
+									"key": "LAT",
+									"value": "41",
+									"disabled": true
+								},
+								{
+									"key": "LONG",
+									"value": "-77",
+									"disabled": true
+								},
+								{
+									"key": "hours",
+									"value": "SUNDAY_HOURS",
+									"disabled": true
+								},
+								{
+									"key": "ZIPCode",
+									"value": "10462"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
