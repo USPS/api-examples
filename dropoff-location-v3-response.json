@@ -1,0 +1,407 @@
+[
+    {
+        "destinationZIPCode": "30343",
+        "facilityAddress": {
+            "firstName": null,
+            "lastName": null,
+            "firm": null,
+            "city": "ATLANTA",
+            "state": "GA",
+            "pobox": null,
+            "urbanization": null,
+            "streetAddress": "240 PEACHTREE ST NW BSMT",
+            "secondaryAddress": null,
+            "ZIPCode": "30303",
+            "ZIPPlus4": "9996"
+        },
+        "facilityName": "PEACHTREE CENTER",
+        "destinationEntryFacilityType": "DESTINATION_DELIVERY_UNIT",
+        "acceptedPackageTypes": [
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "IRREGULAR",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "NON_MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipmentKey": "SX10969",
+        "dropSitePhoneNumber": "4047657578",
+        "dropShipmentAcceptanceTimes": {
+            "Monday": [
+                {
+                    "openTime": "08:30",
+                    "closeTime": "16:30"
+                }
+            ],
+            "Tuesday": [
+                {
+                    "openTime": "08:30",
+                    "closeTime": "16:30"
+                }
+            ],
+            "Wednesday": [
+                {
+                    "openTime": "08:30",
+                    "closeTime": "16:30"
+                }
+            ],
+            "Thursday": [
+                {
+                    "openTime": "08:30",
+                    "closeTime": "16:30"
+                }
+            ],
+            "Friday": [
+                {
+                    "openTime": "08:30",
+                    "closeTime": "16:30"
+                }
+            ],
+            "Saturday": [],
+            "Sunday": []
+        },
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "depth": 3,
+                "height": 56,
+                "width": 15
+            },
+            "canopyClearance": 14,
+            "liftTypes": {
+                "manualLift": true,
+                "electricGasLift": true,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "truckManeuveringArea": {
+                "length": 0,
+                "width": 0,
+                "surfaceType": "ASPHALT"
+            },
+            "levelers": {
+                "manualLevelers": 0,
+                "hydraulicLevelers": 0,
+                "scissorLevelers": 0
+            },
+            "doorDetails": {
+                "width": 0,
+                "height": 0,
+                "numberOfSteps": 0
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 1,
+                "lowestOverpass": 14
+            },
+            "ramps": {
+                "numberOfRamps": 2,
+                "widestRamp": 5
+            }
+        },
+        "USPSConnectDetails": {
+            "sameNextDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "SundayDelivery": false
+        }
+    },
+    {
+        "destinationZIPCode": "303",
+        "facilityAddress": {
+            "firstName": null,
+            "lastName": null,
+            "firm": null,
+            "city": null,
+            "state": null,
+            "pobox": null,
+            "urbanization": null,
+            "streetAddress": null,
+            "secondaryAddress": null,
+            "ZIPCode": null,
+            "ZIPPlus4": null
+        },
+        "facilityName": null,
+        "destinationEntryFacilityType": "DESTINATION_SECTIONAL_CENTER_FACILITY",
+        "acceptedPackageTypes": [
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "IRREGULAR",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "NON_MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipmentKey": "K019582",
+        "dropSitePhoneNumber": null,
+        "dropShipmentAcceptanceTimes": {
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": [],
+            "Sunday": []
+        },
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "depth": null,
+                "height": null,
+                "width": null
+            },
+            "canopyClearance": null,
+            "liftTypes": {
+                "manualLift": false,
+                "electricGasLift": false,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "truckManeuveringArea": {
+                "length": null,
+                "width": null,
+                "surfaceType": "OTHER"
+            },
+            "levelers": {
+                "manualLevelers": null,
+                "hydraulicLevelers": null,
+                "scissorLevelers": null
+            },
+            "doorDetails": {
+                "width": null,
+                "height": null,
+                "numberOfSteps": null
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 0,
+                "lowestOverpass": null
+            },
+            "ramps": {
+                "numberOfRamps": null,
+                "widestRamp": null
+            }
+        },
+        "USPSConnectDetails": {
+            "sameNextDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "SundayDelivery": false
+        }
+    },
+    {
+        "destinationZIPCode": "303",
+        "facilityAddress": {
+            "firstName": null,
+            "lastName": null,
+            "firm": null,
+            "city": "ATLANTA",
+            "state": "GA",
+            "pobox": null,
+            "urbanization": null,
+            "streetAddress": "3900 CROWN RD SW",
+            "secondaryAddress": null,
+            "ZIPCode": "30304",
+            "ZIPPlus4": "9997"
+        },
+        "facilityName": "ATLANTA",
+        "destinationEntryFacilityType": "DESTINATION_SECTIONAL_CENTER_FACILITY",
+        "acceptedPackageTypes": [
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "IRREGULAR",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "NON_MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipmentKey": "EX10054",
+        "dropSitePhoneNumber": "4047657578",
+        "dropShipmentAcceptanceTimes": {
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": [],
+            "Sunday": []
+        },
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "depth": 33,
+                "height": 51,
+                "width": 11
+            },
+            "canopyClearance": 5,
+            "liftTypes": {
+                "manualLift": true,
+                "electricGasLift": true,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "truckManeuveringArea": {
+                "length": 65,
+                "width": 65,
+                "surfaceType": "CONCRETE"
+            },
+            "levelers": {
+                "manualLevelers": 6,
+                "hydraulicLevelers": 1,
+                "scissorLevelers": 2
+            },
+            "doorDetails": {
+                "width": 0,
+                "height": 0,
+                "numberOfSteps": 0
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 0,
+                "lowestOverpass": 0
+            },
+            "ramps": {
+                "numberOfRamps": 3,
+                "widestRamp": 31
+            }
+        },
+        "USPSConnectDetails": {
+            "sameNextDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "SundayDelivery": false
+        }
+    },
+    {
+        "destinationZIPCode": "303",
+        "facilityAddress": {
+            "firstName": null,
+            "lastName": null,
+            "firm": null,
+            "city": null,
+            "state": null,
+            "pobox": null,
+            "urbanization": null,
+            "streetAddress": null,
+            "secondaryAddress": null,
+            "ZIPCode": null,
+            "ZIPPlus4": null
+        },
+        "facilityName": null,
+        "destinationEntryFacilityType": "DESTINATION_NETWORK_DISTRIBUTION_CENTER",
+        "acceptedPackageTypes": [
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "IRREGULAR",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": [
+                    "PARCEL_SELECT"
+                ],
+                "processingCategory": "NON_MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipmentKey": "K019583",
+        "dropSitePhoneNumber": null,
+        "dropShipmentAcceptanceTimes": {
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": [],
+            "Sunday": []
+        },
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "depth": null,
+                "height": null,
+                "width": null
+            },
+            "canopyClearance": null,
+            "liftTypes": {
+                "manualLift": false,
+                "electricGasLift": false,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "truckManeuveringArea": {
+                "length": null,
+                "width": null,
+                "surfaceType": "OTHER"
+            },
+            "levelers": {
+                "manualLevelers": null,
+                "hydraulicLevelers": null,
+                "scissorLevelers": null
+            },
+            "doorDetails": {
+                "width": null,
+                "height": null,
+                "numberOfSteps": null
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 0,
+                "lowestOverpass": null
+            },
+            "ramps": {
+                "numberOfRamps": null,
+                "widestRamp": null
+            }
+        },
+        "USPSConnectDetails": {
+            "sameNextDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "SundayDelivery": false
+        }
+    }
+]

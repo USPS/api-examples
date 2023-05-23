@@ -35,7 +35,7 @@ CUSTOMER_REGISTRATION_ID=XXXX
 MAILER_ID=XXXX
 ```
 
-### Example OAuth token request:
+### Example OAuth token request (V1):
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v1/token" \
      --header 'Content-Type:application/x-www-form-urlencoded;charset=utf-8' \
@@ -68,7 +68,7 @@ Set your access token to an environment variable for use in subsequent requests.
 export $TOKEN=<access_token>
 ```
 
-###  Inspect the values associated with the OAuth access token profile:
+###  Inspect the values associated with the OAuth access token profile (V1):
 ```sh
 curl "https://api.usps.com/oauth2/v1/introspect" \
      -H 'Content-Type:application/x-www-form-urlencoded;charset=utf-8' \
@@ -97,6 +97,38 @@ curl "https://api.usps.com/oauth2/v1/introspect" \
     "permit_number": ""
 }
 ```
+
+### Example OAuth token request (V3):
+```sh
+curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
+     --header 'Content-Type: application/json' \
+     --data '{
+		"client_id": "$CLIENT_ID",
+		"client_secret": "$CLIENT_SECRET",
+		"grant_type": "client_credentials"
+		}'
+```
+```json
+{
+    "access_token": "XXXXXXXXXXXXXXXXX",
+    "token_type": "Bearer",
+    "issued_at": "1111111111111",
+    "expires_in": "11111",
+    "status": "approved",
+    "scope": "addresses service-delivery-standards  locations prices tracking labels",
+    "issuer": "api.usps.com",
+    "client_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "application_name": "XXXXXX-XXXX-XXXX-XXX-XXXXXXXXXXXX",
+    "api_products": "[XXXXXXX]",
+    "public_key": "XXXXXXXXXXXXXXXXX"
+}
+```
+
+Set your access token to an environment variable for use in subsequent requests.
+```sh
+export $TOKEN=<access_token>
+```
+
 
 ## Addresses
 The Address API provides validation and standardization of USPS domestic addresses, city and state names, and ZIP Codes. When a valid address, city, and state are provided, for instance, the API will return the standardized address along with the 11-digit delivery point ZIP Code. This API also supports lookups of city and state names by ZIP Code or ZIP Code by city and state names. This functionality enables shippers to validate and standardize address information during order entry. Thus, saving time and money by reducing shipping delays and errors due to incorrect or improper address information. 
@@ -185,6 +217,7 @@ Response:
     }
 }
 ```
+
 
 ## Carrier Pickup
 The API supports customers scheduling a carrier to pick up your packages on the next USPS delivery day (Monday through Saturday, excluding holidays) for free. Carrier Pickup is available for sending packages using Priority Mail Express, Priority Mail, First Class Package Service Commercial, international delivery services, or for returned merchandise. You are able check availability, schedule, change, cancel and inquire on a carrier pickup.
@@ -520,6 +553,7 @@ curl --request DELETE 'https://api.usps.com/pickup/v1/carrier-pickup/{Confirmati
 ```
 Response: 200 OK if successful
 
+
 ## Domestic Label
 The USPS Labels API allows you to digitally create mailing labels for Parcel Select Ground, Parcel Select Destination Entry, Parcel Select Lightweight, Connect Local, Connect Regional, Priority Mail, Priority Mail Express, First-Class Package Services, Bound Printed Matter, Library Mail, and Media Mail mail classes. To use this API, the caller must establish an Enterprise Payment Account to pay for the Label transactions being generated during each API Call. You can find details on how to establish your Enterprise Payment Account at Fact Sheet. The USPS Labels API uses a token to authorize use of an Enterprise Payment. The specification to generate the token is in the payments API. 
 
@@ -528,7 +562,7 @@ The following fields are used to assure that a label is generated:
 - Account Number, specify the account number for either the EPS or PERMIT account (e.g. permit number), and
 - Permit ZIP Code, specify the permit ZIP code for the PERMIT account. it is not required for an EPS account.
 
-###  Set the payment account for Domestic Label:
+###  Set the payment account for Domestic Label (V2):
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/payments/v2/payment-authorization' \
 		--header 'Content-Type: application/json' \
@@ -584,7 +618,7 @@ Set your access token to an environment variable for use in subsequent requests.
 export $PAYMENTTOKEN=<paymentAuthorizationToken>
 ```
 
-### Domestic Label Request
+### Domestic Label Request (V2)
 Save the example request body to a file: [label-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-request.json)
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/labels/v2/label' \
@@ -597,6 +631,62 @@ curl 	-X 'POST' 'https://api.usps.com/labels/v2/label' \
 Response: 
 [domesticlabel-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-response.json)
 
+###  Set the payment account for Domestic Label (V3):
+```sh
+curl 	-X 'POST' 'https://api.usps.com/payments/v3/payment-authorization' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"roles": [
+				{
+					"roleName": "PAYER",
+					"CRID": "XXXXXXXX",
+					"MID": "XXXXXXXXX",
+					"manifestMID": "XXXXXXXXX",
+					"accountType": "EPS",
+					"accountNumber": "XXXXXXXXXX"
+				},
+				{
+					"roleName": "LABEL_OWNER",
+					"CRID": "XXXXXXXX",
+					"MID": "XXXXXXXXX",
+					"manifestMID": "XXXXXXXXX",
+					"accountType": "EPS",
+					"accountNumber": "XXXXXXXXXX"
+				}
+			]
+		}'
+```
+Response:
+```json
+{
+"paymentAuthorizationToken": "XXXXXXXXXXXXXXXXXXXXXX",   
+"roles": [
+        {
+            "roleName": "PAYER",
+            "CRID": "XXXXXXXX",
+            "MID": "XXXXXXXXX",
+            "manifestMID": "XXXXXXXXX",
+            "accountType": "EPS",
+            "accountNumber": "XXXXXXXXXX"
+        },
+        {
+            "roleName": "LABEL_OWNER",
+            "CRID": "XXXXXXXX",
+            "MID": "XXXXXXXXX",
+            "manifestMID": "XXXXXXXXX",
+            "accountType": "EPS",
+            "accountNumber": "XXXXXXXXXX"
+        }
+    ]
+} 
+```
+
+Set your access token to an environment variable for use in subsequent requests.
+```sh
+export $PAYMENTTOKEN=<paymentAuthorizationToken>
+```
+
 
 ## Domestic Prices
 The Prices API can be used to look-up postage rates for domestic packages:
@@ -607,7 +697,7 @@ The Prices API can be used to look-up postage rates for domestic packages:
 
 For specifications such as package dimensions, delivery information, etc., please refer to the Domestic Mail Manual (DMM). For a list of published rates please refer to the USPS Price List To discover the rate ingredients for this API, take a look at Publication 205.
 
-### Domestic Prices - Base Rates Request
+### Domestic Prices - Base Rates Request (V1)
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v1/base-rates/search' \
 		--header 'Content-Type: application/json' \
@@ -646,7 +736,51 @@ Response:
     }
 ]
 ```
-### Domestic Prices - Extra Services Rates Request
+### Domestic Prices - Base Rates Request (V3)
+```sh
+curl 	-X 'POST' 'https://api.usps.com/prices/v3/base-rates/search' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"originZIPCode": "78664",
+			"destinationZIPCode": "78665",
+			"weight": 7,
+			"length": 9,
+			"width": 0.25,
+			"height": 6,
+			"mailClass": "PARCEL_SELECT",
+			"processingCategory": "MACHINABLE",
+			"destinationEntryFacilityType": "NONE",
+			"rateIndicator": "DR",
+			"priceType": "COMMERCIAL",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX",
+			"mailingDate": "2023-05-25"
+}'
+```
+Response:
+```json
+{
+    "totalBasePrice": 8.02,
+    "rates": [
+        {
+            "SKU": "DVXR0XXXXC01070",
+            "description": "Parcel Select Ground Machinable Dimensional Rectangular",
+            "priceType": "COMMERCIAL",
+            "price": 8.02,
+            "weight": 7,
+            "dimWeight": 0,
+            "fees": [],
+            "startDate": "2023-01-22",
+            "endDate": "",
+            "warnings": [],
+            "mailClass": "PARCEL_SELECT",
+            "zone": "01"
+        }
+    ]
+}
+```
+### Domestic Prices - Extra Services Rates Request (V1)
 Given a set of rate ingredients, returns a list of potential extra service rates. If contractId and productId are present, include contract-based rates in the results.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v1/extra-service-rates/search' \
@@ -683,6 +817,34 @@ Response:
     "warnings": []
 }
 ```
+### Domestic Prices - Extra Services Rates Request (V3)
+Returns eligible extra service prices, descriptions, and SKUs given a set of package rate ingredients.
+```sh
+curl 	-X 'POST' 'https://api.usps.com/prices/v3/extra-service-rates/search' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"extraService": 415,
+			"mailClass": "PARCEL_SELECT",
+			"priceType": "RETAIL",
+			"itemValue": 0,
+			"weight": 5,
+			"mailingDate": "2023-05-25",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX"
+		}'
+```
+Response:
+```json
+{
+    "sku": "DXSV0EJXXCX0000",
+    "rate": 9.80,
+    "contractType": "CB",
+    "extraServiceCode": "924",
+    "description": "Signature Confirmation Restricted Delivery",
+    "warnings": []
+}
+```
 ## International Prices
 The International Prices API can be used to look-up postage rates for International packages:
 - Lookup International Base Postage based on a set of given package characteristics
@@ -691,7 +853,7 @@ The International Prices API can be used to look-up postage rates for Internatio
 
 For specifications such as package dimensions, delivery information, etc., please refer to the International Mail Manual (IMM). For a list of published rates please refer to the USPS Price List To discover the rate ingredients for this API, take a look at Publication 205.
 
-### International Prices - Base Rates Request
+### International Prices - Base Rates Request (V1)
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v1/base-rates/search' \
 		--header 'Content-Type: application/json' \
@@ -730,7 +892,52 @@ curl 	-X 'POST' 'https://api.usps.com/international-prices/v1/base-rates/search'
     }
 ]
 ```
-### International Prices - Extra Services Rates Request
+### International Prices - Base Rates Request (V3)
+```sh
+curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates/search' \
+		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"originZIPCode": "22407",
+			"foreignPostalCode": "10109",
+			"destinationCountryCode": "CA",
+			"destinationEntryFacilityType": "NONE",
+			"weight": 0.5,
+			"length": 9,
+			"width": 15,
+			"height": 6,
+			"mailClass": "FIRST-CLASS_PACKAGE_INTERNATIONAL_SERVICE",
+			"processingCategory": "NON_MACHINABLE",
+			"rateIndicator": "SP",
+			"priceType": "COMMERCIAL",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX",
+			"mailingDate": "2023-05-25"
+		}'
+```
+```json
+{
+    "rates": [
+        {
+            "SKU": "IFXP0XXXXB01080",
+            "description": "First-Class Package International Service Nonmachinable Single-piece",
+            "mailClass": "FIRST-CLASS_PACKAGE_INTERNATIONAL_SERVICE",
+            "priceType": "COMMERCIAL",
+            "zone": "01",
+            "dimWeight": 0,
+            "weight": 0.5,
+            "fees": [],
+            "price": 14.96,
+            "startDate": "2023-01-22",
+            "endDate": "",
+            "warnings": []
+        }
+    ],
+    "totalBasePrice": 14.96
+}
+```
+### International Prices - Extra Services Rates Request (V1)
 Given a set of rate ingredients, returns international extra service rates. If contractId and productId are present, include contract-based rates in the results.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v1/extra-service-rates/search' \
@@ -758,36 +965,291 @@ Response:
     "warnings": []
 }
 ```
+### International Prices - Extra Services Rates Request (V3)
+Given a set of rate ingredients, returns international extra service rates. If contractId and productId are present, include contract-based rates in the results.
+```sh
+curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/extra-service-rates/search' \
+		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"extraService": 930,
+			"mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+			"priceType": "RETAIL",
+			"itemValue": 500,
+			"weight": 4,
+			"mailingDate": "2023-05-25",
+			"rateIndicator": "SP",
+			"destinationCountryCode": "CR",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX"
+		}'
+```
+Response:
+```json
+{
+    "SKU": "IXIP0XXXXCX0500",
+    "priceType": "COMMERCIAL",
+    "price": 19.55,
+    "extraService": "930",
+    "name": "Insurance <= $500",
+    "warnings": []
+}
+```
 
 ## Locations
 The Locations APIs can be used to find USPS facility addresses, hours of operations, available services and more. The purpose of this API is for users to lookup eligible entry locations to receive destination entry rates. USPS has specific rules for these entries types where the volume is only accepted at specific locations. With that in mind the idea is before a mailer submits a label request they may want to check what the acceptable entry locations are for the different rates. So they could call the API with a destination ZIP Code of 29601 and we’d respond with one facility for the DDU entry, one for SCF, & one for NDC (all of which could be unique facilities).
 
-### Dropoff-locations
+### Dropoff-locations (V1)
 ```sh
 curl 	-X 'GET' 'https://api.usps.com/locations/v1/dropoff-locations?mailClass=USPS_CONNECT_LOCAL&destinationZIPCode=30342' \
 		--header 'Authorization: Bearer $TOKEN'
 ```
 
 Response:
-[dropoff-location-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-response.json)
+[dropoff-location-v1-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-v1-response.json)
 
-### Post Office Locator
+### Dropoff-locations (V3)
+```sh
+curl 	-X 'GET' 'https://api.usps.com/locations/v3/dropoff-locations?mailClass=PARCEL_SELECT&destinationZIPCode=30343' \
+		--header 'Accept: application/json' \
+		--header 'Authorization: Bearer $TOKEN'
+```
+
+Response:
+[dropoff-location-v3-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-v3-response.json)
+
+### Post Office Locator (V1)
 ```sh
 curl	-X 'GET' 'https://api.usps.com/locations/v1/post-office-locations?ZIPCode=48197&radius=30&offset=2&limit=3' \
 	--header 'Accept: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 ```
 
+Response:
+[postoffice-locator-v1-response.json](https://github.com/USPS/api-examples/blob/main/postoffice-locator-v1-response.json)
+
+### Post Office Locator (V3)
+```sh
+curl	-X 'GET' 'https://api.usps.com/locations/v3/post-office-locations?radius=1&ZIPCode=10463' \
+	--header 'Authorization: Bearer $TOKEN' \
+```
 
 Response:
-[postoffice-locator-response.json](https://github.com/USPS/api-examples/blob/main/postoffice-locator-response.json)
+[postoffice-locator-v3-response.json](https://github.com/USPS/api-examples/blob/main/postoffice-locator-v3-response.json)
+
+
+## Service Standards
+This API supports the service standards for the number of days between the acceptance and delivery of a piece of mail that the Postal Service™ considers to be timely delivery. Service standards are delivery benchmarks for how long customers can expect for the Postal Service to deliver different types of mail from origin to destination — Point A to Point B. Service standards are not necessarily the same as the actual service performance.
+
+### Service Standards - Estimates Request (V1)
+Allows customers to get estimates on delivery standards between 3 or 5 digit Zip Codes for Priority Mail Express, Priority Mail, First Class Mail, Marketing Mail, Periodicals, and Package Services. For Service Type Codes to utilize in the API call please refer to Pub 199.
+```sh
+curl	-X 'GET' 'https://api.usps.com/service-standards/v1/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptDate=3%2F5%2F2023&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP' \
+		--header 'Authorization: Bearer $TOKEN' \
+```
+Response:
+```json
+[
+    {
+        "mailClass": "PRIORITY_MAIL",
+        "destinationType": "HOLD_FOR_PICKUP",
+        "acceptanceDateTime": "2023-04-19T12:00:00Z",
+        "effectiveAcceptanceDate": "2023-04-19",
+        "cutOffTime": "1700",
+        "serviceStandard": "2",
+        "serviceStandardMessage": "2-Day",
+        "acceptanceLocations": [
+            {
+                "facilityType": "POST OFFICE",
+                "streetAddress": "223 W 38TH ST",
+                "city": "NEW YORK",
+                "state": "NY",
+                "ZIPCode": "10018",
+                "ZIPPlus4": "9998"
+            }
+        ],
+        "delivery": {
+            "scheduledDeliveryDateTime": "2023-04-22",
+            "holdForPickupLocation": [
+                {
+                    "facilityName": "PARKWAY",
+                    "streetAddress": "4301 BROOKFIELD DR",
+                    "city": "SACRAMENTO",
+                    "state": "CA",
+                    "ZIPCode": "95823",
+                    "ZIPPlus4": "9998",
+                    "closeTimes": {
+                        "Monday": "1700",
+                        "Tuesday": "1700",
+                        "Wednesday": "1700",
+                        "Thursday": "1700",
+                        "Friday": "1700",
+                        "Saturday": "1500",
+                        "Sunday": "0000",
+                        "holidays": "0000"
+                    }
+                }
+            ]
+        }
+    }
+]
+```
+### Service Standards - Estimates Request (V3)
+Allows customers to get estimates on delivery standards between 3 or 5 digit ZIP Codes for the selected mail classes.
+```sh
+curl	-X 'GET' 'https://api.usps.com/service-standards/v3/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptanceDate=2023-05-26&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
+		--header 'Authorization: Bearer $TOKEN' \
+```
+Response:
+```json
+[
+    {
+        "mailClass": "PRIORITY_MAIL",
+        "destinationType": "HOLD_FOR_PICKUP",
+        "acceptanceDateTime": "2023-05-26T12:00:00Z",
+        "effectiveAcceptanceDate": "2023-05-26",
+        "cutOffTime": 1700,
+        "serviceStandard": 2,
+        "serviceStandardMessage": "2-Day",
+        "acceptanceLocations": [
+            {
+                "facilityType": "POST OFFICE",
+                "streetAddress": "223 W 38TH ST",
+                "city": "NEW YORK",
+                "state": "NY",
+                "ZIPCode": 10018,
+                "ZIPPlus4": 9998
+            }
+        ],
+        "delivery": {
+            "scheduledDeliveryDateTime": "2023-05-30",
+            "holdForPickupLocation": [
+                {
+                    "facilityName": "PARKWAY",
+                    "streetAddress": "4301 BROOKFIELD DR",
+                    "city": "SACRAMENTO",
+                    "state": "CA",
+                    "ZIPCode": 95823,
+                    "ZIPPlus4": 9998,
+                    "closeTimes": {
+                        "Monday": 1700,
+                        "Tuesday": 1700,
+                        "Wednesday": 1700,
+                        "Thursday": 1700,
+                        "Friday": 1700,
+                        "Saturday": 1500,
+                        "Sunday": "0000",
+                        "holidays": "0000"
+                    }
+                }
+            ]
+        }
+    }
+]
+```
+### Service Standards - Standards Request (V1)
+Receives requests and returns the average number of days it will take a package to arrive at its destination for First Class Mail Service, Priority Mail, and Package Services. For Service Type Codes to utilize in the API call please refer to Pub 199.
+```sh
+curl	-X 'GET' 'https://api.usps.com/service-standards/v1/standards?originZIPCode=40504&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=Junk' \
+		--header 'Authorization: Bearer $TOKEN' \
+```
+Response:
+```json
+[
+    {
+        "mailClass": "PRIORITY_MAIL",
+        "originZIPCode": "40504",
+        "destinationZIPCode": "95823",
+        "days": "2",
+        "effectiveAcceptanceDate": "2023-04-19",
+        "scheduledDeliveryDate": "2023-04-22"
+    },
+    {
+        "mailClass": "PRIORITY_MAIL",
+        "originZIPCode": "40504",
+        "destinationZIPCode": "95823",
+        "days": "2",
+        "effectiveAcceptanceDate": "2023-04-19",
+        "scheduledDeliveryDate": "2023-04-22"
+    },
+    {
+        "mailClass": "PRIORITY_MAIL",
+        "originZIPCode": "40504",
+        "destinationZIPCode": "95823",
+        "days": "2",
+        "effectiveAcceptanceDate": "2023-04-19",
+        "scheduledDeliveryDate": "2023-04-22"
+    }
+]
+```
+### Service Standards - Standards Request (V3)
+Returns the average number of days it will take a package to arrive at its destination for the selected mail class.
+```sh
+curl	-X 'GET' 'https://api.usps.com/service-standards/v3/standards?originZIPCode=10018&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
+		--header 'Authorization: Bearer $TOKEN' \
+```
+Response:
+```json
+[
+    {
+        "mailClass": "PRIORITY_MAIL",
+        "originZIPCode": 10018,
+        "destinationZIPCode": 95823,
+        "days": 2,
+        "effectiveAcceptanceDate": "2023-05-23",
+        "scheduledDeliveryDate": "2023-05-25"
+    }
+]
+```
+
+
+## Shipment Confirmation Acceptance Notice (SCAN) Form
+Shipment Confirmation Acceptance Notice(SCAN) form allows integrators to link multiple domestic and international labels through one Electronic File Number (EFN) and physical SCAN Form (PS Form 5630 or 3152). The USPS scans this form at mailing acceptance to generate an acceptance tracking event for each linked label. 
+
+### SCAN Form - Label Shipment
+Save the example request body to a file: [SCANForm-LabelShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-request.json)
+```sh
+curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data @SCANForm-LabelShipment-request.json \
+     
+```
+Response: 
+[SCANForm-LabelShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-response.json)
+
+### SCAN Form - MID Shipment
+Save the example request body to a file: [SCANForm-MIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-request.json)
+```sh
+curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data @SCANForm-MIDShipment-request.json \
+     
+```
+Response: 
+[SCANForm-MIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-response.json)
+
+### SCAN Form - Manifest MID Shipment
+Save the example request body to a file: [SCANForm-ManifestMIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-request.json)
+```sh
+curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data @SCANForm-ManifestMIDShipment-request.json \
+     
+```
+Response: 
+[SCANForm-ManifestMIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-response.json)
+
 
 ## Tracking
 This API returns tracking status and related details for a given USPS package, including scan events and their date, time, and location. The Tracking APIs allow you to integrate the status of your shipment into your customer-facing experience and internal fulfillment processes that will benefit your company by:
 - Providing your customers with the latest status and delivery expectations while keeping them within your company’s or organization’s website. 
 - Integrating status and delivery information for incoming packages or customer returns directly into your systems and processes so that you know when a package will arrive at your facilities. 
 
-### Tracking - Single Request - Summary
+### Tracking - Single Request - Summary (V1)
 Gets the tracking summary about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the summarized delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.  
 ```sh
 curl 	-X 'GET' 'https://api.usps.com/tracking/v1/tracking/{Tracking Number}?expand=summary' \
@@ -808,7 +1270,28 @@ Response:
     }
 }
 ```
-### Tracking - Single Request - Detail
+### Tracking - Single Request - Summary (V3)
+Gets the tracking summary about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the summarized delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.  
+```sh
+curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=summary' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '' 
+```
+
+Response:
+
+```json
+{
+    "TrackResults": {
+        "RequestSeqNumber": null,
+        "TrackInfo": {
+            "@ID": "XXXXXXXXXXXXXXXXXXXX",
+            "TrackSummary": "USPS is now in possession of your item as of 7:31 am on February 15, 2023 in RICHMOND, VA 23227."
+        }
+    }
+}
+```
+### Tracking - Single Request - Detail (V1)
 Gets the detailed tracking information about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the detailed delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.
 ```sh
 curl 	-X 'GET' 'https://api.usps.com/tracking/v1/tracking/{Tracking Number}?expand=detail' \
@@ -869,7 +1352,68 @@ Response:
     }
 }
 ```
-### Tracking - Email Notification Request
+### Tracking - Single Request - Detail (V3)
+Gets the detailed tracking information about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the detailed delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.
+```sh
+curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=detail' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data ''
+```
+Response:
+```json
+{
+    "TrackResults": {
+        "RequestSeqNumber": null,
+        "TrackInfo": {
+            "@ID": "XXXXXXXXXXXXXXXXXXXX",
+            "Class": "Priority Mail<SUP>&reg;</SUP>",
+            "ClassOfMailCode": "PM",
+            "DestinationCity": "CEDAR RAPIDS",
+            "DestinationState": "IA",
+            "DestinationZip": "52404",
+            "EmailEnabled": "true",
+            "KahalaIndicator": "false",
+            "MailTypeCode": "DM",
+            "MPDATE": "2023-02-17 10:56:10.000000",
+            "MPSUFFIX": "518152477",
+            "OriginCity": "RICHMOND",
+            "OriginState": "VA",
+            "OriginZip": "23227",
+            "PodEnabled": "false",
+            "TPodEnabled": "false",
+            "RestoreEnabled": "false",
+            "RramEnabled": "false",
+            "RreEnabled": "false",
+            "Service": [
+                "USPS Tracking<SUP>&#174;</SUP>",
+                "Up to $100 insurance included"
+            ],
+            "ServiceTypeCode": "14",
+            "Status": "USPS in possession of item",
+            "StatusCategory": "Accepted",
+            "StatusSummary": "USPS is now in possession of your item as of 7:31 am on February 15, 2023 in RICHMOND, VA 23227.",
+            "TABLECODE": "T",
+            "TrackSummary": {
+                "EventTime": "7:31 am",
+                "EventDate": "February 15, 2023",
+                "Event": "USPS in possession of item",
+                "EventCity": "RICHMOND",
+                "EventState": "VA",
+                "EventZIPCode": "23227",
+                "EventCountry": null,
+                "FirmName": null,
+                "Name": null,
+                "AuthorizedAgent": "false",
+                "EventCode": "03",
+                "DeliveryAttributeCode": null,
+                "GMT": "12:31:32",
+                "GMTOffset": "-05:00"
+            }
+        }
+    }
+}
+```
+### Tracking - Email Notification Request (V1)
 Register to get e-mail notifications about package tracking events. The USPS Tracking by Email API allows the customer to submit their email address to be notified of current or future tracking activity. USPS Tracking by Email allows users to receive all activity to date, all future activity, or both. As mail pieces receive email notifiable events, an email with the information will be generated and sent to the customer. Along with the new request type, users will be able to make multiple requests for one mail piece in a single request. Tracking status can be obtained using just the impb and if multiple items are found, you can include additional detail in the request such as:
 - uniqueTrackingID (MP-Suffix) - The impb may be reused during the USPS retention period. This field uniquely identifies the shipment status of a unique mailpiece when there exists multiple occurrences of the same impb during this retention period. MPSUFFIX value is located in Track/Confirm Fields API response data. Unique to each TrackID.
 OR 
@@ -906,137 +1450,6 @@ Response:
 }
 ```
 
-## Shipment Confirmation Acceptance Notice (SCAN) Form
-Shipment Confirmation Acceptance Notice(SCAN) form allows integrators to link multiple domestic and international labels through one Electronic File Number (EFN) and physical SCAN Form (PS Form 5630 or 3152). The USPS scans this form at mailing acceptance to generate an acceptance tracking event for each linked label. 
-
-### SCAN Form - Label Shipment
-Save the example request body to a file: [SCANForm-LabelShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-request.json)
-```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
-		--header 'Content-Type: application/json' \
-		--header 'Authorization: Bearer $TOKEN' \
-		--data @SCANForm-LabelShipment-request.json \
-     
-```
-Response: 
-[SCANForm-LabelShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-response.json)
-
-### SCAN Form - MID Shipment
-Save the example request body to a file: [SCANForm-MIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-request.json)
-```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
-		--header 'Content-Type: application/json' \
-		--header 'Authorization: Bearer $TOKEN' \
-		--data @SCANForm-MIDShipment-request.json \
-     
-```
-Response: 
-[SCANForm-MIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-response.json)
-
-### SCAN Form - Manifest MID Shipment
-Save the example request body to a file: [SCANForm-ManifestMIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-request.json)
-```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
-		--header 'Content-Type: application/json' \
-		--header 'Authorization: Bearer $TOKEN' \
-		--data @SCANForm-ManifestMIDShipment-request.json \
-     
-```
-Response: 
-[SCANForm-ManifestMIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-response.json)
-
-
-## Service Standards
-This API supports the service standards for the number of days between the acceptance and delivery of a piece of mail that the Postal Service™ considers to be timely delivery. Service standards are delivery benchmarks for how long customers can expect for the Postal Service to deliver different types of mail from origin to destination — Point A to Point B. Service standards are not necessarily the same as the actual service performance.
-
-### Service Standards - Estimates Request
-Allows customers to get estimates on delivery standards between 3 or 5 digit Zip Codes for Priority Mail Express, Priority Mail, First Class Mail, Marketing Mail, Periodicals, and Package Services. For Service Type Codes to utilize in the API call please refer to Pub 199.
-```sh
-curl	-X 'GET' 'https://api.usps.com/service-standards/v1/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptDate=3%2F5%2F2023&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP' \
-		--header 'Authorization: Bearer $TOKEN' \
-```
-Response:
-```json
-[
-    {
-        "mailClass": "PRIORITY_MAIL",
-        "destinationType": "HOLD_FOR_PICKUP",
-        "acceptanceDateTime": "2023-04-19T12:00:00Z",
-        "effectiveAcceptanceDate": "2023-04-19",
-        "cutOffTime": "1700",
-        "serviceStandard": "2",
-        "serviceStandardMessage": "2-Day",
-        "acceptanceLocations": [
-            {
-                "facilityType": "POST OFFICE",
-                "streetAddress": "223 W 38TH ST",
-                "city": "NEW YORK",
-                "state": "NY",
-                "ZIPCode": "10018",
-                "ZIPPlus4": "9998"
-            }
-        ],
-        "delivery": {
-            "scheduledDeliveryDateTime": "2023-04-22",
-            "holdForPickupLocation": [
-                {
-                    "facilityName": "PARKWAY",
-                    "streetAddress": "4301 BROOKFIELD DR",
-                    "city": "SACRAMENTO",
-                    "state": "CA",
-                    "ZIPCode": "95823",
-                    "ZIPPlus4": "9998",
-                    "closeTimes": {
-                        "Monday": "1700",
-                        "Tuesday": "1700",
-                        "Wednesday": "1700",
-                        "Thursday": "1700",
-                        "Friday": "1700",
-                        "Saturday": "1500",
-                        "Sunday": "0000",
-                        "holidays": "0000"
-                    }
-                }
-            ]
-        }
-    }
-]
-```
-### Service Standards - Standards Request
-Receives requests and returns the average number of days it will take a package to arrive at its destination for First Class Mail Service, Priority Mail, and Package Services. For Service Type Codes to utilize in the API call please refer to Pub 199.
-```sh
-curl	-X 'GET' 'https://api.usps.com/service-standards/v1/standards?originZIPCode=40504&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=Junk' \
-		--header 'Authorization: Bearer $TOKEN' \
-```
-Response:
-```json
-[
-    {
-        "mailClass": "PRIORITY_MAIL",
-        "originZIPCode": "40504",
-        "destinationZIPCode": "95823",
-        "days": "2",
-        "effectiveAcceptanceDate": "2023-04-19",
-        "scheduledDeliveryDate": "2023-04-22"
-    },
-    {
-        "mailClass": "PRIORITY_MAIL",
-        "originZIPCode": "40504",
-        "destinationZIPCode": "95823",
-        "days": "2",
-        "effectiveAcceptanceDate": "2023-04-19",
-        "scheduledDeliveryDate": "2023-04-22"
-    },
-    {
-        "mailClass": "PRIORITY_MAIL",
-        "originZIPCode": "40504",
-        "destinationZIPCode": "95823",
-        "days": "2",
-        "effectiveAcceptanceDate": "2023-04-19",
-        "scheduledDeliveryDate": "2023-04-22"
-    }
-]
-```
 
 ## Errors
 Example error handling scenarios pertaining to the Address and Domestic Label APIs:
