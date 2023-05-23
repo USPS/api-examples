@@ -606,7 +606,7 @@
 					"response": []
 				},
 				{
-					"name": "3.0 International Label Payment - Working Copy",
+					"name": "3.0 International Label Payment",
 					"event": [
 						{
 							"listen": "test",
