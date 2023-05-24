@@ -1,21 +1,21 @@
 ﻿# USPS API
-The USPS Developer Portal is for software developers who would like to integrate Postal Service functionality into their ecommerce, shipping, or logistics systems. Access and use USPS tools and resources conveniently within your site or application. You have the ability to try out the APIs in the our Test environment.
+The USPS Developer Portal is for software developers who would like to integrate Postal Service functionality into their ecommerce, shipping, or logistics systems. Access and use USPS tools and resources conveniently within your site or application. You have the ability to try out the APIs in our Test environment.
 
 ## Getting Started in Test Environment
-To use the USPS APIs in the Test Environment uou must be a registered user.
+To use the USPS APIs in the Test Environment you must be a registered user.
 1. Apply for a free USPS.com account.
 2. Access the [Test Business Customer Gateway](https://gateway-cat.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
-3.	Using your USPS account, access the [USPS Test Developer Portal](htps://developer-cat.usps.com) by clicking the Sign-Up button. 
-4.	Registering your application and retrieve your consumer key and consumer secret from the credential section.
-5.	Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
+3. Using your USPS account, access the [USPS Test Developer Portal](htps://developer-cat.usps.com) by clicking the Sign-Up button. 
+4. Registering your application and retrieve your consumer key and consumer secret from the credential section.
+5. Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
 ## Getting Started in Production
 To use the USPS APIs you must be a registered user.
 1. Apply for a free USPS.com account.
 2. Access the [Business Customer Gateway](https://gateway.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
-3.	Using your USPS account, access the [USPS Developer Portal](htps://developer.usps.com) by clicking the Sign-Up button. 
-4.	Registering your application and retrieve your consumer key and consumer secret from the credential section.
-5.	Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
+3. Using your USPS account, access the [USPS Developer Portal](htps://developer.usps.com) by clicking the Sign-Up button. 
+4. Registering your application and retrieve your consumer key and consumer secret from the credential section.
+5. Additionally, you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
 ## Using the APIs in the USPS Test Environment
 All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://api.usps.com to https://api-cat.usps.com.
@@ -559,7 +559,7 @@ The USPS Labels API allows you to digitally create mailing labels for Parcel Sel
 
 The following fields are used to assure that a label is generated:
 - Account Type, specify the type of payment account, either EPS or PERMIT;
-- Account Number, specify the account number for either the EPS or PERMIT account (e.g. permit number), and
+- Account Number, specify the account number for either the EPS or PERMIT account (e.g., permit number), and
 - Permit ZIP Code, specify the permit ZIP code for the PERMIT account. it is not required for an EPS account.
 
 ###  Set the payment account for Domestic Label (V2):
@@ -690,12 +690,12 @@ export $PAYMENTTOKEN=<paymentAuthorizationToken>
 
 ## Domestic Prices
 The Prices API can be used to look-up postage rates for domestic packages:
-- Lookup Base Postage based on a set of given pacakge characteristics
+- Lookup Base Postage based on a set of given package characteristics
 - Lookup Base Postage based on a given SKU
 - Lookup Extra Service Postage based on a given Extra Service Code and Mail Class
 - The USPS has introduced Stock Keeping Units (SKUs), creating unique identifiers for USPS products, and making them available online for mailer download.
 
-For specifications such as package dimensions, delivery information, etc., please refer to the Domestic Mail Manual (DMM). For a list of published rates please refer to the USPS Price List To discover the rate ingredients for this API, take a look at Publication 205.
+For specifications such as package dimensions, delivery information, etc., please refer to the Domestic Mail Manual (DMM). For a list of published rates please refer to the USPS Price List. To discover the rate ingredients for this API, look at Publication 205.
 
 ### Domestic Prices - Base Rates Request (V1)
 ```sh
@@ -846,12 +846,12 @@ Response:
 }
 ```
 ## International Prices
-The International Prices API can be used to look-up postage rates for International packages:
+The International Prices API can be used to look-up postage rates for international packages:
 - Lookup International Base Postage based on a set of given package characteristics
 - Lookup International Base Postage based on a given SKU
 - The USPS has introduced Stock Keeping Units (SKUs), creating unique identifiers for USPS products, and making them available online for mailer download.
 
-For specifications such as package dimensions, delivery information, etc., please refer to the International Mail Manual (IMM). For a list of published rates please refer to the USPS Price List To discover the rate ingredients for this API, take a look at Publication 205.
+For specifications such as package dimensions, delivery information, etc., please refer to the International Mail Manual (IMM). For a list of published rates please refer to the USPS Price List. To discover the rate ingredients for this API, look at Publication 205.
 
 ### International Prices - Base Rates Request (V1)
 ```sh
@@ -998,7 +998,7 @@ Response:
 ```
 
 ## Locations
-The Locations APIs can be used to find USPS facility addresses, hours of operations, available services and more. The purpose of this API is for users to lookup eligible entry locations to receive destination entry rates. USPS has specific rules for these entries types where the volume is only accepted at specific locations. With that in mind the idea is before a mailer submits a label request they may want to check what the acceptable entry locations are for the different rates. So they could call the API with a destination ZIP Code of 29601 and we’d respond with one facility for the DDU entry, one for SCF, & one for NDC (all of which could be unique facilities).
+The Locations APIs can be used to find USPS facility addresses, hours of operations, available services and more. The purpose of this API is for users to lookup eligible entry locations to receive destination entry rates. USPS has specific rules for these entry types where the volume is only accepted at specific locations. With that in mind the idea is before a mailer submits a label request they may want to check what the acceptable entry locations are for the different rates. So, they could call the API with a destination ZIP Code of 29601 and we would respond with one facility for the DDU entry, one for SCF, & one for NDC (all of which could be unique facilities).
 
 ### Dropoff-locations (V1)
 ```sh
@@ -1468,7 +1468,7 @@ Unverifiable-City-and-State:
     description: The city and state are missing or together unverifiable.
     value:  { apiVersion: "v1", error: {code: "400", message: "The city and state are missing or together unverifiable.", errors: [] } }
      
-Insufficient-Adddress-Data:
+Insufficient-Address-Data:
     description: The address information in the request is insufficient to match.
     value: { apiVersion: "v1", error: {code: "404", message: "The address information in the request is insufficient to match.", errors: [] } }
       
