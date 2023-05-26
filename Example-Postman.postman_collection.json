@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-		"name": "Github",
+		"name": "Example-Postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "XXXXXXXX"
 	},
@@ -1446,7 +1446,7 @@
 			"name": "Domestic Labels",
 			"item": [
 				{
-					"name": "Priority Mail - Single Piece (SP) - Non-Machinable",
+					"name": "2.0 Domestic Label",
 					"event": [
 						{
 							"listen": "test",
@@ -1541,6 +1541,108 @@
 							"path": [
 								"labels",
 								"v2",
+								"label"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Domestic Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const responseCollection= pm.response.text().split(\"\\n\");\r",
+									"const labelImageData = responseCollection[10]\r",
+									"const labelType = responseCollection[6].split(\" \")[1]\r",
+									"let template = `data:${labelType};base64,${labelImageData}`\r",
+									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Payment-Authorization-Token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"imageInfo\": {\r\n    \"imageType\": \"PDF\",\r\n    \"labelType\": \"4X6LABEL\",\r\n    \"shipInfo\": true,\r\n    \"receiptOption\": \"NONE\",\r\n    \"suppressPostage\": false,\r\n    \"suppressMailDate\": false,\r\n    \"returnLabel\": false\r\n  },\r\n    \"toAddress\": {\r\n        \"firstName\": \"Joe\",\r\n        \"lastName\": \"Doe\",\r\n        \"streetAddress\": \"1100 Wyoming\",\r\n        \"secondaryAddress\": \"Suite 150\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63118\"\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Smith\",\r\n        \"streetAddress\": \"4120 Bingham\",\r\n        \"city\": \"St. Louis\",\r\n        \"state\": \"MO\",\r\n        \"ZIPCode\": \"63116\"\r\n    },\r\n    \"packageDescription\": {\r\n        \"mailClass\": \"PRIORITY_MAIL\",\r\n        \"rateIndicator\": \"SP\",\r\n        \"weightUOM\": \"lb\",\r\n        \"weight\": 0.5,\r\n        \"dimensionsUOM\": \"in\",\r\n        \"length\": 9,\r\n        \"width\": 0.25,\r\n        \"height\": 6,\r\n        \"processingCategory\": \"MACHINABLE\",\r\n        \"mailingDate\": \"2023-05-26\",\r\n        \"extraServices\": [\r\n            920\r\n        ],\r\n        \"destinationEntryFacilityType\": \"NONE\",\r\n        \"packageOptions\": {\r\n            \"packageValue\": 400\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/labels/v3/label",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"labels",
+								"v3",
 								"label"
 							]
 						}
@@ -1815,6 +1917,120 @@
 								"v3",
 								"extra-service-rates",
 								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "International Labels",
+			"item": [
+				{
+					"name": "3.0 International Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseCollection= pm.response.text().split(\"\\n\");\r",
+									"const labelImageData = responseCollection[10]\r",
+									"const labelType = responseCollection[6].split(\" \")[1]\r",
+									"let template = `data:${labelType};base64,${labelImageData}`\r",
+									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true,
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Payment-Authorization-Token",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageInfo\": {\r\n        \"imageType\": \"PDF\",\r\n        \"labelType\": \"4X6LABEL\",\r\n        \"packageNumber\": 5,\r\n        \"totalPackages\": 50,\r\n        \"holdForManifest\": true\r\n    },\r\n    \"toAddress\": {\r\n        \"firstName\": \"Charlie\",\r\n        \"lastName\": \"Collins\",\r\n        \"firm\": \"MRIF\",\r\n        \"phone\": \"33153235555\",\r\n        \"streetAddress\": \"118 Avenue De France\",\r\n        \"streetAddressAbbreviation\": \"\",\r\n        \"secondaryAddress\": \"\",\r\n        \"city\": \"Paris\",\r\n        \"postalCode\": \"3100020\",\r\n        \"province\": \"\",\r\n        \"urbanization\": \"yes\",\r\n        \"country\": \"France\",\r\n        \"countryISOAlpha2Code\": \"FR\"\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"Bob\",\r\n        \"lastName\": \"Dole\",\r\n        \"firm\": \"Postal Service\",\r\n        \"phone\": \"1234567890\",\r\n        \"streetAddress\": \"901 D ST SW\",\r\n        \"streetAddressAbbreviation\": \"\",\r\n        \"secondaryAddress\": \"STE 101\",\r\n        \"city\": \"Washington\",\r\n        \"cityAbbreviation\": \"\",\r\n        \"urbanization\": \"\",\r\n        \"state\": \"DC\",\r\n        \"ZIPCode\": \"20042\",\r\n        \"ZIPPlus4\": \"2198\",\r\n        \"country\": \"USA\",\r\n        \"countryISOAlpha2Code\": \"US\"\r\n    },\r\n    \"senderAddress\": {\r\n        \"firstName\": \"Jill\",\r\n        \"lastName\": \"Biden\",\r\n        \"firm\": \"Postal Service\",\r\n        \"phone\": \"1234567890\",\r\n        \"streetAddress\": \"901 D ST SW\",\r\n        \"streetAddressAbbreviation\": \"\",\r\n        \"secondaryAddress\": \"STE 101\",\r\n        \"city\": \"Washington\",\r\n        \"cityAbbreviation\": \"\",\r\n        \"urbanization\": \"\",\r\n        \"state\": \"DC\",\r\n        \"ZIPCode\": \"20042\",\r\n        \"ZIPPlus4\": \"2198\",\r\n        \"country\": \"USA\",\r\n        \"countryISOAlpha2Code\": \"US\"\r\n    },\r\n    \"package\": {\r\n        \"mailClass\": \"PRIORITY_MAIL_EXPRESS_INTERNATIONAL\",\r\n        \"rateIndicator\": \"PA\",\r\n        \"weightUOM\": \"lb\",\r\n        \"dimensionsUOM\": \"in\",\r\n        \"length\": 11.0,\r\n        \"width\": 0.5,\r\n        \"height\": 0.5,\r\n        \"girth\": 3.0,\r\n        \"weight\": 0.5,\r\n        \"processingCategory\": \"NON_MACHINABLE\",\r\n        \"extraServices\": [],\r\n        \"packageOptions\": {\r\n            \"packageValue\": 35,\r\n            \"nonDeliveryOption\": \"RETURN\"\r\n        },\r\n        \"destinationEntryFacilityType\": \"NONE\",\r\n        \"mailingDate\": \"2023-05-26\",\r\n        \"customerReference\": []\r\n    },\r\n    \"customsForm\": {\r\n        \"customsContentType\": \"GIFT\",\r\n        \"contentComments\": \"Gift inside!\",\r\n        \"restrictionType\": \"QUARANTINE\",\r\n        \"restrictionComments\": \"Covid\",\r\n        \"AESITN\": \"4783947658\",\r\n        \"invoiceNumber\": \"389403\",\r\n        \"licenseNumber\": \"092747893\",\r\n        \"certificateNumber\": \"CER3629004\",\r\n        \"contents\": [\r\n            {\r\n                \"itemDescription\": \"Gift for Grandma\",\r\n                \"itemQuantity\": 1,\r\n                \"itemValue\": 2,\r\n                \"weightUOM\": \"lb\",\r\n                \"itemWeight\": 0.2,\r\n                \"HSTariffNumber\": \"HST1234\",\r\n                \"countryofOrigin\": \"CA\"\r\n            },\r\n            {\r\n                \"itemDescription\": \"Gift for Grandma\",\r\n                \"itemQuantity\": 2,\r\n                \"itemValue\": 3,\r\n                \"weightUOM\": \"lb\",\r\n                \"itemWeight\": 0.3,\r\n                \"HSTariffNumber\": \"TN4567\",\r\n                \"countryofOrigin\": \"AU\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/international-labels/v3/international-label",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"international-labels",
+								"v3",
+								"international-label"
 							]
 						}
 					},
