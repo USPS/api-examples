@@ -619,17 +619,17 @@ export $PAYMENTTOKEN=<paymentAuthorizationToken>
 ```
 
 ### Domestic Label Request (V2)
-Save the example request body to a file: [label-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-request.json)
+Save the example request body to a file: [domesticlabel-v2-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v2-request.json)
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/labels/v2/label' \
 		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
-		--data @domesticlabel-request \
+		--data @domesticlabel-v2-request \
      
 ```
 Response: 
-[domesticlabel-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-response.json)
+[domesticlabel-v2-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v2-response.json)
 
 ###  Set the payment account for Domestic Label (V3):
 ```sh
@@ -686,6 +686,19 @@ Set your access token to an environment variable for use in subsequent requests.
 ```sh
 export $PAYMENTTOKEN=<paymentAuthorizationToken>
 ```
+
+### Domestic Label Request (V3)
+Save the example request body to a file: [domesticlabel-v3-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-request.json)
+```sh
+curl 	-X 'POST' 'https://api.usps.com/labels/v3/label' \
+		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data @domesticlabel-v3-request \
+     
+```
+Response: 
+[domesticlabel-v3-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-response.json)
 
 
 ## Domestic Prices
