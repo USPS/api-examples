@@ -676,7 +676,7 @@
 			"name": "Addresses",
 			"item": [
 				{
-					"name": "get-address",
+					"name": "1.0 get-address",
 					"request": {
 						"auth": {
 							"type": "oauth2",
@@ -787,7 +787,7 @@
 					"response": []
 				},
 				{
-					"name": "get-city-and-state",
+					"name": "1.0 get-city-and-state",
 					"request": {
 						"auth": {
 							"type": "oauth2",
@@ -878,7 +878,7 @@
 					"response": []
 				},
 				{
-					"name": "get-zip-code",
+					"name": "1.0 get-zip-code",
 					"request": {
 						"auth": {
 							"type": "oauth2",
@@ -985,6 +985,319 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "3.0 get-address",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "challengeAlgorithm",
+									"value": "S256",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "x-user-id",
+								"value": ""
+							},
+							{
+								"key": "authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/addresses/v3/address?streetAddress=3120 M St&secondaryAddress=NW&city=Washington&state=DC",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"addresses",
+								"v3",
+								"address"
+							],
+							"query": [
+								{
+									"key": "streetAddress",
+									"value": "3120 M St"
+								},
+								{
+									"key": "secondaryAddress",
+									"value": "NW"
+								},
+								{
+									"key": "city",
+									"value": "Washington"
+								},
+								{
+									"key": "state",
+									"value": "DC"
+								},
+								{
+									"key": "ZIPCode",
+									"value": "20027",
+									"disabled": true
+								},
+								{
+									"key": "ZIPPlus4",
+									"value": "3704",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 get-city-and-state",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "challengeAlgorithm",
+									"value": "S256",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-User-Id",
+								"value": ""
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/addresses/v3/city-state?ZIPCode=10018",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"addresses",
+								"v3",
+								"city-state"
+							],
+							"query": [
+								{
+									"key": "ZIPCode",
+									"value": "10018"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 get-zip-code",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "challengeAlgorithm",
+									"value": "S256",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "x-user-id",
+								"value": ""
+							},
+							{
+								"key": "authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/addresses/v3/zipcode?streetAddress=520 Maryville Centre Drive&city=Saint Louis&state=MO",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"addresses",
+								"v3",
+								"zipcode"
+							],
+							"query": [
+								{
+									"key": "streetAddress",
+									"value": "520 Maryville Centre Drive"
+								},
+								{
+									"key": "city",
+									"value": "Saint Louis"
+								},
+								{
+									"key": "state",
+									"value": "MO"
+								},
+								{
+									"key": "ZIPCode",
+									"value": "96913",
+									"disabled": true
+								},
+								{
+									"key": "ZIPPlus4",
+									"value": "4208",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -992,7 +1305,7 @@
 			"name": "Carrier Pickup",
 			"item": [
 				{
-					"name": "Carrier Pickup - Eligibility",
+					"name": "1.0 Carrier Pickup - Eligibility",
 					"event": [
 						{
 							"listen": "test",
@@ -1085,7 +1398,7 @@
 					"response": []
 				},
 				{
-					"name": "Carrier Pickup - Create",
+					"name": "1.0 Carrier Pickup - Create",
 					"event": [
 						{
 							"listen": "test",
@@ -1219,7 +1532,7 @@
 					"response": []
 				},
 				{
-					"name": "Carrier Pickup - Get",
+					"name": "1.0 Carrier Pickup - Get",
 					"event": [
 						{
 							"listen": "test",
@@ -1284,7 +1597,7 @@
 					"response": []
 				},
 				{
-					"name": "Carrier Pickup - Update",
+					"name": "1.0 Carrier Pickup - Update",
 					"event": [
 						{
 							"listen": "test",
@@ -1362,7 +1675,7 @@
 					"response": []
 				},
 				{
-					"name": "Carrier Pickup - Delete",
+					"name": "1.0 Carrier Pickup - Delete",
 					"event": [
 						{
 							"listen": "test",
@@ -3094,7 +3407,7 @@
 			"name": "SCAN Form",
 			"item": [
 				{
-					"name": "Label Shipment - Apigee",
+					"name": "1.0 Label Shipment",
 					"event": [
 						{
 							"listen": "test",
@@ -3160,7 +3473,7 @@
 					"response": []
 				},
 				{
-					"name": "MID Shipment - Apigee",
+					"name": "1.0 MID Shipment",
 					"event": [
 						{
 							"listen": "test",
@@ -3226,7 +3539,7 @@
 					"response": []
 				},
 				{
-					"name": "Manifest MID Shipment - Apigee",
+					"name": "1.0 Manifest MID Shipment",
 					"event": [
 						{
 							"listen": "test",
@@ -3286,6 +3599,904 @@
 								"scan-forms",
 								"v1",
 								"scan-form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Label Shipment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const labelImageData = pm.response.json().scanFormImage;\r",
+									"const labelType = \"application/\"+JSON.parse(pm.request.body.raw).imageType;\r",
+									"let template = `data:${labelType};base64,${labelImageData}`\r",
+									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"form\": \"5630\",\r\n    \"imageType\": \"PDF\",\r\n    \"labelType\": \"8.5x11LABEL\",\r\n    \"mailingDate\": \"2023-07-09\",\r\n    \"entryFacilityZIPCode\": \"45011\",\r\n    \"entryFacilityZIPPlus4\": \"\",\r\n    \"destinationEntryFacilityType\": \"NONE\",\r\n    \"overwriteMailingDate\": false,\r\n    \"shipment\": {\r\n        \"trackingNumbers\": [\r\n            \"XXXXXXXXXXXXXXXXXXXXXX\"\r\n        ]\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"firm\": \"USPS\",\r\n        \"streetAddress\": \"4261 Port Union Road\",\r\n        \"streetAddressAbbreviation\": \"\",\r\n        \"secondaryAddress\": \"APT N\",\r\n        \"city\": \"West Chester\",\r\n        \"cityAbbreviation\": \"\",\r\n        \"state\": \"OH\",\r\n        \"ZIPCode\": \"45011\",\r\n        \"ZIPPlus4\": \"1175\",\r\n        \"urbanization\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/scan-forms/v3/scan-form",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"scan-forms",
+								"v3",
+								"scan-form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 MID Shipment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const labelImageData = pm.response.json().scanFormImage;\r",
+									"const labelType = \"application/\"+JSON.parse(pm.request.body.raw).imageType;\r",
+									"let template = `data:${labelType};base64,${labelImageData}`\r",
+									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"form\": \"5630\",\r\n    \"imageType\": \"PDF\",\r\n    \"labelType\": \"8.5x11LABEL\",\r\n    \"mailingDate\": \"2023-07-09\",\r\n    \"entryFacilityZIPCode\": \"45011\",\r\n    \"entryFacilityZIPPlus4\": \"\",\r\n    \"destinationEntryFacilityType\": \"NONE\",\r\n    \"overwriteMailingDate\": false,\r\n    \"shipment\": {\r\n        \"MID\": \"XXXXXXXXX\"\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"firm\": \"USPS\",\r\n        \"streetAddress\": \"4261 Port Union Road\",\r\n        \"streetAddressAbbreviation\": \"\",\r\n        \"secondaryAddress\": \"APT N\",\r\n        \"city\": \"West Chester\",\r\n        \"cityAbbreviation\": \"\",\r\n        \"state\": \"OH\",\r\n        \"ZIPCode\": \"45011\",\r\n        \"ZIPPlus4\": \"1175\",\r\n        \"urbanization\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/scan-forms/v3/scan-form",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"scan-forms",
+								"v3",
+								"scan-form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Manifest MID Shipment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const labelImageData = pm.response.json().scanFormImage;\r",
+									"const labelType = \"application/\"+JSON.parse(pm.request.body.raw).imageType;\r",
+									"let template = `data:${labelType};base64,${labelImageData}`\r",
+									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"form\": \"5630\",\r\n    \"imageType\": \"PDF\",\r\n    \"labelType\": \"8.5x11LABEL\",\r\n    \"mailingDate\": \"2023-07-09\",\r\n    \"entryFacilityZIPCode\": \"45011\",\r\n    \"entryFacilityZIPPlus4\": \"\",\r\n    \"destinationEntryFacilityType\": \"NONE\",\r\n    \"overwriteMailingDate\": false,\r\n    \"shipment\": {\r\n        \"manifestMID\": \"XXXXXXXXX\"\r\n    },\r\n    \"fromAddress\": {\r\n        \"firstName\": \"Leroy\",\r\n        \"lastName\": \"Brown\",\r\n        \"firm\": \"USPS\",\r\n        \"streetAddress\": \"4261 Port Union Road\",\r\n        \"streetAddressAbbreviation\": \"\",\r\n        \"secondaryAddress\": \"APT N\",\r\n        \"city\": \"West Chester\",\r\n        \"cityAbbreviation\": \"\",\r\n        \"state\": \"OH\",\r\n        \"ZIPCode\": \"45011\",\r\n        \"ZIPPlus4\": \"1175\",\r\n        \"urbanization\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/scan-forms/v3/scan-form",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"scan-forms",
+								"v3",
+								"scan-form"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriptions Adjustments",
+			"item": [
+				{
+					"name": "3.0 Create Subscription by CRID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful creation returns a 201\", function() {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\r\n    \"status\": \"ENABLED\",\r\n    \"adminNotification\": [{\r\n        \"email\": \"user@example.com\"\r\n    },\r\n    { \"email\": \"secondUser@example.com\"}\r\n    ],\r\n    \"filterProperties\": {\r\n        \"CRID\": \"XXXXXXXXX\",\r\n        \"eventTypes\": [\r\n            \"ALL\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-adjustments",
+								"v3",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Get Subscription with CRID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful lookup returns a 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions?CRID=XXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-adjustments",
+								"v3",
+								"subscriptions"
+							],
+							"query": [
+								{
+									"key": "CRID",
+									"value": "XXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Get Subscription with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful lookup returns a 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions/{Subscription ID}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-adjustments",
+								"v3",
+								"subscriptions",
+								"{Subscription ID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Update Subscription with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful update returns a 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "If-Match",
+								"value": "{{Etag}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"{Secret}\",\r\n    \"status\": \"DISABLED\",\r\n    \"adminNotification\": [\r\n        {\r\n            \"email\": \"user@example.com\"\r\n        }\r\n    ],\r\n    \"filterProperties\": {\r\n        \"CRID\": \"XXXXXXXXX\",\r\n        \"eventTypes\": [\r\n            \"CENSUS\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions/{Subscription ID}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-adjustments",
+								"v3",
+								"subscriptions",
+								"{Subscription ID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Delete Subscription with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful deletion returns a 204\", function() {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "If-Match",
+								"value": "{{Etag}}",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions/{Subscription ID}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-adjustments",
+								"v3",
+								"subscriptions",
+								"{Subscription ID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriptions Tracking",
+			"item": [
+				{
+					"name": "3.0 Create Subscription by MID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful creation returns a 201\", function() {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"{Secret}\",\r\n    \"status\": \"ENABLED\",\r\n    \"adminNotification\": [{\r\n        \"email\": \"user@example.com\"\r\n    },\r\n    { \"email\": \"secondUser@example.com\"}\r\n    ],\r\n    \"filterProperties\": {\r\n        \"MID\": \"XXXXXXXXX\",\r\n        \"trackingEventTypes\": [\r\n            \"ALL\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-tracking",
+								"v3",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Get Subscription with MID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful lookup returns a 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions?MID=XXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-tracking",
+								"v3",
+								"subscriptions"
+							],
+							"query": [
+								{
+									"key": "MID",
+									"value": "XXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Get Subscription with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful lookup returns a 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions/{Subscription ID}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-tracking",
+								"v3",
+								"subscriptions",
+								"{Subscription ID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Update Subscription with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful update returns a 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "If-Match",
+								"value": "{{Etag}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"{Secret}\",\r\n    \"status\": \"DISABLED\",\r\n    \"adminNotification\": [\r\n        {\r\n            \"email\": \"user@example.com\"\r\n        }\r\n    ],\r\n    \"filterProperties\": {\r\n        \"MID\": \"XXXXXXXXX\",\r\n        \"trackingEventTypes\": [\r\n            \"ALL\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions/{Subscription ID}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-tracking",
+								"v3",
+								"subscriptions",
+								"{Subscription ID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Delete Subscription with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful deletion returns a 204\", function() {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "If-Match",
+								"value": "{{Etag}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions/{Subscription ID}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"subscriptions-tracking",
+								"v3",
+								"subscriptions",
+								"{Subscription ID}"
 							]
 						}
 					},
@@ -3808,6 +5019,112 @@
 									"key": "expand",
 									"value": "DETAIL"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 createNotification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Forwarded-For",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uniqueTrackingId\": \"{Tracking Number}\",\r\n  \"approximateIntakeDate\": \"02/17/2022\",\r\n  \"notifyEventTypes\": [\r\n    \"EMAIL_ALERT\"\r\n  ],\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"notifications\": [\r\n    {\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    {\r\n      \"cellNumber\": \"9995432211\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/tracking/v3/tracking/{Tracking Number}/notifications",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"tracking",
+								"v3",
+								"tracking",
+								"{Tracking Number}",
+								"notifications"
 							]
 						}
 					},
