@@ -858,6 +858,153 @@ Response:
     "warnings": []
 }
 ```
+### Domestic Prices - Total Rates Request (V3)
+Returns eligible extra service prices, descriptions, and SKUs given a set of package rate ingredients.
+```sh
+curl 	-X 'POST' 'https://api.usps.com/prices/v3/total-rates/search' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"originZIPCode": "36105",
+			"destinationZIPCode": "78207",
+			"weight": 7,
+			"length": 9,
+			"width": 0.25,
+			"height": 6,
+			"mailClass": "PARCEL_SELECT",
+			"priceType": "COMMERCIAL",
+			"mailingDate": "2023-07-28",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX",
+			"itemValue": 500,
+			"extraServices": [
+				415
+			]
+		}'
+```
+Response:
+```json
+{
+    "rateOptions": [
+        {
+            "totalBasePrice": 4.59,
+            "totalPrice": 5.84,
+            "rates": [
+                {
+                    "description": "Parcel Select Machinable DDU Single-piece",
+                    "priceType": "COMMERCIAL",
+                    "price": 4.59,
+                    "weight": 7.0,
+                    "dimWeight": 0.0,
+                    "fees": [],
+                    "startDate": "2023-07-09",
+                    "endDate": "",
+                    "mailClass": "PARCEL_SELECT",
+                    "zone": "00",
+                    "SKU": "DVXP0XXUXC00070"
+                }
+            ],
+            "extraServices": [
+                {
+                    "extraService": "415",
+                    "name": "Label Delivery",
+                    "priceType": "COMMERCIAL",
+                    "price": 1.25,
+                    "warnings": [],
+                    "SKU": "DXQX0XXXXCX0000"
+                }
+            ]
+        },
+        {
+            "totalBasePrice": 7.86,
+            "totalPrice": 9.11,
+            "rates": [
+                {
+                    "description": "Parcel Select Machinable DNDC Single-piece",
+                    "priceType": "COMMERCIAL",
+                    "price": 7.86,
+                    "weight": 7.0,
+                    "dimWeight": 0.0,
+                    "fees": [],
+                    "startDate": "2023-07-09",
+                    "endDate": "",
+                    "mailClass": "PARCEL_SELECT",
+                    "zone": "00",
+                    "SKU": "DVXP0XXCXC00070"
+                }
+            ],
+            "extraServices": [
+                {
+                    "extraService": "415",
+                    "name": "Label Delivery",
+                    "priceType": "COMMERCIAL",
+                    "price": 1.25,
+                    "warnings": [],
+                    "SKU": "DXQX0XXXXCX0000"
+                }
+            ]
+        },
+        {
+            "totalBasePrice": 6.79,
+            "totalPrice": 8.04,
+            "rates": [
+                {
+                    "description": "Parcel Select Machinable DSCF SCF",
+                    "priceType": "COMMERCIAL",
+                    "price": 6.79,
+                    "weight": 7.0,
+                    "dimWeight": 0.0,
+                    "fees": [],
+                    "startDate": "2023-07-09",
+                    "endDate": "",
+                    "mailClass": "PARCEL_SELECT",
+                    "zone": "00",
+                    "SKU": "DVXP0XXFTC00070"
+                }
+            ],
+            "extraServices": [
+                {
+                    "extraService": "415",
+                    "name": "Label Delivery",
+                    "priceType": "COMMERCIAL",
+                    "price": 1.25,
+                    "warnings": [],
+                    "SKU": "DXQX0XXXXCX0000"
+                }
+            ]
+        },
+        {
+            "totalBasePrice": 5.74,
+            "totalPrice": 6.99,
+            "rates": [
+                {
+                    "description": "Parcel Select Machinable Single-piece",
+                    "priceType": "COMMERCIAL",
+                    "price": 5.74,
+                    "weight": 7.0,
+                    "dimWeight": 0.0,
+                    "fees": [],
+                    "startDate": "2023-07-09",
+                    "endDate": "",
+                    "mailClass": "PARCEL_SELECT",
+                    "zone": "00",
+                    "SKU": "DVXP0XXBXC00070"
+                }
+            ],
+            "extraServices": [
+                {
+                    "extraService": "415",
+                    "name": "Label Delivery",
+                    "priceType": "COMMERCIAL",
+                    "price": 1.25,
+                    "warnings": [],
+                    "SKU": "DXQX0XXXXCX0000"
+                }
+            ]
+        }
+    ]
+}
+```
 ## International Prices
 The International Prices API can be used to look-up postage rates for international packages:
 - Lookup International Base Postage based on a set of given package characteristics

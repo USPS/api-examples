@@ -2234,6 +2234,84 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "3.0 Domestic Prices - Total Rates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"originZIPCode\": \"36105\",\r\n    \"destinationZIPCode\": \"78207\",\r\n    \"weight\": 7,\r\n    \"length\": 9,\r\n    \"width\": 0.25,\r\n    \"height\": 6,\r\n    \"mailClass\": \"PARCEL_SELECT\",\r\n    \"priceType\": \"COMMERCIAL\",\r\n    \"mailingDate\": \"2023-07-28\",\r\n    \"accountType\": \"EPS\",\r\n    \"accountNumber\": \"XXXXXXXXXX\",\r\n    \"itemValue\": 500,\r\n    \"extraServices\": [\r\n        415\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/prices/v3/total-rates/search",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"prices",
+								"v3",
+								"total-rates",
+								"search"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
