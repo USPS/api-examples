@@ -859,7 +859,7 @@ Response:
 }
 ```
 ### Domestic Prices - Total Rates Request (V3)
-Returns eligible extra service prices, descriptions, and SKUs given a set of package rate ingredients.
+Returns an eligible price given a set of package rate ingredients.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v3/total-rates/search' \
 		--header 'Content-Type: application/json' \
