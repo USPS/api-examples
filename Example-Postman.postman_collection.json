@@ -2723,7 +2723,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"extraService\": 930,\r\n  \"mailClass\": \"PRIORITY_MAIL_INTERNATIONAL\",\r\n  \"priceType\": \"RETAIL\",\r\n  \"itemValue\": "500",\r\n  \"weight\": 4,\r\n  \"mailingDate\": \"2023-05-23\",\r\n  \"rateIndicator\": \"SP\",\r\n  \"destinationCountryCode\": \"CR\",\r\n  \"accountType\": \"EPS\",\r\n  \"accountNumber\": \"XXXXXXXXXX\"\r\n}",
+							"raw": "{\r\n  \"extraService\": 930,\r\n  \"mailClass\": \"PRIORITY_MAIL_INTERNATIONAL\",\r\n  \"priceType\": \"RETAIL\",\r\n  \"itemValue\": \"500\",\r\n  \"weight\": 4,\r\n  \"mailingDate\": \"2023-05-23\",\r\n  \"rateIndicator\": \"SP\",\r\n  \"destinationCountryCode\": \"CR\",\r\n  \"accountType\": \"EPS\",\r\n  \"accountNumber\": \"XXXXXXXXXX\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
