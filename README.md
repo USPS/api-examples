@@ -850,11 +850,11 @@ curl 	-X 'POST' 'https://api.usps.com/prices/v3/extra-service-rates/search' \
 Response:
 ```json
 {
-    "sku": "DXSV0EJXXCX0000",
-    "rate": 9.80,
-    "contractType": "CB",
-    "extraServiceCode": "924",
-    "description": "Signature Confirmation Restricted Delivery",
+    "extraService": "415",
+    "name": "Label Delivery",
+    "sku": "DXQX0XXXXCX0000",
+    "priceType": "RETAIL",
+    "price": 1.25,
     "warnings": []
 }
 ```
@@ -1136,7 +1136,7 @@ curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/extra-service-rate
 			"extraService": 930,
 			"mailClass": "PRIORITY_MAIL_INTERNATIONAL",
 			"priceType": "RETAIL",
-			"itemValue": 500,
+			"itemValue": "500",
 			"weight": 4,
 			"mailingDate": "2023-05-25",
 			"rateIndicator": "SP",
