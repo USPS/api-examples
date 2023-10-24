@@ -1522,55 +1522,39 @@ curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expa
 Response:
 ```json
 {
-    "TrackResults": {
-        "RequestSeqNumber": null,
-        "TrackInfo": {
-            "@ID": "XXXXXXXXXXXXXXXXXXXX",
-            "Class": "Priority Mail<SUP>&reg;</SUP>",
-            "ClassOfMailCode": "PM",
-            "DestinationCity": "CEDAR RAPIDS",
-            "DestinationState": "IA",
-            "DestinationZip": "52404",
-            "EmailEnabled": "true",
-            "KahalaIndicator": "false",
-            "MailTypeCode": "DM",
-            "MPDATE": "2023-02-17 10:56:10.000000",
-            "MPSUFFIX": "518152477",
-            "OriginCity": "RICHMOND",
-            "OriginState": "VA",
-            "OriginZip": "23227",
-            "PodEnabled": "false",
-            "TPodEnabled": "false",
-            "RestoreEnabled": "false",
-            "RramEnabled": "false",
-            "RreEnabled": "false",
-            "Service": [
-                "USPS Tracking<SUP>&#174;</SUP>",
-                "Up to $100 insurance included"
-            ],
-            "ServiceTypeCode": "14",
-            "Status": "USPS in possession of item",
-            "StatusCategory": "Accepted",
-            "StatusSummary": "USPS is now in possession of your item as of 7:31 am on February 15, 2023 in RICHMOND, VA 23227.",
-            "TABLECODE": "T",
-            "TrackSummary": {
-                "EventTime": "7:31 am",
-                "EventDate": "February 15, 2023",
-                "Event": "USPS in possession of item",
-                "EventCity": "RICHMOND",
-                "EventState": "VA",
-                "EventZIPCode": "23227",
-                "EventCountry": null,
-                "FirmName": null,
-                "Name": null,
-                "AuthorizedAgent": "false",
-                "EventCode": "03",
-                "DeliveryAttributeCode": null,
-                "GMT": "12:31:32",
-                "GMTOffset": "-05:00"
-            }
-        }
-    }
+    "destinationCity": "CEDAR RAPIDS",
+    "destinationState": "IA",
+    "destinationZIP": "52404",
+    "emailEnabled": "true",
+    "kahalaIndicator": "false",
+    "mailClass": "Priority Mail<SUP>&reg;</SUP>",
+    "mailType": "DM",
+    "originCity": "RICHMOND",
+    "originState": "VA",
+    "originZIP": "23227",
+    "proofOfDeliveryEnabled": "false",
+    "restoreEnabled": "false",
+    "RRAMEnabled": "false",
+    "RREEnabled": "false",
+    "services": "USPS Tracking<SUP>&#174;</SUP>",
+    "serviceTypeCode": "14",
+    "status": "USPS in possession of item",
+    "statusCategory": "Accepted",
+    "statusSummary": "USPS is now in possession of your item as of 7:31 am on August 2, 2023 in RICHMOND, VA 23227.",
+    "trackingEvents": {
+        "eventType": "USPS in possession of item",
+        "eventTimestamp": "2023-08-02T07:31:00Z",
+        "eventCountry": null,
+        "eventCity": "RICHMOND",
+        "eventState": "VA",
+        "eventZIP": "23227",
+        "firm": null,
+        "name": null,
+        "authorizedAgent": "false",
+        "eventCode": "03",
+        "additionalProp": null
+    },
+    "trackingNumber": "XXXXXXXXXXXXXXXXXXXX"
 }
 ```
 ### Tracking - Email Notification Request (V1)
