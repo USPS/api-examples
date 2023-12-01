@@ -1005,6 +1005,57 @@ Response:
     ]
 }
 ```
+### Domestic Prices - Letter Rates Request (V3)
+Performs a search for letter prices using the submitted rate ingredients.
+```sh
+curl 	-X 'POST' 'https://api.usps.com/prices/v3/letter-rates/search' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"weight": 3.5,
+			"length": 4.0,
+			"height": 5.0,
+			"thickness": 0.25,
+			"processingCategory": "LETTERS",
+			"mailingDate": "2023-11-29",
+			"nonMachinableIndicators": {
+				"isPolybagged": true,
+				"hasClosureDevices": true,
+				"hasLooseItems": true,
+				"isRigid": true,
+				"isSelfMailer": true,
+				"isBooklet": true
+			}
+		}'
+```
+Response:
+```json
+{
+    "totalBasePrice": 1.75,
+    "rates": [
+        {
+            "SKU": "DFLL0XXXXR00035",
+            "description": "First Class Letter Metered",
+            "priceType": "RETAIL",
+            "price": 1.35,
+            "weight": 3.5,
+            "dimWeight": null,
+            "fees": [
+                {
+                    "name": "Nonmachinable letter fee",
+                    "SKU": "N/A",
+                    "price": 0.4
+                }
+            ],
+            "startDate": "2023-07-09",
+            "endDate": "",
+            "warnings": [],
+            "mailClass": "USPS_GROUND_ADVANTAGE",
+            "zone": null
+        }
+    ]
+}
+```
 ## International Prices
 The International Prices API can be used to look-up postage rates for international packages:
 - Lookup International Base Postage based on a set of given package characteristics
