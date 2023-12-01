@@ -2312,6 +2312,84 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "3.0 Domestic Prices - Letter Rates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"weight\": 3.5,\r\n    \"length\": 4.0,\r\n    \"height\": 5.0,\r\n    \"thickness\": 0.25,\r\n    \"processingCategory\": \"LETTERS\",\r\n    \"mailingDate\": \"2023-11-29\",\r\n    \"nonMachinableIndicators\": {\r\n        \"isPolybagged\": true,\r\n        \"hasClosureDevices\": true,\r\n        \"hasLooseItems\": true,\r\n        \"isRigid\": true,\r\n        \"isSelfMailer\": true,\r\n        \"isBooklet\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/prices/v3/letter-rates/search",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"prices",
+								"v3",
+								"letter-rates",
+								"search"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
