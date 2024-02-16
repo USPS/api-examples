@@ -483,18 +483,80 @@
 					"response": []
 				},
 				{
+					"name": "3.0 OAuth Authorization Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "TINTCYALF=XyZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"response_type\": \"code\",\r\n    \"redirect_uri\": \"https://mycompany.com/authorize\",\r\n    \"scope\": \"prices labels tracking\",\r\n    \"state\": \"nonce=abscdefg#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/authorize",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "3.0 OAuth Token",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.environment.set(\"token\", pm.response.json().access_token);\r",
-									"\r",
-									"var moment = require('moment');\r",
-									"\r",
-									"pm.environment.set('vCurrentDate', moment().format(\"YYYY-MM-DD\"));\r",
-									"pm.environment.set('currentDatePlus3', moment().add(3, \"days\").format(\"YYYY-MM-DD\"));"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -535,6 +597,67 @@
 								"oauth2",
 								"v3",
 								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Revoke OAuth Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"ExDTmpomcDt6pTbFVvSgQ1km39YmX8Oy\",\r\n    \"token_type_hint\": \"refresh_token\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/revoke",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"revoke"
 							]
 						}
 					},
