@@ -35,7 +35,7 @@ CUSTOMER_REGISTRATION_ID=XXXX
 MAILER_ID=XXXX
 ```
 
-### Example OAuth token request (V1):
+### Example OAuth Token request (V1):
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v1/token" \
      --header 'Content-Type:application/x-www-form-urlencoded;charset=utf-8' \
@@ -98,7 +98,28 @@ curl "https://api.usps.com/oauth2/v1/introspect" \
 }
 ```
 
-### Example OAuth token request (V3):
+### Example OAuth Authorization Code request (V3):
+```sh
+curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
+	--header 'Cookie: TINTCYALF=$TINTCYALF' \
+	--header 'Content-Type: application/json' \
+	--header 'Authorization: Basic N0MyejJiS1FodDJUTEJjVTE2VmxlZUplQm1hdExiMjQ6TENtSE85RUFENXk0bUNURA==' \
+	--data '{
+		"client_id": "$CLIENT_ID",
+		"response_type": "code",
+		"redirect_uri": "https://mycompany.com/authorize",
+		"scope": "prices labels tracking",
+		"state": "nonce=abscdefg#"
+		}'
+```
+```json
+{
+    "code": "hgo6sfHd",
+    "state": "nonce=abscdefg#"
+}
+```
+
+### Example OAuth Token request (V3):
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
@@ -127,6 +148,22 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
 Set your access token to an environment variable for use in subsequent requests.
 ```sh
 export $TOKEN=<access_token>
+```
+
+### Example Revoke OAuth Token request (V3):
+```sh
+curl -X 'POST' "https://api.usps.com/oauth2/v3/revoke' \
+	--header 'Content-Type: application/json' \
+	--header 'Authorization: Basic N0MyejJiS1FodDJUTEJjVTE2VmxlZUplQm1hdExiMjQ6TENtSE85RUFENXk0bUNURA==' \
+	--data '{
+		"token": "ExDTmpomcDt6pTbFVvSgQ1km39YmX8Oy",
+		"token_type_hint": "refresh_token"
+		}'
+```
+```
+{
+    200 OK
+}
 ```
 
 
