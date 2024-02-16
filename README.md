@@ -161,9 +161,7 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/revoke' \
 		}'
 ```
 ```
-{
     200 OK
-}
 ```
 
 
