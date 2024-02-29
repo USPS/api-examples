@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+		"_postman_id": "",
 		"name": "Example-Postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "XXXXXXXX"
+		"_exporter_id": ""
 	},
 	"item": [
 		{
-			"name": "Oauth Token and Payment",
+			"name": "OAuth",
 			"item": [
 				{
 					"name": "OAuth Token for Domestic APIs",
@@ -64,52 +64,6 @@
 					"response": []
 				},
 				{
-					"name": "Domestic Label Payment",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"accountType\":\"EPS\",\"accountNumber\":\"XXXXXXXXXX\"}"
-						},
-						"url": {
-							"raw": "https://api.usps.com/labels/v1/label/payment-account",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"labels",
-								"v1",
-								"label",
-								"payment-account"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "OAuth Token for Intl Label",
 					"event": [
 						{
@@ -158,52 +112,6 @@
 								"oauth2",
 								"v1",
 								"token"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "International Label Payment",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "authorization",
-								"value": "Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"accountType\":\"EPS\",\"accountNumber\":\"XXXXXXXXXX\"}"
-						},
-						"url": {
-							"raw": "https://api.usps.com/international-labels/v1/international-label/payment-account",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"international-labels",
-								"v1",
-								"international-label",
-								"payment-account"
 							]
 						}
 					},
@@ -359,6 +267,285 @@
 					"response": []
 				},
 				{
+					"name": "3.0 OAuth Authorization Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "client_secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client_id",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "TINTCYALF=XyZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"response_type\": \"code\",\r\n    \"redirect_uri\": \"https://mycompany.com/authorize\",\r\n    \"scope\": \"prices labels tracking\",\r\n    \"state\": \"nonce=abscdefg#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/authorize",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 OAuth Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"client_secret\": \"XXXXXXXXXX\",\r\n    \"grant_type\": \"client_credentials\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Revoke OAuth Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true,
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "client_secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client_id",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"ExDTmpomcDt6pTbFVvSgQ1km39YmX8Oy\",\r\n    \"token_type_hint\": \"refresh_token\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/revoke",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Domestic Label Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"accountType\":\"EPS\",\"accountNumber\":\"XXXXXXXXXX\"}"
+						},
+						"url": {
+							"raw": "https://api.usps.com/labels/v1/label/payment-account",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"labels",
+								"v1",
+								"label",
+								"payment-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "International Label Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"accountType\":\"EPS\",\"accountNumber\":\"XXXXXXXXXX\"}"
+						},
+						"url": {
+							"raw": "https://api.usps.com/international-labels/v1/international-label/payment-account",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"international-labels",
+								"v1",
+								"international-label",
+								"payment-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "2.0 Domestic Label Payment",
 					"event": [
 						{
@@ -477,187 +664,6 @@
 								"payments",
 								"v2",
 								"payment-authorization"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 OAuth Authorization Code",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {},
-						"disableCookies": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "{{client_secret}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{client_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "TINTCYALF=XyZ",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"response_type\": \"code\",\r\n    \"redirect_uri\": \"https://mycompany.com/authorize\",\r\n    \"scope\": \"prices labels tracking\",\r\n    \"state\": \"nonce=abscdefg#\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/authorize",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"oauth2",
-								"v3",
-								"authorize"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 OAuth Token",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {},
-						"disableCookies": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"client_secret\": \"XXXXXXXXXX\",\r\n    \"grant_type\": \"client_credentials\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/token",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"oauth2",
-								"v3",
-								"token"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Revoke OAuth Token",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {},
-						"disableCookies": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "{{client_secret}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{client_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"token\": \"ExDTmpomcDt6pTbFVvSgQ1km39YmX8Oy\",\r\n    \"token_type_hint\": \"refresh_token\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/revoke",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"oauth2",
-								"v3",
-								"revoke"
 							]
 						}
 					},
@@ -788,6 +794,78 @@
 								"payments",
 								"v3",
 								"payment-authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Payment Account Inquiry",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/payments/v3/payment-account/XXXXXXXXXX?accountType=EPS&amount=100",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"payments",
+								"v3",
+								"payment-account",
+								"XXXXXXXXXX"
+							],
+							"query": [
+								{
+									"key": "accountType",
+									"value": "EPS"
+								},
+								{
+									"key": "amount",
+									"value": "100"
+								}
 							]
 						}
 					},
@@ -2831,13 +2909,7 @@
 							]
 						},
 						"method": "POST",
-						"header": [
-							{
-								"key": "X-Payment-Authorization-Token",
-								"value": "",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"originZIPCode\": \"22407\",\r\n    \"foreignPostalCode\": \"10109\",\r\n    \"destinationCountryCode\": \"CA\",\r\n    \"destinationEntryFacilityType\": \"NONE\",\r\n    \"weight\": 0.5,\r\n    \"length\": 9,\r\n    \"width\": 15,\r\n    \"height\": 6,\r\n    \"mailClass\": \"FIRST-CLASS_PACKAGE_INTERNATIONAL_SERVICE\",\r\n    \"processingCategory\": \"NON_MACHINABLE\",\r\n    \"rateIndicator\": \"SP\",\r\n    \"priceType\": \"COMMERCIAL\",\r\n    \"accountType\": \"EPS\",\r\n    \"accountNumber\": \"XXXXXXXXXX\",\r\n    \"mailingDate\": \"2023-05-23\"\r\n}",
@@ -2915,13 +2987,7 @@
 							]
 						},
 						"method": "POST",
-						"header": [
-							{
-								"key": "X-Payment-Authorization-Token",
-								"value": "",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"extraService\": 930,\r\n  \"mailClass\": \"PRIORITY_MAIL_INTERNATIONAL\",\r\n  \"priceType\": \"RETAIL\",\r\n  \"itemValue\": \"500\",\r\n  \"weight\": 4,\r\n  \"mailingDate\": \"2023-05-23\",\r\n  \"rateIndicator\": \"SP\",\r\n  \"destinationCountryCode\": \"CR\",\r\n  \"accountType\": \"EPS\",\r\n  \"accountNumber\": \"XXXXXXXXXX\"\r\n}",
@@ -2943,6 +3009,162 @@
 								"international-prices",
 								"v3",
 								"extra-service-rates",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 International Prices - Base Rates List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"originZIPCode\": \"22407\",\r\n    \"foreignPostalCode\": \"10109\",\r\n    \"destinationCountryCode\": \"CA\",\r\n    \"weight\": 4,\r\n    \"mailingDate\": \"2024-02-29\",\r\n    \"length\": 6,\r\n    \"width\": 0.25,\r\n    \"height\": 3,\r\n    \"mailClass\": \"PRIORITY_MAIL_INTERNATIONAL\",\r\n    \"accountType\": \"EPS\",\r\n    \"accountNumber\": \"XXXXXXXXXX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/international-prices/v3/base-rates-list/search",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"international-prices",
+								"v3",
+								"base-rates-list",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 International Prices - Total Rates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"originZIPCode\": \"22407\",\r\n    \"foreignPostalCode\": \"63118\",\r\n    \"destinationCountryCode\": \"CA\",\r\n    \"weight\": 1.2,\r\n    \"length\": 6,\r\n    \"width\": 6,\r\n    \"height\": 6,\r\n    \"mailClass\": \"PRIORITY_MAIL_EXPRESS_INTERNATIONAL\",\r\n    \"priceType\": \"COMMERCIAL\",\r\n    \"mailingDate\": \"2024-02-29\",\r\n    \"accountType\": \"EPS\",\r\n    \"accountNumber\": \"XXXXXXXXXX\",\r\n    \"itemValue\": 300,\r\n    \"extraServices\": [\r\n        955\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/international-prices/v3/total-rates/search",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"international-prices",
+								"v3",
+								"total-rates",
 								"search"
 							]
 						}
