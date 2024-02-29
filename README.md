@@ -1141,7 +1141,6 @@ curl 	-X 'POST' 'https://api.usps.com/international-prices/v1/base-rates/search'
 ### International Prices - Base Rates Request (V3)
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates/search' \
-		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1215,7 +1214,6 @@ Response:
 Given a set of rate ingredients, returns international extra service rates. If contractId and productId are present, include contract-based rates in the results.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/extra-service-rates/search' \
-		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1240,6 +1238,267 @@ Response:
     "extraService": "930",
     "name": "Insurance <= $500",
     "warnings": []
+}
+```
+### International Prices - Base Rates List Request (V3)
+Given size/weight/destination of pieces, returns a list of potential rates. Can also search for contract rates by providing mailer id, EPS, permit number or vendor number and account. If searching for contract rates, then a specified mail class is required.
+```sh
+curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates-list/search' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"originZIPCode": "22407",
+			"foreignPostalCode": "10109",
+			"destinationCountryCode": "CA",
+			"weight": 4,
+			"mailingDate": "2024-02-29",
+			"length": 6,
+			"width": 0.25,
+			"height": 3,
+			"mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX"
+		}'
+```
+Response:
+```json
+{
+    "rateOptions": [
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPFE0XXXXB01040",
+                    "price": 29.66,
+                    "weight": 4,
+                    "description": "Priority Mail International ISC Flat Rate Envelope"
+                }
+            ],
+            "totalBasePrice": 29.66
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPFB2XXXXB01040",
+                    "price": 30.67,
+                    "weight": 4,
+                    "description": "Priority Mail International Machinable ISC Small Flat Rate Box"
+                }
+            ],
+            "totalBasePrice": 30.67
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPFB0XXXXB01200",
+                    "price": 70.55,
+                    "weight": 4,
+                    "description": "Priority Mail International Machinable ISC Large Flat Rate Box"
+                }
+            ],
+            "totalBasePrice": 70.55
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPFB1XXXXB01200",
+                    "price": 58.06,
+                    "weight": 4,
+                    "description": "Priority Mail International Machinable ISC Medium Flat Rate Box"
+                }
+            ],
+            "totalBasePrice": 58.06
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPFE2XXXXB01040",
+                    "price": 29.66,
+                    "weight": 4,
+                    "description": "Priority Mail International Machinable ISC Padded Flat Rate Envelope"
+                }
+            ],
+            "totalBasePrice": 29.66
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPXX0XXXXB01040",
+                    "price": 50.6,
+                    "weight": 4,
+                    "description": "Priority Mail International ISC Single-piece"
+                }
+            ],
+            "totalBasePrice": 50.6
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPXX0XXXXB01040",
+                    "price": 50.6,
+                    "weight": 4,
+                    "description": "Priority Mail International Machinable ISC Single-piece"
+                }
+            ],
+            "totalBasePrice": 50.6
+        },
+        {
+            "rates": [
+                {
+                    "mailClass": "PRIORITY_MAIL_INTERNATIONAL",
+                    "priceType": "COMMERCIAL_BASE",
+                    "dimWeight": 0,
+                    "zone": "01",
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "SKU": "IPFE1XXXXB01040",
+                    "price": 29.66,
+                    "weight": 4,
+                    "description": "Priority Mail International ISC Legal Flat Rate Envelope"
+                }
+            ],
+            "totalBasePrice": 29.66
+        }
+    ]
+}
+```
+### International Prices - Total Rates Request (V3)
+Performs a search for base price and extraServices using the submitted rate ingredients. If itemValue is not included the response will not include insurance, registered mail, and collect on delivery extra services. If the extraService array is not specified then all eligible extra services will be included.
+```sh
+curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/total-rates/search' \
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			"originZIPCode": "22407",
+			"foreignPostalCode": "63118",
+			"destinationCountryCode": "CA",
+			"weight": 1.2,
+			"length": 6,
+			"width": 6,
+			"height": 6,
+			"mailClass": "PRIORITY_MAIL_EXPRESS_INTERNATIONAL",
+			"priceType": "COMMERCIAL",
+			"mailingDate": "2024-02-29",
+			"accountType": "EPS",
+			"accountNumber": "XXXXXXXXXX",
+			"itemValue": 300,
+			"extraServices": [
+				955
+			]
+		}'
+```
+Response:
+```json
+{
+    "rateOptions": [
+        {
+            "totalBasePrice": 65.64,
+            "totalPrice": 71.44,
+            "rates": [
+                {
+                    "description": "Priority Mail Express International ISC Single-piece",
+                    "priceType": "COMMERCIAL_BASE",
+                    "price": 65.64,
+                    "weight": 1.2,
+                    "dimWeight": 0.0,
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "mailClass": "PRIORITY_MAIL_EXPRESS_INTERNATIONAL",
+                    "zone": "01",
+                    "SKU": "IEXX0XXXXB01020"
+                }
+            ],
+            "extraServices": [
+                {
+                    "extraService": "955",
+                    "name": "Return Receipt",
+                    "priceType": "COMMERCIAL",
+                    "price": 5.80,
+                    "warnings": [],
+                    "SKU": "IXRX0XXXXCX0000"
+                }
+            ]
+        },
+        {
+            "totalBasePrice": 55.49,
+            "totalPrice": 61.29,
+            "rates": [
+                {
+                    "description": "Priority Mail Express International ISC Padded Flat Rate Envelope",
+                    "priceType": "COMMERCIAL_BASE",
+                    "price": 55.49,
+                    "weight": 1.2,
+                    "dimWeight": 0.0,
+                    "fees": [],
+                    "startDate": "2024-01-21",
+                    "endDate": "",
+                    "mailClass": "PRIORITY_MAIL_EXPRESS_INTERNATIONAL",
+                    "zone": "01",
+                    "SKU": "IEFE2XXXXB01040"
+                }
+            ],
+            "extraServices": [
+                {
+                    "extraService": "955",
+                    "name": "Return Receipt",
+                    "priceType": "COMMERCIAL",
+                    "price": 5.80,
+                    "warnings": [],
+                    "SKU": "IXRX0XXXXCX0000"
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -1358,20 +1617,17 @@ Response:
         "cutOffTime": 1700,
         "serviceStandard": 2,
         "serviceStandardMessage": "2-Day",
-        "acceptanceLocations": [
-            {
+        "acceptanceLocations": {
                 "facilityType": "POST OFFICE",
                 "streetAddress": "223 W 38TH ST",
                 "city": "NEW YORK",
                 "state": "NY",
                 "ZIPCode": 10018,
                 "ZIPPlus4": 9998
-            }
-        ],
+        },
         "delivery": {
             "scheduledDeliveryDateTime": "2023-05-30",
-            "holdForPickupLocation": [
-                {
+            "holdForPickupLocation": {
                     "facilityName": "PARKWAY",
                     "streetAddress": "4301 BROOKFIELD DR",
                     "city": "SACRAMENTO",
@@ -1388,8 +1644,7 @@ Response:
                         "Sunday": "0000",
                         "holidays": "0000"
                     }
-                }
-            ]
+            }
         }
     }
 ]
