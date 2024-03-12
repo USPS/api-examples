@@ -267,7 +267,7 @@
 					"response": []
 				},
 				{
-					"name": "3.0 OAuth Authorization Code",
+					"name": "3.0 Authorization Code",
 					"event": [
 						{
 							"listen": "test",
@@ -334,7 +334,7 @@
 					"response": []
 				},
 				{
-					"name": "3.0 OAuth Token",
+					"name": "3.0 OAuth Client Credentials Token",
 					"event": [
 						{
 							"listen": "test",
@@ -363,6 +363,112 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"client_secret\": \"XXXXXXXXXX\",\r\n    \"grant_type\": \"client_credentials\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 OAuth Authorization Code Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"client_secret\": \"XXXXXXXXXX\",\r\n    \"code\": \"xxxxxxxx\",\r\n    \"redirect_uri\": \"https://mycompany.com/authorize\",\r\n    \"scope\": \"prices labels tracking\",\r\n    \"state\": \"nonce=abscdefg#\",\r\n    \"grant_type\": \"authorization_code\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/oauth2/v3/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"oauth2",
+								"v3",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 OAuth Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableCookies": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"client_secret\": \"XXXXXXXXXX\",\r\n    \"grant_type\": \"refresh_token\",\r\n    \"refresh_token\": \"XXXXXXXXXX\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -424,7 +530,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"token\": \"ExDTmpomcDt6pTbFVvSgQ1km39YmX8Oy\",\r\n    \"token_type_hint\": \"refresh_token\"\r\n}",
+							"raw": "{\r\n    \"token\": \"XXXXXXXXXX\",\r\n    \"token_type_hint\": \"refresh_token\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
