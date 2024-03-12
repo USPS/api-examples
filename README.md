@@ -98,7 +98,7 @@ curl "https://api.usps.com/oauth2/v1/introspect" \
 }
 ```
 
-### Example OAuth Authorization Code request (V3):
+### Example Authorization Code request (V3):
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
 	--header 'Cookie: TINTCYALF=$TINTCYALF' \
@@ -119,7 +119,7 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
 }
 ```
 
-### Example OAuth Token request (V3):
+### Example OAuth Client Credentials Token request (V3):
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
@@ -148,6 +148,73 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
 Set your access token to an environment variable for use in subsequent requests.
 ```sh
 export $TOKEN=<access_token>
+```
+
+### Example OAuth Authorization Code Token request (V3):
+```sh
+curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
+     --header 'Content-Type: application/json' \
+     --data '{
+		"client_id": "$CLIENT_ID",
+		"client_secret": "$CLIENT_SECRET",
+		"code": "$CODE",
+		"redirect_uri": "https://mycompany.com/authorize",
+		"scope": "prices labels tracking",
+		"state": "nonce=abscdefg#",
+		"grant_type": "authorization_code"
+		}'
+```
+```json
+{
+    "access_token": "XXXXXXXXXXXXXXXXX",
+    "token_type": "Bearer",
+    "issued_at": "1111111111111",
+    "expires_in": "11111",
+    "status": "approved",
+    "scope": "prices labels tracking",
+    "issuer": "api.usps.com",
+	"refresh_token": "XXXXXXXXXXXXXXXXX",
+    "refresh_token_issued_at": 1111111111111,
+    "refresh_token_status": "approved",
+    "refresh_token_expires_in": 11111,
+    "refresh_count": 0,
+    "client_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "application_name": "XXXXXX-XXXX-XXXX-XXX-XXXXXXXXXXXX",
+    "api_products": "[XXXXXXX]",
+    "public_key": "XXXXXXXXXXXXXXXXX"
+}
+```
+
+### Example OAuth Refresh Token request (V3):
+```sh
+curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
+     --header 'Content-Type: application/json' \
+     --data '{
+		"client_id": "$CLIENT_ID",
+		"client_secret": "$CLIENT_SECRET",
+		"grant_type": "refresh_token",
+		"refresh_token": "XXXXXXXXXXXXXXXXX"
+		}'
+```
+```json
+{
+    "access_token": "XXXXXXXXXXXXXXXXX",
+    "token_type": "Bearer",
+    "issued_at": "1111111111111",
+    "expires_in": "11111",
+    "status": "approved",
+    "scope": "prices labels tracking",
+    "issuer": "api.usps.com",
+	"refresh_token": "XXXXXXXXXXXXXXXXX",
+    "refresh_token_issued_at": 1111111111111,
+    "refresh_token_status": "approved",
+    "refresh_token_expires_in": 11111,
+    "refresh_count": 1,
+    "client_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "application_name": "XXXXXX-XXXX-XXXX-XXX-XXXXXXXXXXXX",
+    "api_products": "[XXXXXXX]",
+    "public_key": "XXXXXXXXXXXXXXXXX"
+}
 ```
 
 ### Example Revoke OAuth Token request (V3):
