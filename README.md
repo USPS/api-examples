@@ -321,6 +321,126 @@ Response:
 ```
 
 
+## Appointments
+The API allows users to check for available appointment slots and create an appointment.
+
+### Appointment Availability - Get
+Appointment-Availability request provides ability to find available appointments.
+```sh
+curl	-X 'GET' 'https://api.usps.com/appointments/v3/appointment-availability?mailClass=USPS_CONNECT_SAME_DAY&dropshipKey=PZ10171&appointmentType=PALLET&appointmentStartDate=2024-03-28&appointmentEndDate=2024-03-28' \
+	--header 'Accept: appplication/json' \
+	--header 'Authorization: Bearer $TOKEN' \
+	--data ''
+```
+Response:
+```json
+{
+    "appointmentSlots": [
+        {
+            "slot": "2024-03-28T07:00:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T07:15:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T07:30:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T07:45:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T10:00:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T10:15:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T10:30:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T10:45:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T11:00:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T11:15:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T11:30:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T11:45:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T12:00:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T12:15:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T12:30:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T12:45:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T13:00:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T13:15:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T13:30:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T13:45:00.00Z"
+        },
+        {
+            "slot": "2024-03-28T14:00:00.00Z"
+        }
+    ]
+}
+```
+
+### Appointment - Create
+FAST-Appointments request provides the ability to create an appointment.
+```sh
+curl -X 'POST' 'https://api.usps.com/v3/fast-appointments' \
+--header 'Accept: appplication/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer $TOKEN' \
+--data '{
+    "appointmentType": "PALLET",
+    "CRID": "94879959",
+    "dropshipKey": "PZ10171",
+    "preferredAppointment": "2024-03-28T13:00:00Z",
+    "mailClass": "USPS_CONNECT_SAME_DAY",
+    "palletPositionCount": 0,
+    "processingCategory": "MACHINABLE",
+    "sackCount": 2,
+    "bundleCount": 3,
+    "parcelCount": 2
+}' 
+```
+Response:
+```json
+{
+    "appointmentType": "PALLET",
+    "CRID": "94879959",
+    "dropshipKey": "PZ10171",
+    "mailClass": "USPS_CONNECT_SAME_DAY",
+    "palletPositionCount": 0,
+    "preferredAppointment": "2024-03-28T13:00:00Z",
+    "bundleCount": 3,
+    "parcelCount": 2,
+    "processingCategory": "MACHINABLE",
+    "sackCount": 2,
+    "appointmentId": 913227005
+}
+```
+
+
 ## Carrier Pickup
 The API supports customers scheduling a carrier to pick up your packages on the next USPS delivery day (Monday through Saturday, excluding holidays) for free. Carrier Pickup is available for sending packages using Priority Mail Express, Priority Mail, First Class Package Service Commercial, international delivery services, or for returned merchandise. You are able check availability, schedule, change, cancel and inquire on a carrier pickup.
 
