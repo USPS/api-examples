@@ -1609,6 +1609,106 @@
 			]
 		},
 		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "3.0 appointment-availability",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.usps.com/appointments/v3/appointment-availability?mailClass=USPS_CONNECT_SAME_DAY&dropshipKey=PZ10171&appointmentType=PALLET&appointmentStartDate=2024-03-28&appointmentEndDate=2024-04-04",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"appointments",
+								"v3",
+								"appointment-availability"
+							],
+							"query": [
+								{
+									"key": "mailClass",
+									"value": "USPS_CONNECT_SAME_DAY"
+								},
+								{
+									"key": "dropshipKey",
+									"value": "PZ10171"
+								},
+								{
+									"key": "appointmentType",
+									"value": "PALLET"
+								},
+								{
+									"key": "appointmentStartDate",
+									"value": "2024-03-28"
+								},
+								{
+									"key": "appointmentEndDate",
+									"value": "2024-04-04"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 fast-appointments",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"appointmentType\": \"PALLET\",\r\n    \"CRID\": \"94879959\",\r\n    \"dropshipKey\": \"PZ10171\",\r\n    \"preferredAppointment\": \"2024-03-31T13:00:00Z\",\r\n    \"mailClass\": \"USPS_CONNECT_SAME_DAY\",\r\n    \"palletPositionCount\": 0,\r\n    \"processingCategory\": \"MACHINABLE\",\r\n    \"sackCount\": 2,\r\n    \"bundleCount\": 3,\r\n    \"parcelCount\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/appointments/v3/fast-appointments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"appointments",
+								"v3",
+								"fast-appointments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Carrier Pickup",
 			"item": [
 				{
@@ -4437,673 +4537,6 @@
 								"scan-forms",
 								"v3",
 								"scan-form"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Subscriptions Adjustments",
-			"item": [
-				{
-					"name": "3.0 Create Subscription by CRID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful creation returns a 201\", function() {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\r\n    \"status\": \"ENABLED\",\r\n    \"adminNotification\": [{\r\n        \"email\": \"user@example.com\"\r\n    },\r\n    { \"email\": \"secondUser@example.com\"}\r\n    ],\r\n    \"filterProperties\": {\r\n        \"CRID\": \"XXXXXXXXX\",\r\n        \"eventTypes\": [\r\n            \"ALL\"\r\n        ]\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-adjustments",
-								"v3",
-								"subscriptions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Get Subscription with CRID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful lookup returns a 200\", function() {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions?CRID=XXXXXXXXX",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-adjustments",
-								"v3",
-								"subscriptions"
-							],
-							"query": [
-								{
-									"key": "CRID",
-									"value": "XXXXXXXXX"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Get Subscription with ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful lookup returns a 200\", function() {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions/{Subscription ID}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-adjustments",
-								"v3",
-								"subscriptions",
-								"{Subscription ID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Update Subscription with ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful update returns a 200\", function() {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							},
-							{
-								"key": "If-Match",
-								"value": "{{Etag}}",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"{Secret}\",\r\n    \"status\": \"DISABLED\",\r\n    \"adminNotification\": [\r\n        {\r\n            \"email\": \"user@example.com\"\r\n        }\r\n    ],\r\n    \"filterProperties\": {\r\n        \"CRID\": \"XXXXXXXXX\",\r\n        \"eventTypes\": [\r\n            \"CENSUS\"\r\n        ]\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions/{Subscription ID}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-adjustments",
-								"v3",
-								"subscriptions",
-								"{Subscription ID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Delete Subscription with ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful deletion returns a 204\", function() {\r",
-									"    pm.response.to.have.status(204);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							},
-							{
-								"key": "If-Match",
-								"value": "{{Etag}}",
-								"type": "default"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-adjustments/v3/subscriptions/{Subscription ID}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-adjustments",
-								"v3",
-								"subscriptions",
-								"{Subscription ID}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Subscriptions Tracking",
-			"item": [
-				{
-					"name": "3.0 Create Subscription by MID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful creation returns a 201\", function() {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"{Secret}\",\r\n    \"status\": \"ENABLED\",\r\n    \"adminNotification\": [{\r\n        \"email\": \"user@example.com\"\r\n    },\r\n    { \"email\": \"secondUser@example.com\"}\r\n    ],\r\n    \"filterProperties\": {\r\n        \"MID\": \"XXXXXXXXX\",\r\n        \"trackingEventTypes\": [\r\n            \"ALL\"\r\n        ]\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-tracking",
-								"v3",
-								"subscriptions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Get Subscription with MID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful lookup returns a 200\", function() {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions?MID=XXXXXXXXX",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-tracking",
-								"v3",
-								"subscriptions"
-							],
-							"query": [
-								{
-									"key": "MID",
-									"value": "XXXXXXXXX"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Get Subscription with ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful lookup returns a 200\", function() {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							}
-						],
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions/{Subscription ID}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-tracking",
-								"v3",
-								"subscriptions",
-								"{Subscription ID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Update Subscription with ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful update returns a 200\", function() {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							},
-							{
-								"key": "If-Match",
-								"value": "{{Etag}}",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"listenerURL\": \"{Listener URL}\",\r\n    \"secret\": \"{Secret}\",\r\n    \"status\": \"DISABLED\",\r\n    \"adminNotification\": [\r\n        {\r\n            \"email\": \"user@example.com\"\r\n        }\r\n    ],\r\n    \"filterProperties\": {\r\n        \"MID\": \"XXXXXXXXX\",\r\n        \"trackingEventTypes\": [\r\n            \"ALL\"\r\n        ]\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions/{Subscription ID}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-tracking",
-								"v3",
-								"subscriptions",
-								"{Subscription ID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "3.0 Delete Subscription with ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful deletion returns a 204\", function() {\r",
-									"    pm.response.to.have.status(204);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "default"
-							},
-							{
-								"key": "If-Match",
-								"value": "{{Etag}}",
-								"type": "default"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/subscriptions-tracking/v3/subscriptions/{Subscription ID}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"subscriptions-tracking",
-								"v3",
-								"subscriptions",
-								"{Subscription ID}"
 							]
 						}
 					},
