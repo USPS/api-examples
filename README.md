@@ -787,7 +787,7 @@ curl	-X 'POST' 'https://api.usps.com/containers/v3/containers/99M900066875EMA000
 	--header 'Authorization: Bearer $TOKEN' \
 	--data '{
 		"trackingNumbers": [
-			"{tracking-number}" 
+			"9261212345678900017627" 
 		]
 	}'
 ```
@@ -812,7 +812,7 @@ Response:
     "processingCategory": "MACHINABLE",
     "containerTopology": "NESTED",
     "warnings": [],
-    "MID": "900066875"
+    "MID": "XXXXXXXXX"
 }
 ```
 
@@ -827,6 +827,9 @@ curl -X 'POST' 'https://api.usps.com/containers/v3/containers' \
         "imageType": "PDF",
         "labelType": "6X4LABEL"
     },
+	"trackingNumbers":[
+        "9261212345678900017634"
+    ],
     "sortType": "SACK",
     "destinationEntryFacilityType": "DESTINATION_DELIVERY_UNIT",
     "destinationZIPCode": "06701",
@@ -843,7 +846,7 @@ curl -X 'POST' 'https://api.usps.com/containers/v3/containers' \
     "mailerName": "John Smith AC.",
     "processingCategory": "MACHINABLE",
     "containerTopology": "NESTED",
-    "MID": "900066875"
+    "MID": "XXXXXXXXX"
 }' 
 ```
 Response:
@@ -871,7 +874,7 @@ Content-Disposition: form-data; name="containerMetadata"
     "processingCategory": "MACHINABLE",
     "containerTopology": "NESTED",
     "warnings": [],
-    "MID": "900066875"
+    "MID": "XXXXXXXXX"
 }
 --XkxytuhvSSXDz-aV1q2YverB
 Content-Type: application/pdf
