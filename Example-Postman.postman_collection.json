@@ -2163,6 +2163,95 @@
 			]
 		},
 		{
+			"name": "Containers",
+			"item": [
+				{
+					"name": "3.0 Add to Container",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trackingNumbers\": [\r\n        \"9261212345678900019471\" //Add Tracking Number/s\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/containers/v3/containers/99M900066875EMA00002R/packages",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"containers",
+								"v3",
+								"containers",
+								"99M900066875EMA00002R",
+								"packages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Create Container Label",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageInfo\": {\r\n        \"imageType\": \"PDF\",\r\n        \"labelType\": \"6X4LABEL\"\r\n    },\r\n    \"sortType\": \"TRUCK_BEDLOAD\",\r\n    \"trackingNumbers\": [\r\n        \"9261212345678900019471\" //Add Tracking Number/s\r\n    ],\r\n    \"destinationEntryFacilityType\": \"DESTINATION_NETWORK_DISTRIBUTION_CENTER\",\r\n    \"destinationZIPCode\": \"97872\",\r\n    \"mailClass\": \"PARCEL_SELECT\",\r\n    \"originAddress\": {\r\n        \"streetAddress\": \"900 BRENTWOOD RD NE\",\r\n        \"secondaryAddress\": \"\",\r\n        \"city\": \"Washington\",\r\n        \"state\": \"DC\",\r\n        \"ZIPCode\": \"20018\",\r\n        \"ZIPPlus4\": \"0000\",\r\n        \"urbanization\": \"\"\r\n    },\r\n    \"mailerName\": \"John Smith AC.\",\r\n    \"processingCategory\": \"MACHINABLE\",\r\n    \"containerTopology\": \"NESTED\",\r\n    \"MID\": \"XXXXXXXXX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/containers/v3/containers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"containers",
+								"v3",
+								"containers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Domestic Labels",
 			"item": [
 				{
