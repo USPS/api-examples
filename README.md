@@ -2044,7 +2044,7 @@ Response:
 ## Shipping Options
 Receive a comprehensive list of pricing, service standards, and shipping options for USPS products within a single API call.
 
-### Shipping Options - Shipping Package Options
+### Shipping Options - Package Shipping Options
 Allows users to generate a comprehensive list of shipping options that comply with USPS Shipping Standards, all within a single request.
 ```sh
 curl	-X 'POST' 'https://api.usps.com/shipments/v3/options/search' \

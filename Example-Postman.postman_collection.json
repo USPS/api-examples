@@ -5260,6 +5260,53 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Shipping Options",
+			"item": [
+				{
+					"name": "Shipping Options - POST",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pricingOptions\": [\r\n        {\r\n            \"priceType\": \"COMMERCIAL\",\r\n            \"paymentAccount\": {\r\n                \"accountType\": \"EPS\",\r\n                \"accountNumber\": \"XXXXXXXXXX\"\r\n            }\r\n        }\r\n    ],\r\n    \"originZIPCode\": \"05485-8016\",\r\n    \"destinationZIPCode\": \"38746 0230\",\r\n    \"packageDescription\": {\r\n        \"weight\": 1,\r\n        \"length\": 1,\r\n        \"height\": 1,\r\n        \"width\": 1,\r\n        \"girth\": 1,\r\n        \"mailClass\": \"PARCEL_SELECT\",\r\n        \"extraServices\": [\r\n            365\r\n        ],\r\n        \"mailingDate\": \"2024-05-01\",\r\n        \"packageValue\": 35\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/shipments/v3/options/search",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"shipments",
+								"v3",
+								"options",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
