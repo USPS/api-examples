@@ -2041,6 +2041,179 @@ Response:
 [SCANForm-ManifestMIDShipment-response.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-response.json)
 
 
+## Shipping Options
+Receive a comprehensive list of pricing, service standards, and shipping options for USPS products within a single API call.
+
+### Shipping Options - Shipping Package Options
+Allows users to generate a comprehensive list of shipping options that comply with USPS Shipping Standards, all within a single request.
+```sh
+curl	-X 'POST' 'https://api.usps.com/shipments/v3/options/search' \
+	--header 'Accept: application/json' \
+	--header 'Authorization: Bearer $TOKEN' \
+	--data '{
+		"pricingOptions": [
+			{
+				"priceType": "COMMERCIAL",
+				"paymentAccount": {
+					"accountType": "EPS",
+					"accountNumber": "XXXXXXXXXX"
+				}
+			}
+		],
+		"originZIPCode": "05485-8016",
+		"destinationZIPCode": "38746 0230",
+		"packageDescription": {
+			"weight": 1,
+			"length": 1,
+			"height": 1,
+			"width": 1,
+			"girth": 1,
+			"mailClass": "PARCEL_SELECT",
+			"extraServices": [
+				365
+			],
+			"mailingDate": "2024-05-01",
+			"packageValue": 35
+		}
+	}'
+```
+Response:
+```json
+{
+    "originZIPCode": "05485-8016",
+    "destinationZIPCode": "38746-0230",
+    "pricingOptions": [
+        {
+            "shippingOptions": [
+                {
+                    "mailClass": "PARCEL_SELECT",
+                    "rateOptions": [
+                        {
+                            "commitment": {
+                                "name": "3 Days",
+                                "scheduleDeliveryDate": "2024-05-04"
+                            },
+                            "totalPrice": 3.40,
+                            "totalBasePrice": 3.40,
+                            "rates": [
+                                {
+                                    "description": "Parcel Select Nonmachinable DDU Single-piece",
+                                    "startDate": "2024-01-21",
+                                    "endDate": "",
+                                    "price": 3.4,
+                                    "zone": "00",
+                                    "weight": 1.0,
+                                    "dimensionalWeight": 0.0,
+                                    "fees": [],
+                                    "SKU": "DVXP0XXUXC00010"
+                                }
+                            ],
+                            "extraServices": [
+                                {
+                                    "name": "Global Direct Entry",
+                                    "price": 0.00,
+                                    "SKU": "NA"
+                                }
+                            ]
+                        },
+                        {
+                            "commitment": {
+                                "name": "3 Days",
+                                "scheduleDeliveryDate": "2024-05-04"
+                            },
+                            "totalPrice": 5.48,
+                            "totalBasePrice": 5.48,
+                            "rates": [
+                                {
+                                    "description": "Parcel Select Nonmachinable DNDC Single-piece",
+                                    "startDate": "2024-01-21",
+                                    "endDate": "",
+                                    "price": 5.48,
+                                    "zone": "00",
+                                    "weight": 1.0,
+                                    "dimensionalWeight": 0.0,
+                                    "fees": [],
+                                    "SKU": "DVXP0XXCXC00010"
+                                }
+                            ],
+                            "extraServices": [
+                                {
+                                    "name": "Global Direct Entry",
+                                    "price": 0.00,
+                                    "SKU": "NA"
+                                }
+                            ]
+                        },
+                        {
+                            "commitment": {
+                                "name": "3 Days",
+                                "scheduleDeliveryDate": "2024-05-04"
+                            },
+                            "totalPrice": 5.29,
+                            "totalBasePrice": 5.29,
+                            "rates": [
+                                {
+                                    "description": "Parcel Select Nonmachinable DSCF SCF",
+                                    "startDate": "2024-01-21",
+                                    "endDate": "",
+                                    "price": 5.29,
+                                    "zone": "00",
+                                    "weight": 1.0,
+                                    "dimensionalWeight": 0.0,
+                                    "fees": [],
+                                    "SKU": "DVXP0XXFXC00010"
+                                }
+                            ],
+                            "extraServices": [
+                                {
+                                    "name": "Global Direct Entry",
+                                    "price": 0.00,
+                                    "SKU": "NA"
+                                }
+                            ]
+                        },
+                        {
+                            "commitment": {
+                                "name": "3 Days",
+                                "scheduleDeliveryDate": "2024-05-04"
+                            },
+                            "totalPrice": 4.17,
+                            "totalBasePrice": 4.17,
+                            "rates": [
+                                {
+                                    "description": "Parcel Select Nonmachinable DHUB Single-piece",
+                                    "startDate": "2024-01-21",
+                                    "endDate": "",
+                                    "price": 4.17,
+                                    "zone": "00",
+                                    "weight": 1.0,
+                                    "dimensionalWeight": 0.0,
+                                    "fees": [],
+                                    "SKU": "DVXP0XXBXC00010"
+                                }
+                            ],
+                            "extraServices": [
+                                {
+                                    "name": "Global Direct Entry",
+                                    "price": 0.00,
+                                    "SKU": "NA"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "priceType": "COMMERCIAL",
+            "paymentAccount": {
+                "accountType": "EPS",
+                "accountNumber": "XXXXXXXXXX"
+            }
+        }
+    ]
+}
+```
+
+
 ## Tracking
 This API returns tracking status and related details for a given USPS package, including scan events and their date, time, and location. The Tracking APIs allow you to integrate the status of your shipment into your customer-facing experience and internal fulfillment processes that will benefit your company by:
 - Providing your customers with the latest status and delivery expectations while keeping them within your company’s or organization’s website. 
