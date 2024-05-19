@@ -4,8 +4,8 @@ The USPS Developer Portal is for software developers who would like to integrate
 ## Getting Started in Test Environment
 To use the USPS APIs in the Test Environment you must be a registered user.
 1. Apply for a free USPS.com account.
-2. Access the [Test Business Customer Gateway](https://gateway-cat.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
-3. Using your USPS account, access the [USPS Test Developer Portal](htps://developer-cat.usps.com) by clicking the Sign-Up button. 
+2. Access the [USPS Test (CAT) Business Customer Gateway](https://gateway-cat.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
+3. Using your USPS account, access the [USPS Test (CAT) Developer Portal](https://developer-cat.usps.com) by clicking the Sign Up / Login link. 
 4. Registering your application and retrieve your consumer key and consumer secret from the credential section.
 5. Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
@@ -13,7 +13,7 @@ To use the USPS APIs in the Test Environment you must be a registered user.
 To use the USPS APIs you must be a registered user.
 1. Apply for a free USPS.com account.
 2. Access the [Business Customer Gateway](https://gateway.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
-3. Using your USPS account, access the [USPS Developer Portal](htps://developer.usps.com) by clicking the Sign-Up button. 
+3. Using your USPS account, access the [USPS Developer Portal](https://developer.usps.com) by clicking the Sign Up / Login link. 
 4. Registering your application and retrieve your consumer key and consumer secret from the credential section.
 5. Additionally, you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
