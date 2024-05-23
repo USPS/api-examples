@@ -2351,19 +2351,21 @@ Response:
     "status": "USPS in possession of item",
     "statusCategory": "Accepted",
     "statusSummary": "USPS is now in possession of your item as of 7:31 am on August 2, 2023 in RICHMOND, VA 23227.",
-    "trackingEvents": {
-        "eventType": "USPS in possession of item",
-        "eventTimestamp": "2023-08-02T07:31:00Z",
-        "eventCountry": null,
-        "eventCity": "RICHMOND",
-        "eventState": "VA",
-        "eventZIP": "23227",
-        "firm": null,
-        "name": null,
-        "authorizedAgent": "false",
-        "eventCode": "03",
-        "additionalProp": null
-    },
+    "trackingEvents": [
+        {
+          "eventType": "USPS in possession of item",
+          "eventTimestamp": "2023-08-02T07:31:00Z",
+          "eventCountry": null,
+          "eventCity": "RICHMOND",
+          "eventState": "VA",
+          "eventZIP": "23227",
+          "firm": null,
+          "name": null,
+          "authorizedAgent": "false",
+          "eventCode": "03",
+          "additionalProp": null
+      }
+    ],
     "trackingNumber": "XXXXXXXXXXXXXXXXXXXX"
 }
 ```
