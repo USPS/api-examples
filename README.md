@@ -1031,6 +1031,105 @@ curl 	-X 'POST' 'https://api.usps.com/labels/v3/label' \
 Response: 
 [domesticlabel-v3-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-response.json)
 
+### Edit Label - (V3)
+Allow customers to edit package attributes for previously created labels including weight, dimensions, rate indicator, processing category and containers. These fields eligible for editing will not impact label images, so previous label images can still be used. Changing these rate ingredients may effect the prices of the label. Therefore, the Payment Authorization token is required.
+
+Note: Label edits will not be supported for the following scenarios, instead unused label refunds should be requested and new labels should be created.
+
+	- All label edits are disallowed if the original label was created with a suppressPostage = false
+	- No dimensional updates are supported for Cubic Softpack Labels
+	- Cubic labels can not be edited to non-cubic rate indicators
+```sh
+curl 	-X 'PATCH' 'https://api.usps.com/labels/v3/label/1234567890123456789012' \
+		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
+		--header 'Content-Type: application/json' \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '{
+			{
+				"op": "replace",
+				"path": "/packageDescription/weight",
+				"value": 1
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/length",
+				"value": 10
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/height",
+				"value": 7
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/width",
+				"value": 4.5
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/girth",
+				"value": 0.50
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/processingCategory",
+				"value": "NON_MACHINABLE"
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/containers",
+				"value": [
+					{
+						"containerID": "123456789012345",
+						"sortType": "PALLET"
+					}
+				]
+			},
+			{
+				"op": "replace",
+				"path": "/packageDescription/rateIndicator",
+				"value": "CP"
+			}
+		}'
+```
+Response:
+```json
+{
+    "labelAddress": {
+        "streetAddress": "STE 150",
+        "secondaryAddress": "1100 WYOMING ST",
+        "city": "SAINT LOUIS",
+        "state": "MO",
+        "ZIPCode": "63118",
+        "ZIPPlus4": "2628",
+        "firstName": "JOE",
+        "lastName": "DOE",
+        "ignoreBadAddress": false
+    },
+    "routingInformation": "123456789102",
+    "trackingNumber": "{{trackingNumber}}",
+    "postage": 7.05,
+    "extraServices": [
+        {
+            "name": "USPS Tracking",
+            "price": 0.0,
+            "SKU": "XXXXXXXXXXXXX"
+        }
+    ],
+    "zone": "01",
+    "commitment": {
+        "name": "6 Days",
+        "scheduleDeliveryDate": "2024-06-22"
+    },
+    "weightUOM": "LB",
+    "weight": 1.0,
+    "fees": [],
+    "labelBrokerID": "",
+    "constructCode": "C01",
+    "SKU": "XXXXXXXXXXXXX"
+}
+```
+
 
 ## Domestic Prices
 The Prices API can be used to look-up postage rates for domestic packages:

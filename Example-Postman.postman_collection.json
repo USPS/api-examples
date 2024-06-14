@@ -2457,6 +2457,55 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "3.0 Edit Label",
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-Payment-Authorization-Token",
+								"value": "{{payment_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/weight\",\r\n    \"value\": 1\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/length\",\r\n    \"value\": 10\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/height\",\r\n    \"value\": 7\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/width\",\r\n    \"value\": 4.5\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/girth\",\r\n    \"value\": 0.50\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/processingCategory\",\r\n    \"value\": \"NON_MACHINABLE\"\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/containers\",\r\n    \"value\": [\r\n      {\r\n        \"containerID\": \"123456789012345\",\r\n        \"sortType\": \"PALLET\"\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/rateIndicator\",\r\n    \"value\": \"CP\"\r\n  }\r\n]"
+						},
+						"url": {
+							"raw": "https://api.usps.com/labels/v3/label/1234568790123546879012",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"labels",
+								"v3",
+								"label",
+								"1234568790123546879012"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
