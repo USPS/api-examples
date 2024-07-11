@@ -2374,10 +2374,14 @@
 									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
 									"pm.visualizer.set(template)"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
 					"request": {
 						"auth": {
 							"type": "oauth2",
@@ -2428,7 +2432,7 @@
 						"header": [
 							{
 								"key": "X-Payment-Authorization-Token",
-								"value": "",
+								"value": "{{payment_token}}",
 								"type": "text"
 							}
 						],
@@ -2502,6 +2506,112 @@
 								"v3",
 								"label",
 								"1234568790123546879012"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 First-Class Letter or Flat Indicia",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const responseCollection= pm.response.text().split(\"\\n\");\r",
+									"const labelImageData = responseCollection[10]\r",
+									"const labelType = responseCollection[6].split(\" \")[1]\r",
+									"let template = `data:${labelType};base64,${labelImageData}`\r",
+									"//let template = `data:application/octet-stream;base64, ${labelImageData}`\r",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Payment-Authorization-Token",
+								"value": "{{payment_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"indiciaDescription\": {\r\n        \"processingCategory\": \"LETTERS\",\r\n        \"weight\": 3.5,\r\n        \"mailingDate\": \"2024-07-11\",\r\n        \"length\": 6.0,\r\n        \"height\": 4.0,\r\n        \"thickness\": 0.25,\r\n        \"nonMachinableIndicators\": {\r\n            \"polybagged\": true,\r\n            \"closureDevices\": true,\r\n            \"looseItems\": true,\r\n            \"rigid\": true,\r\n            \"selfMailer\": true,\r\n            \"booklet\": true\r\n        }\r\n    },\r\n    \"imageInfo\": {\r\n        \"imageType\": \"PDF\",\r\n        \"receiptOption\": \"SEPARATE_PAGE\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/labels/v3/indicia",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"labels",
+								"v3",
+								"indicia"
 							]
 						}
 					},
