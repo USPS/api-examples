@@ -155,8 +155,8 @@ export $TOKEN=<access_token>
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
      --data '{
-		"client_id": "$CLIENT_ID",
-		"client_secret": "$CLIENT_SECRET",
+		"client_id": "'$CLIENT_ID'",
+		"client_secret": "'$CLIENT_SECRET'",
 		"code": "$CODE",
 		"redirect_uri": "https://mycompany.com/authorize",
 		"scope": "prices labels tracking",
