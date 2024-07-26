@@ -100,7 +100,7 @@ curl "https://api.usps.com/oauth2/v1/introspect" \
 
 ### Example Authorization Code request (V3):
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/authorize' \
 	--header 'Cookie: TINTCYALF=$TINTCYALF' \
 	--header 'Content-Type: application/json' \
 	--header 'Authorization: Basic N0MyejJiS1FodDJUTEJjVTE2VmxlZUplQm1hdExiMjQ6TENtSE85RUFENXk0bUNURA==' \
