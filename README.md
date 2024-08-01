@@ -37,7 +37,7 @@ MAILER_ID=XXXX
 
 ### Example Authorization Code request :
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/authorize' \
 	--header 'Cookie: TINTCYALF=$TINTCYALF' \
 	--header 'Content-Type: application/json' \
 	--header 'Authorization: Basic N0MyejJiS1FodDJUTEJjVTE2VmxlZUplQm1hdExiMjQ6TENtSE85RUFENXk0bUNURA==' \
@@ -92,8 +92,8 @@ export $TOKEN=<access_token>
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
      --data '{
-		"client_id": "$CLIENT_ID",
-		"client_secret": "$CLIENT_SECRET",
+		"client_id": "'$CLIENT_ID'",
+		"client_secret": "'$CLIENT_SECRET'",
 		"code": "$CODE",
 		"redirect_uri": "https://mycompany.com/authorize",
 		"scope": "prices labels tracking",
