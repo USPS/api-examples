@@ -35,14 +35,14 @@ CUSTOMER_REGISTRATION_ID=XXXX
 MAILER_ID=XXXX
 ```
 
-### Example Authorization Code request :
+### Example Authorization Code request:
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/authorize' \
 	--header 'Cookie: TINTCYALF=$TINTCYALF' \
 	--header 'Content-Type: application/json' \
-	--header 'Authorization: Basic N0MyejJiS1FodDJUTEJjVTE2VmxlZUplQm1hdExiMjQ6TENtSE85RUFENXk0bUNURA==' \
+	--header 'Authorization: Bearer $TOKEN' \
 	--data '{
-		"client_id": "$CLIENT_ID",
+		"client_id": "{{CLIENT_ID}}",
 		"response_type": "code",
 		"redirect_uri": "https://mycompany.com/authorize",
 		"scope": "prices labels tracking",
@@ -56,13 +56,13 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
 }
 ```
 
-### Example OAuth Client Credentials Token request :
+### Example OAuth Client Credentials Token request:
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
      --header 'Content-Type: application/json' \
      --data '{
-		"client_id": "$CLIENT_ID",
-		"client_secret": "$CLIENT_SECRET",
+		"client_id": "{{CLIENT_ID}}",
+		"client_secret": "{{CLIENT_SECRET}}",
 		"grant_type": "client_credentials"
 		}'
 ```
@@ -89,12 +89,12 @@ export $TOKEN=<access_token>
 
 ### Example OAuth Authorization Code Token request :
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
      --header 'Content-Type: application/json' \
      --data '{
-		"client_id": "$CLIENT_ID",
-		"client_secret": "$CLIENT_SECRET",
-		"code": "$CODE",
+		"client_id": "{{CLIENT_ID}}",
+		"client_secret": "{{CLIENT_SECRET}}",
+		"code": "{{CODE}}",
 		"redirect_uri": "https://mycompany.com/authorize",
 		"scope": "prices labels tracking",
 		"state": "nonce=abscdefg#",
@@ -124,11 +124,11 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
 
 ### Example OAuth Refresh Token request :
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
      --header 'Content-Type: application/json' \
      --data '{
-		"client_id": "$CLIENT_ID",
-		"client_secret": "$CLIENT_SECRET",
+		"client_id": "{{CLIENT_ID}}",
+		"client_secret": "{{CLIENT_SECRET}}",
 		"grant_type": "refresh_token",
 		"refresh_token": "XXXXXXXXXXXXXXXXX"
 		}'
@@ -156,9 +156,9 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
 
 ### Example Revoke OAuth Token request :
 ```sh
-curl -X 'POST' "https://api.usps.com/oauth2/v3/revoke' \
+curl -X 'POST' 'https://api.usps.com/oauth2/v3/revoke' \
 	--header 'Content-Type: application/json' \
-	--header 'Authorization: Basic N0MyejJiS1FodDJUTEJjVTE2VmxlZUplQm1hdExiMjQ6TENtSE85RUFENXk0bUNURA==' \
+	--header 'Authorization: Bearer $TOKEN' \
 	--data '{
 		"token": "ExDTmpomcDt6pTbFVvSgQ1km39YmX8Oy",
 		"token_type_hint": "refresh_token"
@@ -175,7 +175,7 @@ The Address API provides validation and standardization of USPS domestic address
 ###  Address
 This API supports ZIP Code and City/State lookups and validates and standardizes USPS domestic addresses, city and state names, and ZIP Codes in accordance with USPS addressing standards. This API supports USPS standardized addresses including the ZIP+4, signifying a USPS delivery point, given a street address, a city, and a state.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v1/address?streetAddress=3120%20M%20St&secondarayAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
+curl	-X 'GET' 'https://api.usps.com/addresses/v3/address?streetAddress=3120%20M%20St&secondarayAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
 	--header 'accept: application/json' \
 	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
@@ -215,7 +215,7 @@ Response:
 ###  City and State
 Returns city and state corresponding to a given ZIP code.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v1/city-state?ZIPCode=30022' \
+curl	-X 'GET' 'https://api.usps.com/addresses/v3/city-state?ZIPCode=30022' \
 	--header 'accept: application/json' \
 	--header 'X-User-Id: XXXXXXXXXXX' \
 	--header 'Authorization: Bearer $TOKEN' \
@@ -230,7 +230,7 @@ Response:
 ###  ZIPCode
 Returns the ZIP Code and ZIP Code + 4 corresponding to the given address, city, and state (use USPS state abbreviations).
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v1/zipcode?streetAddress=1273%20Pale%20San%20Vitores%20RD&city=Tamuning&state=GU' \
+curl	-X 'GET' 'https://api.usps.com/addresses/v3/zipcode?streetAddress=1273%20Pale%20San%20Vitores%20RD&city=Tamuning&state=GU' \
 	--header 'accept: application/json' \
 	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
@@ -263,7 +263,7 @@ The API supports customers scheduling a carrier to pick up your packages on the 
 ### Carrier Pickup - Eligibility
 Check carrier pickup service availability at the specified address. Either the city and state or the ZIP code is required, in addition to the street address. Responds with a 200 HTTP status code and includes the USPS standardized address when this location is eligible for carrier pickup.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/pickup/v1/carrier-pickup/eligibility?streetAddress=4120%20Bingham%20Ave&city=Saint%20Louis&state=MO&ZIPCode=63116' \
+curl	-X 'GET' 'https://api.usps.com/pickup/v3/carrier-pickup/eligibility?streetAddress=4120%20Bingham%20Ave&city=Saint%20Louis&state=MO&ZIPCode=63116' \
 	--header 'Accept: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 	--data ''
@@ -300,7 +300,7 @@ Response:
 ### Carrier Pickup - Create
 Schedule a carrier pickup on a specified date. If the address is eligible for carrier pickup, then any future date is possible. Scheduling a same-day pickup is limited and based on the time of day for the request.
 ```sh
-curl -X 'POST' 'https://api.usps.com/pickup/v1/carrier-pickup' \
+curl -X 'POST' 'https://api.usps.com/pickup/v3/carrier-pickup' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer $TOKEN' \
@@ -406,7 +406,7 @@ Response:
 ### Carrier Pickup - Get
 Get the previously scheduled carrier pickup by confirmation number. Responds with the entity tag (ETag) to use when updating or cancelling this pickup.
  ```sh
-curl	-X 'GET' 'https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}' \
+curl	-X 'GET' 'https://api.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
 	--header 'Accept: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 ```
@@ -475,7 +475,7 @@ Response:
 ### Carrier Pickup - Update
 Update information contained in a previously scheduled carrier pickup such as the pickup date, the types and counts of packages for the carrier to pick up, the weight or the pickup location.
  ```sh
-curl	--request PUT 'https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}' \
+curl	--request PUT 'https://api.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
 	--header 'Accept: application/json' \
 	--header 'Content-Type: application/json' \
 	--header 'If-Match: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
@@ -583,7 +583,7 @@ Response:
 ### Carrier Pickup - Delete
 Cancel a previously scheduled carrier pick up. A carrier pickup can no longer be updated or cancelled once cancelled. Responds with a 200 HTTP status code when the carrier pickup has been cancelled.
  ```sh
-curl --request DELETE 'https://api.usps.com/pickup/v1/carrier-pickup/{Confirmation Number}' \
+curl --request DELETE 'https://api.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
 --header 'Accept: application/json' \
 --header 'If-Match: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
 --header 'Authorization: Bearer $TOKEN' \
@@ -1668,7 +1668,7 @@ Shipment Confirmation Acceptance Notice(SCAN) form allows integrators to link mu
 ### SCAN Form - Label Shipment
 Save the example request body to a file: [SCANForm-LabelShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
+curl 	-X 'POST' 'https://api.usps.com/scan-forms/v3/scan-form' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data @SCANForm-LabelShipment-request.json \
@@ -1680,7 +1680,7 @@ Response:
 ### SCAN Form - MID Shipment
 Save the example request body to a file: [SCANForm-MIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
+curl 	-X 'POST' 'https://api.usps.com/scan-forms/v3/scan-form' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data @SCANForm-MIDShipment-request.json \
@@ -1692,7 +1692,7 @@ Response:
 ### SCAN Form - Manifest MID Shipment
 Save the example request body to a file: [SCANForm-ManifestMIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v1/scan-form' \
+curl 	-X 'POST' 'https://api.usps.com/scan-forms/v3/scan-form' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data @SCANForm-ManifestMIDShipment-request.json \
