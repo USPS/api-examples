@@ -35,7 +35,7 @@ CUSTOMER_REGISTRATION_ID=XXXX
 MAILER_ID=XXXX
 ```
 
-### Example Authorization Code request (V3):
+### Example Authorization Code request :
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
 	--header 'Cookie: TINTCYALF=$TINTCYALF' \
@@ -56,7 +56,7 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/authorize' \
 }
 ```
 
-### Example OAuth Client Credentials Token request (V3):
+### Example OAuth Client Credentials Token request :
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
@@ -87,7 +87,7 @@ Set your access token to an environment variable for use in subsequent requests.
 export $TOKEN=<access_token>
 ```
 
-### Example OAuth Authorization Code Token request (V3):
+### Example OAuth Authorization Code Token request :
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
@@ -122,7 +122,7 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
 }
 ```
 
-### Example OAuth Refresh Token request (V3):
+### Example OAuth Refresh Token request :
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
      --header 'Content-Type: application/json' \
@@ -154,7 +154,7 @@ curl -X 'POST' "https://api.usps.com/oauth2/v3/token" \
 }
 ```
 
-### Example Revoke OAuth Token request (V3):
+### Example Revoke OAuth Token request :
 ```sh
 curl -X 'POST' "https://api.usps.com/oauth2/v3/revoke' \
 	--header 'Content-Type: application/json' \
@@ -709,7 +709,7 @@ The following fields are used to assure that a label is generated:
 - Account Number, specify the account number for either the EPS or PERMIT account (e.g., permit number), and
 - Permit ZIP Code, specify the permit ZIP code for the PERMIT account. it is not required for an EPS account.
 
-###  Set the payment account for Domestic Label (V3):
+###  Set the payment account for Domestic Label :
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/payments/v3/payment-authorization' \
 		--header 'Content-Type: application/json' \
@@ -765,7 +765,7 @@ Set your access token to an environment variable for use in subsequent requests.
 export $PAYMENTTOKEN=<paymentAuthorizationToken>
 ```
 
-### Domestic Label Request (V3)
+### Domestic Label Request 
 Save the example request body to a file: [domesticlabel-v3-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-request.json)
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/labels/v3/label' \
@@ -778,7 +778,7 @@ curl 	-X 'POST' 'https://api.usps.com/labels/v3/label' \
 Response: 
 [domesticlabel-v3-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-response.json)
 
-### Edit Label - (V3)
+### Edit Label - 
 Allow customers to edit package attributes for previously created labels including weight, dimensions, rate indicator, processing category and containers. These fields eligible for editing will not impact label images, so previous label images can still be used. Changing these rate ingredients may effect the prices of the label. Therefore, the Payment Authorization token is required.
 
 Note: Label edits will not be supported for the following scenarios, instead unused label refunds should be requested and new labels should be created.
@@ -877,7 +877,7 @@ Response:
 }
 ```
 
-### First-Class Letter or Flat Indicia - (V3)
+### First-Class Letter or Flat Indicia - 
 Generate a First-Class indicia for use on letter and flat mailings.
 
 Only supported for 'PAYER' Roles with an EPS accountType.
@@ -950,7 +950,7 @@ The Prices API can be used to look-up postage rates for domestic packages:
 
 For specifications such as package dimensions, delivery information, etc., please refer to the Domestic Mail Manual (DMM). For a list of published rates please refer to the USPS Price List. To discover the rate ingredients for this API, look at Publication 205.
 
-### Domestic Prices - Base Rates Request (V3)
+### Domestic Prices - Base Rates Request 
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v3/base-rates/search' \
 		--header 'Content-Type: application/json' \
@@ -995,7 +995,7 @@ Response:
 }
 ```
 
-### Domestic Prices - Extra Services Rates Request (V3)
+### Domestic Prices - Extra Services Rates Request 
 Returns eligible extra service prices, descriptions, and SKUs given a set of package rate ingredients.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v3/extra-service-rates/search' \
@@ -1023,7 +1023,7 @@ Response:
     "warnings": []
 }
 ```
-### Domestic Prices - Total Rates Request (V3)
+### Domestic Prices - Total Rates Request 
 Returns an eligible price given a set of package rate ingredients.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v3/total-rates/search' \
@@ -1170,7 +1170,7 @@ Response:
     ]
 }
 ```
-### Domestic Prices - Letter Rates Request (V3)
+### Domestic Prices - Letter Rates Request 
 Performs a search for letter prices using the submitted rate ingredients.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/prices/v3/letter-rates/search' \
@@ -1229,7 +1229,7 @@ The International Prices API can be used to look-up postage rates for internatio
 
 For specifications such as package dimensions, delivery information, etc., please refer to the International Mail Manual (IMM). For a list of published rates please refer to the USPS Price List. To discover the rate ingredients for this API, look at Publication 205.
 
-### International Prices - Base Rates Request (V3)
+### International Prices - Base Rates Request 
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates/search' \
 		--header 'Content-Type: application/json' \
@@ -1273,7 +1273,7 @@ curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates/search'
     "totalBasePrice": 14.96
 }
 ```
-### International Prices - Extra Services Rates Request (V3)
+### International Prices - Extra Services Rates Request 
 Given a set of rate ingredients, returns international extra service rates. If contractId and productId are present, include contract-based rates in the results.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/extra-service-rates/search' \
@@ -1303,7 +1303,7 @@ Response:
     "warnings": []
 }
 ```
-### International Prices - Base Rates List Request (V3)
+### International Prices - Base Rates List Request 
 Given size/weight/destination of pieces, returns a list of potential rates. Can also search for contract rates by providing mailer id, EPS, permit number or vendor number and account. If searching for contract rates, then a specified mail class is required.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates-list/search' \
@@ -1474,7 +1474,7 @@ Response:
     ]
 }
 ```
-### International Prices - Total Rates Request (V3)
+### International Prices - Total Rates Request 
 Performs a search for base price and extraServices using the submitted rate ingredients. If itemValue is not included the response will not include insurance, registered mail, and collect on delivery extra services. If the extraService array is not specified then all eligible extra services will be included.
 ```sh
 curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/total-rates/search' \
@@ -1568,7 +1568,7 @@ Response:
 ## Locations
 The Locations APIs can be used to find USPS facility addresses, hours of operations, available services and more. The purpose of this API is for users to lookup eligible entry locations to receive destination entry rates. USPS has specific rules for these entry types where the volume is only accepted at specific locations. With that in mind the idea is before a mailer submits a label request they may want to check what the acceptable entry locations are for the different rates. So, they could call the API with a destination ZIP Code of 29601 and we would respond with one facility for the DDU entry, one for SCF, & one for NDC (all of which could be unique facilities).
 
-### Dropoff-locations (V3)
+### Dropoff-locations 
 ```sh
 curl 	-X 'GET' 'https://api.usps.com/locations/v3/dropoff-locations?mailClass=PARCEL_SELECT&destinationZIPCode=30343' \
 		--header 'Accept: application/json' \
@@ -1578,7 +1578,7 @@ curl 	-X 'GET' 'https://api.usps.com/locations/v3/dropoff-locations?mailClass=PA
 Response:
 [dropoff-location-v3-response.json](https://github.com/USPS/api-examples/blob/main/dropoff-location-v3-response.json)
 
-### Post Office Locator (V3)
+### Post Office Locator 
 ```sh
 curl	-X 'GET' 'https://api.usps.com/locations/v3/post-office-locations?radius=1&ZIPCode=10463' \
 	--header 'Authorization: Bearer $TOKEN' \
@@ -1591,7 +1591,7 @@ Response:
 ## Service Standards
 This API supports the service standards for the number of days between the acceptance and delivery of a piece of mail that the Postal Service™ considers to be timely delivery. Service standards are delivery benchmarks for how long customers can expect for the Postal Service to deliver different types of mail from origin to destination — Point A to Point B. Service standards are not necessarily the same as the actual service performance.
 
-### Service Standards - Estimates Request (V3)
+### Service Standards - Estimates Request 
 Allows customers to get estimates on delivery standards between 3 or 5 digit ZIP Codes for the selected mail classes.
 ```sh
 curl	-X 'GET' 'https://api.usps.com/service-standards/v3/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptanceDate=2023-05-26&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
@@ -1641,7 +1641,7 @@ Response:
 ]
 ```
 
-### Service Standards - Standards Request (V3)
+### Service Standards - Standards Request 
 Returns the average number of days it will take a package to arrive at its destination for the selected mail class.
 ```sh
 curl	-X 'GET' 'https://api.usps.com/service-standards/v3/standards?originZIPCode=10018&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
@@ -1880,7 +1880,7 @@ This API returns tracking status and related details for a given USPS package, i
 - Providing your customers with the latest status and delivery expectations while keeping them within your company’s or organization’s website. 
 - Integrating status and delivery information for incoming packages or customer returns directly into your systems and processes so that you know when a package will arrive at your facilities. 
 
-### Tracking - Single Request - Summary (V3)
+### Tracking - Single Request - Summary 
 Gets the tracking summary about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the summarized delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.  
 ```sh
 curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=summary' \
@@ -1902,7 +1902,7 @@ Response:
 }
 ```
 
-### Tracking - Single Request - Detail (V3)
+### Tracking - Single Request - Detail 
 Gets the detailed tracking information about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the detailed delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.
 ```sh
 curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=detail' \
