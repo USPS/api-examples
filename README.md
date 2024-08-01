@@ -2486,13 +2486,6 @@ Multiple-Addresses-Found:
     value: { apiVersion: "v1", error: {code: "404", message: "More than one address was found matching the requested address.", errors: [] } }
 ```
 
-### Domestic Label Error
-```errors
-Invalid Rate Indicator :
-Description: The rate indicator is missing or invalid.
-[packageDescription:rateIndicator/mailClass - Rate Indicator value should match [2B, S2, SP] when [FIRST_CLASS] is selected]
-```
-
 ## Postman Collection
 
 Here is a Postman Collection of the above curl commands above that you can utilize to help in getting a jump start of using USPS APIs. 
