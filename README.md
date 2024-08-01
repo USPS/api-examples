@@ -2449,42 +2449,8 @@ Response:
 
 
 ## Errors
-Example error handling scenarios pertaining to the Address and Domestic Label APIs:
+Please review the [Error Inventory ](https://github.com/USPS/api-examples/tree/main/Error%20Inventory)
 
-### Address Errors
-```errors
-Invalid-City:
-    description: The city is missing or invalid.
-    value:  { apiVersion: "v1", error: {code: "400", message: "The city in the request is missing or invalid.", errors: [] } }
-      
-Invalid-State-Code:
-    description: The two-letter state code is missing or invalid.
-    value:  { apiVersion: "v1", error: {code: "400", message: "The state code in the request is missing or invalid.", errors: [] } }
-      
-Unverifiable-City-and-State:
-    description: The city and state are missing or together unverifiable.
-    value:  { apiVersion: "v1", error: {code: "400", message: "The city and state are missing or together unverifiable.", errors: [] } }
-     
-Insufficient-Address-Data:
-    description: The address information in the request is insufficient to match.
-    value: { apiVersion: "v1", error: {code: "404", message: "The address information in the request is insufficient to match.", errors: [] } }
-      
-Address-Not-Found:
-    description: There is no match for the specified address, try adding as much information as possible.
-    value: { apiVersion: "v1", error: {code: "404", message: "There is no match for the address requested.", errors: [] } }
-      
-No-Match:
-    description: There is no match for the specified address, try adding as much information as possible.
-    value: { apiVersion: "v1", error: {code: "404", message: "There is no match for the address requested.", errors: [] } }    
-    
-Invalid-Delivery-Address:
-    description: The address requested is an invalid delivery address.
-    value: { apiVersion: "v1", error: {code: "404", message: "The address requested is an invalid delivery address.", errors: [] } }
-      
-Multiple-Addresses-Found:
-    description: More than one address was found matching the requested address.
-    value: { apiVersion: "v1", error: {code: "404", message: "More than one address was found matching the requested address.", errors: [] } }
-```
 
 ## Postman Collection
 
