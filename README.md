@@ -2448,8 +2448,8 @@ Response:
 ```
 
 
-## Errors
-Please review the [Error Inventory ](https://github.com/USPS/api-examples/tree/main/Error%20Inventory)
+## USPS APIs Error Handling
+Please review the [Error Inventory ](https://github.com/USPS/api-examples/tree/main/Error%20Inventory) for an exhaustive list of error messages. 
 
 
 ## Postman Collection
