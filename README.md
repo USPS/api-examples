@@ -35,27 +35,6 @@ CUSTOMER_REGISTRATION_ID=XXXX
 MAILER_ID=XXXX
 ```
 
-### Example Authorization Code request:
-```sh
-curl -X 'POST' 'https://api.usps.com/oauth2/v3/authorize' \
-	--header 'Cookie: TINTCYALF=$TINTCYALF' \
-	--header 'Content-Type: application/json' \
-	--header 'Authorization: Bearer $TOKEN' \
-	--data '{
-		"client_id": "{{CLIENT_ID}}",
-		"response_type": "code",
-		"redirect_uri": "https://mycompany.com/authorize",
-		"scope": "prices labels tracking",
-		"state": "nonce=abscdefg#"
-		}'
-```
-```json
-{
-    "code": "hgo6sfHd",
-    "state": "nonce=abscdefg#"
-}
-```
-
 ### Example OAuth Client Credentials Token request:
 ```sh
 curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \

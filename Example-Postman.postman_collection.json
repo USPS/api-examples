@@ -10,73 +10,6 @@
 			"name": "OAuth",
 			"item": [
 				{
-					"name": "3.0 Authorization Code",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {},
-						"disableCookies": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "client_secret",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "client_id",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "TINTCYALF=XyZ",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"client_id\": \"XXXXXXXXXX\",\r\n    \"response_type\": \"code\",\r\n    \"redirect_uri\": \"https://mycompany.com/authorize\",\r\n    \"scope\": \"prices labels tracking\",\r\n    \"state\": \"nonce=abscdefg#\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/authorize",
-							"protocol": "https",
-							"host": [
-								"api",
-								"usps",
-								"com"
-							],
-							"path": [
-								"oauth2",
-								"v3",
-								"authorize"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "3.0 OAuth Client Credentials Token",
 					"event": [
 						{
@@ -3274,7 +3207,8 @@
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -3343,7 +3277,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"uniqueTrackingId\": \"{Tracking Number}\",\r\n  \"approximateIntakeDate\": \"02/17/2022\",\r\n  \"notifyEventTypes\": [\r\n    \"EMAIL_ALERT\"\r\n  ],\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"notifications\": [\r\n    {\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    {\r\n      \"cellNumber\": \"9995432211\"\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n  \"uniqueTrackingId\": \"{Tracking Number}\",\r\n  \"approximateIntakeDate\": \"2024-08-14T12:00:00Z\",\r\n  \"notifyEventTypes\": [\r\n    \"EMAIL_ALERT\"\r\n  ],\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"notifications\": [\r\n    {\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    {\r\n      \"cellNumber\": \"9995432211\"\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
