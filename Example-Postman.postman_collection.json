@@ -3277,7 +3277,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"uniqueTrackingId\": \"{Tracking Number}\",\r\n  \"approximateIntakeDate\": \"2024-08-14T12:00:00Z\",\r\n  \"notifyEventTypes\": [\r\n    \"EMAIL_ALERT\"\r\n  ],\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"notifications\": [\r\n    {\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    {\r\n      \"cellNumber\": \"9995432211\"\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n  \"uniqueMailPieceId\": \"{{uniqueMailPieceId}}\",\r\n  \"mailPieceIntakeDate\": \"2024-08-14\",\r\n  \"notifyEventTypes\": [\r\n    \"EMAIL_ALERT\"\r\n  ],\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"notifications\": [\r\n    {\r\n      \"email\": \"user@example.com\"\r\n    },\r\n    {\r\n      \"cellNumber\": \"9995432211\"\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3298,6 +3298,113 @@
 								"tracking",
 								"{Tracking Number}",
 								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 Proof of Delivery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientId",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Forwarded-For",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uniqueMailPieceID\": \"{{uniqueMailPieceID}}\",\r\n    \"mailPieceIntakeDate\": \"2024-08-01\",\r\n    \"tableCode\": \"T\",\r\n    \"requestType\": \"email\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": [\r\n        \"first.last@test.com\"\r\n    ],\r\n    \"faxNumber\": \"1234567890\",\r\n    \"streetAddress\": \"475 L'Enfant Plaza SW\",\r\n    \"city\": \"Washington\",\r\n    \"state\": \"DC\",\r\n    \"ZIPCode\": \"20260\",\r\n    \"CRID\": \"{{CRID}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.usps.com/tracking/v3/tracking/{Tracking Number}/proof-of-delivery",
+							"protocol": "https",
+							"host": [
+								"api",
+								"usps",
+								"com"
+							],
+							"path": [
+								"tracking",
+								"v3",
+								"tracking",
+								"{Tracking Number}",
+								"proof-of-delivery"
 							]
 						}
 					},
