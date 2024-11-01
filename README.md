@@ -154,7 +154,7 @@ The Address API provides validation and standardization of USPS domestic address
 ###  Address
 This API supports ZIP Code and City/State lookups and validates and standardizes USPS domestic addresses, city and state names, and ZIP Codes in accordance with USPS addressing standards. This API supports USPS standardized addresses including the ZIP+4, signifying a USPS delivery point, given a street address, a city, and a state.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v3/address?streetAddress=3120%20M%20St&secondarayAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
+curl	-X 'GET' 'https://api.usps.com/addresses/v3/address?streetAddress=3120%20M%20St&secondaryAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
 	--header 'accept: application/json' \
 	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
@@ -822,8 +822,8 @@ Response:
 ```json
 {
     "labelAddress": {
-        "streetAddress": "STE 150",
-        "secondaryAddress": "1100 WYOMING ST",
+        "streetAddress": "1100 WYOMING ST",
+        "secondaryAddress": "STE 150",
         "city": "SAINT LOUIS",
         "state": "MO",
         "ZIPCode": "63118",
