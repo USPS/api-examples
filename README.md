@@ -874,12 +874,12 @@ curl 	-X 'PATCH' 'https://api.usps.com/labels/v3/indicia' \
 				"height": 4.0,
 				"thickness": 0.25,
 				"nonMachinableIndicators": {
-					"polybagged": true,
-					"closureDevices": true,
-					"looseItems": true,
-					"rigid": true,
-					"selfMailer": true,
-					"booklet": true
+					"isPolybagged": true,
+					"hasClosureDevices": true,
+					"hasLooseItems": true,
+					"isRigid": true,
+					"isSelfMailer": true,
+					"isBooklet": true
 				}
 			},
 			"imageInfo": {
