@@ -18,7 +18,7 @@ To use the USPS APIs you must be a registered user.
 5. Additionally, you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
 ## Using the APIs in the USPS Test Environment
-All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://api.usps.com to https://api-cat.usps.com.
+All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://apis.usps.com to https://apis-cat.usps.com.
 
 ## OAuth Token
 Your exclusive access to USPS APIs is protected using OAuth 2.0 industry standards. All USPS APIs require an OAuth 2.0 access token to be conveyed in the `Authorization` header, using the `Bearer` token scheme. Once you sign-in to the API developer portal, you may get the OAuth credentials you will need to register your application `Add App`. See "Getting Started" for further information about signing-in, registering your application, and additional USPS account credentials you will need to integrate your application with USPS APIs. You are responsible for securing the application credentials once issued. Please contact USPS if your credentials have been disclosed to external parties and we will issue new credentials.
@@ -37,7 +37,7 @@ MAILER_ID=XXXX
 
 ### Example OAuth Client Credentials Token request:
 ```sh
-curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
+curl -X 'POST' 'https://apis.usps.com/oauth2/v3/token' \
      --header 'Content-Type: application/json' \
      --data '{
 		"client_id": "{{CLIENT_ID}}",
@@ -68,7 +68,7 @@ export $TOKEN=<access_token>
 
 ### Example OAuth Authorization Code Token request :
 ```sh
-curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
+curl -X 'POST' 'https://apis.usps.com/oauth2/v3/token' \
      --header 'Content-Type: application/json' \
      --data '{
 		"client_id": "{{CLIENT_ID}}",
@@ -103,7 +103,7 @@ curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
 
 ### Example OAuth Refresh Token request :
 ```sh
-curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
+curl -X 'POST' 'https://apis.usps.com/oauth2/v3/token' \
      --header 'Content-Type: application/json' \
      --data '{
 		"client_id": "{{CLIENT_ID}}",
@@ -135,7 +135,7 @@ curl -X 'POST' 'https://api.usps.com/oauth2/v3/token' \
 
 ### Example Revoke OAuth Token request :
 ```sh
-curl -X 'POST' 'https://api.usps.com/oauth2/v3/revoke' \
+curl -X 'POST' 'https://apis.usps.com/oauth2/v3/revoke' \
 	--header 'Content-Type: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 	--data '{
@@ -154,7 +154,7 @@ The Address API provides validation and standardization of USPS domestic address
 ###  Address
 This API supports ZIP Code and City/State lookups and validates and standardizes USPS domestic addresses, city and state names, and ZIP Codes in accordance with USPS addressing standards. This API supports USPS standardized addresses including the ZIP+4, signifying a USPS delivery point, given a street address, a city, and a state.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v3/address?streetAddress=3120%20M%20St&secondaryAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
+curl	-X 'GET' 'https://apis.usps.com/addresses/v3/address?streetAddress=3120%20M%20St&secondaryAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
 	--header 'accept: application/json' \
 	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
@@ -194,7 +194,7 @@ Response:
 ###  City and State
 Returns city and state corresponding to a given ZIP code.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v3/city-state?ZIPCode=30022' \
+curl	-X 'GET' 'https://apis.usps.com/addresses/v3/city-state?ZIPCode=30022' \
 	--header 'accept: application/json' \
 	--header 'X-User-Id: XXXXXXXXXXX' \
 	--header 'Authorization: Bearer $TOKEN' \
@@ -209,7 +209,7 @@ Response:
 ###  ZIPCode
 Returns the ZIP Code and ZIP Code + 4 corresponding to the given address, city, and state (use USPS state abbreviations).
 ```sh
-curl	-X 'GET' 'https://api.usps.com/addresses/v3/zipcode?streetAddress=1273%20Pale%20San%20Vitores%20RD&city=Tamuning&state=GU' \
+curl	-X 'GET' 'https://apis.usps.com/addresses/v3/zipcode?streetAddress=1273%20Pale%20San%20Vitores%20RD&city=Tamuning&state=GU' \
 	--header 'accept: application/json' \
 	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
@@ -242,7 +242,7 @@ The API supports customers scheduling a carrier to pick up your packages on the 
 ### Carrier Pickup - Eligibility
 Check carrier pickup service availability at the specified address. Either the city and state or the ZIP code is required, in addition to the street address. Responds with a 200 HTTP status code and includes the USPS standardized address when this location is eligible for carrier pickup.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/pickup/v3/carrier-pickup/eligibility?streetAddress=4120%20Bingham%20Ave&city=Saint%20Louis&state=MO&ZIPCode=63116' \
+curl	-X 'GET' 'https://apis.usps.com/pickup/v3/carrier-pickup/eligibility?streetAddress=4120%20Bingham%20Ave&city=Saint%20Louis&state=MO&ZIPCode=63116' \
 	--header 'Accept: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 	--data ''
@@ -279,7 +279,7 @@ Response:
 ### Carrier Pickup - Create
 Schedule a carrier pickup on a specified date. If the address is eligible for carrier pickup, then any future date is possible. Scheduling a same-day pickup is limited and based on the time of day for the request.
 ```sh
-curl -X 'POST' 'https://api.usps.com/pickup/v3/carrier-pickup' \
+curl -X 'POST' 'https://apis.usps.com/pickup/v3/carrier-pickup' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer $TOKEN' \
@@ -385,7 +385,7 @@ Response:
 ### Carrier Pickup - Get
 Get the previously scheduled carrier pickup by confirmation number. Responds with the entity tag (ETag) to use when updating or cancelling this pickup.
  ```sh
-curl	-X 'GET' 'https://api.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
+curl	-X 'GET' 'https://apis.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
 	--header 'Accept: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 ```
@@ -454,7 +454,7 @@ Response:
 ### Carrier Pickup - Update
 Update information contained in a previously scheduled carrier pickup such as the pickup date, the types and counts of packages for the carrier to pick up, the weight or the pickup location.
  ```sh
-curl	--request PUT 'https://api.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
+curl	--request PUT 'https://apis.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
 	--header 'Accept: application/json' \
 	--header 'Content-Type: application/json' \
 	--header 'If-Match: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
@@ -562,7 +562,7 @@ Response:
 ### Carrier Pickup - Delete
 Cancel a previously scheduled carrier pick up. A carrier pickup can no longer be updated or cancelled once cancelled. Responds with a 200 HTTP status code when the carrier pickup has been cancelled.
  ```sh
-curl --request DELETE 'https://api.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
+curl --request DELETE 'https://apis.usps.com/pickup/v3/carrier-pickup/{Confirmation Number}' \
 --header 'Accept: application/json' \
 --header 'If-Match: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
 --header 'Authorization: Bearer $TOKEN' \
@@ -577,7 +577,7 @@ The Intelligent Mail Container barcode (IMcb) provides visibility at the mail ag
 ### Add Packages or Mail to a Container Manifest
 When a user creates a container, the container can be updated with additional tracking numbers with this endpoint.
 ```sh
-curl	-X 'POST' 'https://api.usps.com/containers/v3/containers/99M900066875EMA000051/packages' \
+curl	-X 'POST' 'https://apis.usps.com/containers/v3/containers/99M900066875EMA000051/packages' \
 	--header 'Content-Type: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 	--data '{
@@ -614,7 +614,7 @@ Response:
 ### Create a Container Label
 Allows the caller to get a container label and associate packages to that container.
 ```sh
-curl -X 'POST' 'https://api.usps.com/containers/v3/containers' \
+curl -X 'POST' 'https://apis.usps.com/containers/v3/containers' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer $TOKEN' \
 --data '{
@@ -690,7 +690,7 @@ The following fields are used to assure that a label is generated:
 
 ###  Set the payment account for Domestic Label :
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/payments/v3/payment-authorization' \
+curl 	-X 'POST' 'https://apis.usps.com/payments/v3/payment-authorization' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -747,7 +747,7 @@ export $PAYMENTTOKEN=<paymentAuthorizationToken>
 ### Domestic Label Request 
 Save the example request body to a file: [domesticlabel-v3-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/labels/v3/label' \
+curl 	-X 'POST' 'https://apis.usps.com/labels/v3/label' \
 		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
@@ -766,7 +766,7 @@ Note: Label edits will not be supported for the following scenarios, instead unu
 	- No dimensional updates are supported for Cubic Softpack Labels
 	- Cubic labels can not be edited to non-cubic rate indicators
 ```sh
-curl 	-X 'PATCH' 'https://api.usps.com/labels/v3/label/1234567890123456789012' \
+curl 	-X 'PATCH' 'https://apis.usps.com/labels/v3/label/1234567890123456789012' \
 		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
@@ -861,7 +861,7 @@ Generate a First-Class indicia for use on letter and flat mailings.
 
 Only supported for 'PAYER' Roles with an EPS accountType.
 ```sh
-curl 	-X 'PATCH' 'https://api.usps.com/labels/v3/indicia' \
+curl 	-X 'PATCH' 'https://apis.usps.com/labels/v3/indicia' \
 		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
@@ -931,7 +931,7 @@ For specifications such as package dimensions, delivery information, etc., pleas
 
 ### Domestic Prices - Base Rates Request 
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/prices/v3/base-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/prices/v3/base-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -977,7 +977,7 @@ Response:
 ### Domestic Prices - Extra Services Rates Request 
 Returns eligible extra service prices, descriptions, and SKUs given a set of package rate ingredients.
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/prices/v3/extra-service-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/prices/v3/extra-service-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1005,7 +1005,7 @@ Response:
 ### Domestic Prices - Total Rates Request 
 Returns an eligible price given a set of package rate ingredients.
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/prices/v3/total-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/prices/v3/total-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1152,7 +1152,7 @@ Response:
 ### Domestic Prices - Letter Rates Request 
 Performs a search for letter prices using the submitted rate ingredients.
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/prices/v3/letter-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/prices/v3/letter-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1210,7 +1210,7 @@ For specifications such as package dimensions, delivery information, etc., pleas
 
 ### International Prices - Base Rates Request 
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/international-prices/v3/base-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1255,7 +1255,7 @@ curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates/search'
 ### International Prices - Extra Services Rates Request 
 Given a set of rate ingredients, returns international extra service rates. If contractId and productId are present, include contract-based rates in the results.
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/extra-service-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/international-prices/v3/extra-service-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1285,7 +1285,7 @@ Response:
 ### International Prices - Base Rates List Request 
 Given size/weight/destination of pieces, returns a list of potential rates. Can also search for contract rates by providing mailer id, EPS, permit number or vendor number and account. If searching for contract rates, then a specified mail class is required.
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/base-rates-list/search' \
+curl 	-X 'POST' 'https://apis.usps.com/international-prices/v3/base-rates-list/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1456,7 +1456,7 @@ Response:
 ### International Prices - Total Rates Request 
 Performs a search for base price and extraServices using the submitted rate ingredients. If itemValue is not included the response will not include insurance, registered mail, and collect on delivery extra services. If the extraService array is not specified then all eligible extra services will be included.
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/international-prices/v3/total-rates/search' \
+curl 	-X 'POST' 'https://apis.usps.com/international-prices/v3/total-rates/search' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '{
@@ -1549,7 +1549,7 @@ The Locations APIs can be used to find USPS facility addresses, hours of operati
 
 ### Dropoff-locations 
 ```sh
-curl 	-X 'GET' 'https://api.usps.com/locations/v3/dropoff-locations?mailClass=PARCEL_SELECT&destinationZIPCode=30343' \
+curl 	-X 'GET' 'https://apis.usps.com/locations/v3/dropoff-locations?mailClass=PARCEL_SELECT&destinationZIPCode=30343' \
 		--header 'Accept: application/json' \
 		--header 'Authorization: Bearer $TOKEN'
 ```
@@ -1559,7 +1559,7 @@ Response:
 
 ### Post Office Locator 
 ```sh
-curl	-X 'GET' 'https://api.usps.com/locations/v3/post-office-locations?radius=1&ZIPCode=10463' \
+curl	-X 'GET' 'https://apis.usps.com/locations/v3/post-office-locations?radius=1&ZIPCode=10463' \
 	--header 'Authorization: Bearer $TOKEN' \
 ```
 
@@ -1573,7 +1573,7 @@ This API supports the service standards for the number of days between the accep
 ### Service Standards - Estimates Request 
 Allows customers to get estimates on delivery standards between 3 or 5 digit ZIP Codes for the selected mail classes.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/service-standards/v3/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptanceDate=2023-05-26&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
+curl	-X 'GET' 'https://apis.usps.com/service-standards/v3/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptanceDate=2023-05-26&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
 		--header 'Authorization: Bearer $TOKEN' \
 ```
 Response:
@@ -1623,7 +1623,7 @@ Response:
 ### Service Standards - Standards Request 
 Returns the average number of days it will take a package to arrive at its destination for the selected mail class.
 ```sh
-curl	-X 'GET' 'https://api.usps.com/service-standards/v3/standards?originZIPCode=10018&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
+curl	-X 'GET' 'https://apis.usps.com/service-standards/v3/standards?originZIPCode=10018&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925' \
 		--header 'Authorization: Bearer $TOKEN' \
 ```
 Response:
@@ -1647,7 +1647,7 @@ Shipment Confirmation Acceptance Notice(SCAN) form allows integrators to link mu
 ### SCAN Form - Label Shipment
 Save the example request body to a file: [SCANForm-LabelShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-LabelShipment-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v3/scan-form' \
+curl 	-X 'POST' 'https://apis.usps.com/scan-forms/v3/scan-form' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data @SCANForm-LabelShipment-request.json \
@@ -1659,7 +1659,7 @@ Response:
 ### SCAN Form - MID Shipment
 Save the example request body to a file: [SCANForm-MIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-MIDShipment-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v3/scan-form' \
+curl 	-X 'POST' 'https://apis.usps.com/scan-forms/v3/scan-form' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data @SCANForm-MIDShipment-request.json \
@@ -1671,7 +1671,7 @@ Response:
 ### SCAN Form - Manifest MID Shipment
 Save the example request body to a file: [SCANForm-ManifestMIDShipment-request.json](https://github.com/USPS/api-examples/blob/main/SCANForm-ManifestMIDShipment-request.json)
 ```sh
-curl 	-X 'POST' 'https://api.usps.com/scan-forms/v3/scan-form' \
+curl 	-X 'POST' 'https://apis.usps.com/scan-forms/v3/scan-form' \
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data @SCANForm-ManifestMIDShipment-request.json \
@@ -1687,7 +1687,7 @@ Receive a comprehensive list of pricing, service standards, and shipping options
 ### Shipping Options - Package Shipping Options
 Allows users to generate a comprehensive list of shipping options that comply with USPS Shipping Standards, all within a single request.
 ```sh
-curl	-X 'POST' 'https://api.usps.com/shipments/v3/options/search' \
+curl	-X 'POST' 'https://apis.usps.com/shipments/v3/options/search' \
 	--header 'Accept: application/json' \
 	--header 'Authorization: Bearer $TOKEN' \
 	--data '{
@@ -1862,7 +1862,7 @@ This API returns tracking status and related details for a given USPS package, i
 ### Tracking - Single Request - Summary 
 Gets the tracking summary about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the summarized delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.  
 ```sh
-curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=summary' \
+curl 	-X 'GET' 'https://apis.usps.com/tracking/v3/tracking/{Tracking Number}?expand=summary' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data '' 
 ```
@@ -1884,7 +1884,7 @@ Response:
 ### Tracking - Single Request - Detail 
 Gets the detailed tracking information about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the detailed delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.
 ```sh
-curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=detail' \
+curl 	-X 'GET' 'https://apis.usps.com/tracking/v3/tracking/{Tracking Number}?expand=detail' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data ''
 ```
