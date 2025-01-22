@@ -1884,7 +1884,7 @@ Response:
 ### Tracking - Single Request - Detail 
 Gets the detailed tracking information about a single USPS package. The USPS Tracking Request displays the delivery status on such mail items as Priority Mail, Priority Mail Express, and Package Services (Parcel Post, Bound Printed Matter, Library Mail, and Media Mail) packages with USPS Tracking. USPS Tracking collects mail class and service information on the mail piece from Product Tracking Systems and provides it to the user. USPS Tracking displays/Returns the detailed delivery status of single Priority Mail and Package Service Parcels with Delivery Confirmation by supplying the Tracking number.
 ```sh
-curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=detail' \
+curl 	-X 'GET' 'https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=DETAIL' \
 		--header 'Authorization: Bearer $TOKEN' \
 		--data ''
 ```
