@@ -1,16 +1,8 @@
 ﻿# USPS API
 The USPS Developer Portal is for software developers who would like to integrate Postal Service functionality into their ecommerce, shipping, or logistics systems. Access and use USPS tools and resources conveniently within your site or application. You have the ability to try out the APIs in our Test environment.
 
-## Getting Started in Test Environment
-To use the USPS APIs in the Test Environment you must be a registered user.
-1. Apply for a free USPS.com account.
-2. Access the [USPS Test (CAT) Business Customer Gateway](https://gateway-cat.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
-3. Using your USPS account, access the [USPS Test (CAT) Developer Portal](https://developers-cat.usps.com) by clicking the Sign Up / Login link. 
-4. Registering your application and retrieve your consumer key and consumer secret from the credential section.
-5. Additionally you will need to have a Customer ID (CRID) and Mailer ID (MID)
-
-## Getting Started in Production
-To use the USPS APIs you must be a registered user.
+## Getting Started
+To use the USPS APIs in Production and the Test Environment you must be a registered user.
 1. Apply for a free USPS.com account.
 2. Access the [Business Customer Gateway](https://gateway.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
 3. Using your USPS account, access the [USPS Developer Portal](https://developers.usps.com) by clicking the Sign Up / Login link. 
@@ -18,7 +10,7 @@ To use the USPS APIs you must be a registered user.
 5. Additionally, you will need to have a Customer ID (CRID) and Mailer ID (MID)
 
 ## Using the APIs in the USPS Test Environment
-All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://apis.usps.com to https://apis-cat.usps.com.
+All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://apis.usps.com to https://apis-tem.usps.com.
 
 ## OAuth Token
 Your exclusive access to USPS APIs is protected using OAuth 2.0 industry standards. All USPS APIs require an OAuth 2.0 access token to be conveyed in the `Authorization` header, using the `Bearer` token scheme. Once you sign-in to the API developer portal, you may get the OAuth credentials you will need to register your application `Add App`. See "Getting Started" for further information about signing-in, registering your application, and additional USPS account credentials you will need to integrate your application with USPS APIs. You are responsible for securing the application credentials once issued. Please contact USPS if your credentials have been disclosed to external parties and we will issue new credentials.
@@ -53,7 +45,7 @@ curl -X 'POST' 'https://apis.usps.com/oauth2/v3/token' \
     "expires_in": "11111",
     "status": "approved",
     "scope": "addresses service-delivery-standards  locations prices tracking labels",
-    "issuer": "api.usps.com",
+    "issuer": "https://keyc.usps.com/realms/USPS",
     "client_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
     "application_name": "XXXXXX-XXXX-XXXX-XXX-XXXXXXXXXXXX",
     "api_products": "[XXXXXXX]",
@@ -156,7 +148,6 @@ This API supports ZIP Code and City/State lookups and validates and standardizes
 ```sh
 curl	-X 'GET' 'https://apis.usps.com/addresses/v3/address?streetAddress=3120%20M%20St&secondaryAddress=NW&city=Washington&state=DC&ZIPCode=20027&ZIPPlus4=3704' \
 	--header 'accept: application/json' \
-	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
 ```
 Response:
@@ -196,7 +187,6 @@ Returns city and state corresponding to a given ZIP code.
 ```sh
 curl	-X 'GET' 'https://apis.usps.com/addresses/v3/city-state?ZIPCode=30022' \
 	--header 'accept: application/json' \
-	--header 'X-User-Id: XXXXXXXXXXX' \
 	--header 'Authorization: Bearer $TOKEN' \
 ```
 Response:
@@ -211,7 +201,6 @@ Returns the ZIP Code and ZIP Code + 4 corresponding to the given address, city, 
 ```sh
 curl	-X 'GET' 'https://apis.usps.com/addresses/v3/zipcode?streetAddress=1273%20Pale%20San%20Vitores%20RD&city=Tamuning&state=GU' \
 	--header 'accept: application/json' \
-	--header 'x-user-id: XXXXXXXXXXXX' \
 	--header 'authorization: Bearer $TOKEN' \
 ```
 Response:
