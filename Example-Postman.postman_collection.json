@@ -46,10 +46,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/token",
+							"raw": "https://apis.usps.com/oauth2/v3/token",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -99,10 +99,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/token",
+							"raw": "https://apis.usps.com/oauth2/v3/token",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -152,10 +152,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/token",
+							"raw": "https://apis.usps.com/oauth2/v3/token",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -214,10 +214,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/oauth2/v3/revoke",
+							"raw": "https://apis.usps.com/oauth2/v3/revoke",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -284,10 +284,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/payments/v3/payment-authorization",
+							"raw": "https://apis.usps.com/payments/v3/payment-authorization",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -349,10 +349,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/payments/v3/payment-authorization",
+							"raw": "https://apis.usps.com/payments/v3/payment-authorization",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -410,10 +410,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/payments/v3/payment-account/XXXXXXXXXX?accountType=EPS&amount=100",
+							"raw": "https://apis.usps.com/payments/v3/payment-account/XXXXXXXXXX?accountType=EPS&amount=100",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -511,10 +511,10 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.usps.com/addresses/v3/address?streetAddress=3120 M St&secondaryAddress=NW&city=Washington&state=DC",
+							"raw": "https://apis.usps.com/addresses/v3/address?streetAddress=3120 M St&secondaryAddress=NW&city=Washington&state=DC",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -624,10 +624,10 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.usps.com/addresses/v3/city-state?ZIPCode=10018",
+							"raw": "https://apis.usps.com/addresses/v3/city-state?ZIPCode=10018",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -715,10 +715,10 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.usps.com/addresses/v3/zipcode?streetAddress=520 Maryville Centre Drive&city=Saint Louis&state=MO",
+							"raw": "https://apis.usps.com/addresses/v3/zipcode?streetAddress=520 Maryville Centre Drive&city=Saint Louis&state=MO",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -819,10 +819,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/pickup/v3/carrier-pickup/eligibility?streetAddress=4120 Bingham Ave&city=Saint Louis&state=MO&ZIPCode=63116",
+							"raw": "https://apis.usps.com/pickup/v3/carrier-pickup/eligibility?streetAddress=4120 Bingham Ave&city=Saint Louis&state=MO&ZIPCode=63116",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -974,10 +974,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/pickup/v3/carrier-pickup",
+							"raw": "https://apis.usps.com/pickup/v3/carrier-pickup",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1039,10 +1039,10 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.usps.com/pickup/v3/carrier-pickup/{{pickup_confirmation_Num}}",
+							"raw": "https://apis.usps.com/pickup/v3/carrier-pickup/{{pickup_confirmation_Num}}",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1118,10 +1118,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/pickup/v3/carrier-pickup/{{pickup_confirmation_Num}}",
+							"raw": "https://apis.usps.com/pickup/v3/carrier-pickup/{{pickup_confirmation_Num}}",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1198,10 +1198,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/pickup/v3/carrier-pickup/{{pickup_confirmation_Num}}",
+							"raw": "https://apis.usps.com/pickup/v3/carrier-pickup/{{pickup_confirmation_Num}}",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1245,10 +1245,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/containers/v3/containers/99M900066875EMA00002R/packages",
+							"raw": "https://apis.usps.com/containers/v3/containers/99M900066875EMA00002R/packages",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1288,10 +1288,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/containers/v3/containers",
+							"raw": "https://apis.usps.com/containers/v3/containers",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1329,10 +1329,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/containers/v3/containers/99M900066875EMA00002R/packages",
+							"raw": "https://apis.usps.com/containers/v3/containers/99M900066875EMA00002R/packages",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1372,10 +1372,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/containers/v3/containers/99M900066875EMA00002R/packages/9261212345678900019471",
+							"raw": "https://apis.usps.com/containers/v3/containers/99M900066875EMA00002R/packages/9261212345678900019471",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1416,10 +1416,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/containers/v3/containers/manifest",
+							"raw": "https://apis.usps.com/containers/v3/containers/manifest",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1528,10 +1528,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/labels/v3/label",
+							"raw": "https://apis.usps.com/labels/v3/label",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1576,10 +1576,10 @@
 							"raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/weight\",\r\n    \"value\": 1\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/length\",\r\n    \"value\": 10\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/height\",\r\n    \"value\": 7\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/width\",\r\n    \"value\": 4.5\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/girth\",\r\n    \"value\": 0.50\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/processingCategory\",\r\n    \"value\": \"NON_MACHINABLE\"\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/containers\",\r\n    \"value\": [\r\n      {\r\n        \"containerID\": \"123456789012345\",\r\n        \"sortType\": \"PALLET\"\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"/packageDescription/rateIndicator\",\r\n    \"value\": \"CP\"\r\n  }\r\n]"
 						},
 						"url": {
-							"raw": "https://api.usps.com/labels/v3/label/1234568790123546879012",
+							"raw": "https://apis.usps.com/labels/v3/label/1234568790123546879012",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1683,10 +1683,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/labels/v3/indicia",
+							"raw": "https://apis.usps.com/labels/v3/indicia",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1765,10 +1765,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/prices/v3/base-rates/search",
+							"raw": "https://apis.usps.com/prices/v3/base-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1843,10 +1843,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/prices/v3/extra-service-rates/search",
+							"raw": "https://apis.usps.com/prices/v3/extra-service-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1921,10 +1921,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/prices/v3/total-rates/search",
+							"raw": "https://apis.usps.com/prices/v3/total-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -1999,10 +1999,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/prices/v3/letter-rates/search",
+							"raw": "https://apis.usps.com/prices/v3/letter-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2114,10 +2114,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/international-labels/v3/international-label",
+							"raw": "https://apis.usps.com/international-labels/v3/international-label",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2196,10 +2196,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/international-prices/v3/base-rates/search",
+							"raw": "https://apis.usps.com/international-prices/v3/base-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2274,10 +2274,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/international-prices/v3/extra-service-rates/search",
+							"raw": "https://apis.usps.com/international-prices/v3/extra-service-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2352,10 +2352,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/international-prices/v3/base-rates-list/search",
+							"raw": "https://apis.usps.com/international-prices/v3/base-rates-list/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2430,10 +2430,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/international-prices/v3/total-rates/search",
+							"raw": "https://apis.usps.com/international-prices/v3/total-rates/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2499,10 +2499,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/locations/v3/dropoff-locations?mailClass=PARCEL_SELECT&destinationZIPCode=30343",
+							"raw": "https://apis.usps.com/locations/v3/dropoff-locations?mailClass=PARCEL_SELECT&destinationZIPCode=30343",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2591,10 +2591,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.usps.com/locations/v3/post-office-locations?radius=1&ZIPCode=10463",
+							"raw": "https://apis.usps.com/locations/v3/post-office-locations?radius=1&ZIPCode=10463",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2726,10 +2726,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.usps.com/service-standards/v3/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptanceDate=2023-05-26&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925",
+							"raw": "https://apis.usps.com/service-standards/v3/estimates?originZIPCode=10018&destinationZIPCode=95823&acceptanceDate=2023-05-26&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2797,10 +2797,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.usps.com/service-standards/v3/standards?originZIPCode=10018&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925",
+							"raw": "https://apis.usps.com/service-standards/v3/standards?originZIPCode=10018&destinationZIPCode=95823&mailClass=PRIORITY_MAIL&destinationType=HOLD_FOR_PICKUP&serviceTypeCodes=925",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2901,10 +2901,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/scan-forms/v3/scan-form",
+							"raw": "https://apis.usps.com/scan-forms/v3/scan-form",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -2978,10 +2978,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/scan-forms/v3/scan-form",
+							"raw": "https://apis.usps.com/scan-forms/v3/scan-form",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -3055,10 +3055,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/scan-forms/v3/scan-form",
+							"raw": "https://apis.usps.com/scan-forms/v3/scan-form",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -3101,10 +3101,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/shipments/v3/options/search",
+							"raw": "https://apis.usps.com/shipments/v3/options/search",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -3201,10 +3201,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=SUMMARY",
+							"raw": "https://apis.usps.com/tracking/v3/tracking/{Tracking Number}?expand=SUMMARY",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -3302,10 +3302,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.usps.com/tracking/v3/tracking/{Tracking Number}?expand=DETAIL",
+							"raw": "https://apis.usps.com/tracking/v3/tracking/{Tracking Number}?expand=DETAIL",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -3414,10 +3414,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/tracking/v3/tracking/{Tracking Number}/notifications",
+							"raw": "https://apis.usps.com/tracking/v3/tracking/{Tracking Number}/notifications",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
@@ -3521,10 +3521,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.usps.com/tracking/v3/tracking/{Tracking Number}/proof-of-delivery",
+							"raw": "https://apis.usps.com/tracking/v3/tracking/{Tracking Number}/proof-of-delivery",
 							"protocol": "https",
 							"host": [
-								"api",
+								"apis",
 								"usps",
 								"com"
 							],
