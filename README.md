@@ -734,17 +734,117 @@ export $PAYMENTTOKEN=<paymentAuthorizationToken>
 ```
 
 ### Domestic Label Request 
-Save the example request body to a file: [domesticlabel-v3-request.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-request.json)
 ```sh
 curl 	-X 'POST' 'https://apis.usps.com/labels/v3/label' \
 		--header 'X-Payment-Authorization-Token: $PAYMENTTOKEN'\
 		--header 'Content-Type: application/json' \
 		--header 'Authorization: Bearer $TOKEN' \
-		--data @domesticlabel-v3-request \
+		--data '{
+			  "imageInfo": {
+			    "imageType": "PDF",
+			    "labelType": "4X6LABEL",
+			    "receiptOption": "NONE",
+			    "suppressPostage": false,
+			    "suppressMailDate": false,
+			    "returnLabel": false
+			  },
+			    "toAddress": {
+			        "firstName": "Joe",
+			        "lastName": "Doe",
+			        "streetAddress": "1100 Wyoming",
+			        "secondaryAddress": "Suite 150",
+			        "city": "St. Louis",
+			        "state": "MO",
+			        "ZIPCode": "63118"
+			    },
+			    "fromAddress": {
+			        "firstName": "John",
+			        "lastName": "Smith",
+			        "streetAddress": "4120 Bingham Ave",
+			        "city": "St. Louis",
+			        "state": "MO",
+			        "ZIPCode": "63116"
+			    },
+			    "packageDescription": {
+			        "mailClass": "PRIORITY_MAIL",
+			        "rateIndicator": "SP",
+			        "weightUOM": "lb",
+			        "weight": 0.5,
+			        "dimensionsUOM": "in",
+			        "length": 9,
+			        "width": 0.25,
+			        "height": 6,
+			        "processingCategory": "MACHINABLE",
+			        "mailingDate": "2025-05-26",
+			        "extraServices": [
+			            920
+			        ],
+			        "destinationEntryFacilityType": "NONE",
+			        "packageOptions": {
+			            "packageValue": 400
+			        }
+			    }
+			}'
      
 ```
-Response: 
-[domesticlabel-v3-response.json](https://github.com/USPS/api-examples/blob/main/domesticlabel-v3-response.json)
+Response:
+```json
+
+Content-Disposition: form-data; name="labelMetadata"
+Content-type: application/json
+
+{
+    "labelAddress": {
+        "streetAddress": "1100 WYOMING ST",
+        "secondaryAddress": "STE 150",
+        "city": "SAINT LOUIS",
+        "state": "MO",
+        "ZIPCode": "63118",
+        "ZIPPlus4": "2628",
+        "firstName": "JOE",
+        "lastName": "DOE",
+        "ignoreBadAddress": false
+    },
+    "routingInformation": "420631182628",
+    "trackingNumber": "XXXXXXXXXXXXXXXXXXXXXX",
+    "postage": 7.99,
+    "extraServices": [
+        {
+            "name": "USPS Tracking",
+            "price": 0.0,
+            "SKU": "XXXXXXXXXXXXX"
+        }
+    ],
+    "zone": "01",
+    "commitment": {
+        "name": "2 Days",
+        "scheduleDeliveryDate": "2025-05-29"
+    },
+    "weightUOM": "LB",
+    "weight": 0.5,
+    "dimensionalWeight": 0.0,
+    "fees": [],
+    "bannerText": "USPS TRACKING # USPS Ship",
+    "retailDistributionCode": "03",
+    "serviceTypeCode": "055",
+    "constructCode": "C01",
+    "parcelLockerNumber": "",
+    "SKU": "XXXXXXXXXXXX",
+    "links": [
+        {
+            "rel": [
+                "Tracking URL"
+            ],
+            "href": "https://tools.usps.com/go/TrackConfirmAction_input?origTrackNum=XXXXXXXXXXXXXXXXXXXXXX",
+            "method": "GET"
+        }
+    ]
+}
+Content-Type: application/pdf
+Content-Disposition: form-data; filename="labelImage.pdf"; name="labelImage"
+X
+```
+
 
 ### Edit Label - 
 Allow customers to edit package attributes for previously created labels including weight, dimensions, rate indicator, processing category and containers. These fields eligible for editing will not impact label images, so previous label images can still be used. Changing these rate ingredients may effect the prices of the label. Therefore, the Payment Authorization token is required.
