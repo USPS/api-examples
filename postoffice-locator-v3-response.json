@@ -1,0 +1,2991 @@
+{
+    "locations": [
+        {
+            "facilityName": "KINGSBRIDGE",
+            "facilityAddress": {
+                "streetAddress": "5517 BROADWAY",
+                "city": "BRONX",
+                "state": "NY",
+                "ZIPCode": "10463",
+                "ZIPPlus4": "9998"
+            },
+            "facilityId": "1369089",
+            "geoCoordinates": {
+                "latitude": 40.877367,
+                "longitude": -73.9063
+            },
+            "postOfficeType": "POST_OFFICE",
+            "distance": 0.2,
+            "phoneNumbers": {
+                "phone": "7185496962",
+                "fax": "7186010424"
+            },
+            "temporaryClosure": false,
+            "specialHours": [
+                {
+                    "date": "2025-05-26",
+                    "open": false
+                }
+            ],
+            "parking": "STREET",
+            "passports": {
+                "appointmentRequired": false,
+                "photoCost": 15
+            },
+            "timeZone": "US/Eastern",
+            "DSTObserved": false,
+            "services": [
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PO_BOX_DELIVERY_TIME"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "closeTime": "17:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "17:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "17:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "closeTime": "17:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "closeTime": "17:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LAST_COLLECTION"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "10:00:00",
+                                    "closeTime": "15:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "10:00:00",
+                                    "closeTime": "15:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "10:00:00",
+                                    "closeTime": "15:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "10:00:00",
+                                    "closeTime": "15:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "10:00:00",
+                                    "closeTime": "15:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "10:00:00",
+                                    "closeTime": "13:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PASSPORT_APPOINTMENT"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PICKUP_ACCOUNTABLE_MAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PICKUP_NOTICE_LEFT_MAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "10:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PASSPORT_WALK_IN"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PO_BOX"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "RETAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LOBBY"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "18:30:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "18:30:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "18:30:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "18:30:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "18:30:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "18:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "CARRIER_CALL_REFERRAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PICKUP_HOLD_MAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "18:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "18:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "18:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "18:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "18:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "SELF_SERVICE_KIOSK"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "CALL_REFERRAL"
+                },
+                {
+                    "hours": [],
+                    "service": "GIFT_CARDS"
+                },
+                {
+                    "hours": [],
+                    "service": "LABEL_BROKER_SELF_SERVICE_KIOSK"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "CARRIER_SERVICES"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LABEL_BROKER"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PRIORITY_MAIL_INTERNATIONAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BULK_MAIL_ACCEPTANCE"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BUSINESS_REPLY_MAIL_ACCOUNT_BALANCE"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BUSINESS_REPLY_MAIL_NEW_PERMIT"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BULK_MAIL_ACCOUNT_BALANCE"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BULK_MAIL_NEW_PERMIT"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BURIAL_FLAG"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "DUCK_STAMP"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "GREETING_CARDS"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "MONEY_ORDER_DOMESTIC"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "19:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "SATURDAY",
+                            "times": [
+                                {
+                                    "openTime": "09:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "MONEY_ORDER_INQUIRY"
+                },
+                {
+                    "hours": [],
+                    "additionalInformation": {
+                        "mailClasses": [
+                            "PRIORITY_MAIL_EXPRESS",
+                            "PRIORITY_MAIL",
+                            "BOUND_PRINTED_MATTER",
+                            "PARCEL_SELECT",
+                            "USPS_GROUND_ADVANTAGE"
+                        ]
+                    },
+                    "service": "HOLD_FOR_PICKUP"
+                }
+            ]
+        },
+        {
+            "facilityName": "FIELDSTON",
+            "facilityAddress": {
+                "streetAddress": "444 W 238TH ST",
+                "city": "BRONX",
+                "state": "NY",
+                "ZIPCode": "10463",
+                "ZIPPlus4": "9991"
+            },
+            "facilityId": "1363362",
+            "geoCoordinates": {
+                "latitude": 40.887138,
+                "longitude": -73.904989
+            },
+            "postOfficeType": "POST_OFFICE",
+            "distance": 0.48,
+            "phoneNumbers": {
+                "phone": "7185485371"
+            },
+            "temporaryClosure": false,
+            "temporaryClosureDate": "2023-02-28",
+            "specialHours": [
+                {
+                    "date": "2025-05-26",
+                    "open": false
+                }
+            ],
+            "parking": "STREET",
+            "passports": {
+                "appointmentRequired": false,
+                "photoCost": 15
+            },
+            "timeZone": "US/Eastern",
+            "DSTObserved": false,
+            "services": [
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LAST_COLLECTION"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "RETAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LOBBY"
+                },
+                {
+                    "hours": [],
+                    "service": "CARRIER_CALL_REFERRAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "CALL_REFERRAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LABEL_BROKER"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PRIORITY_MAIL_INTERNATIONAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BUSINESS_REPLY_MAIL_ACCOUNT_BALANCE"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BUSINESS_REPLY_MAIL_NEW_PERMIT"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "DUCK_STAMP"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "MONEY_ORDER_DOMESTIC"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "MONEY_ORDER_INQUIRY"
+                },
+                {
+                    "hours": [],
+                    "additionalInformation": {
+                        "mailClasses": [
+                            "PRIORITY_MAIL_EXPRESS",
+                            "PRIORITY_MAIL",
+                            "BOUND_PRINTED_MATTER",
+                            "PARCEL_SELECT",
+                            "USPS_GROUND_ADVANTAGE"
+                        ]
+                    },
+                    "service": "HOLD_FOR_PICKUP"
+                }
+            ]
+        },
+        {
+            "facilityName": "SPUYTEN DUYVIL",
+            "facilityAddress": {
+                "streetAddress": "562 KAPPOCK ST",
+                "city": "BRONX",
+                "state": "NY",
+                "ZIPCode": "10463",
+                "ZIPPlus4": "9993"
+            },
+            "facilityId": "1382647",
+            "geoCoordinates": {
+                "latitude": 40.878707,
+                "longitude": -73.91704
+            },
+            "postOfficeType": "POST_OFFICE",
+            "distance": 0.58,
+            "phoneNumbers": {
+                "phone": "7186017870"
+            },
+            "temporaryClosure": false,
+            "specialHours": [
+                {
+                    "date": "2025-05-26",
+                    "open": false
+                }
+            ],
+            "parking": "STREET",
+            "passports": {
+                "appointmentRequired": false,
+                "photoCost": 15
+            },
+            "timeZone": "US/Eastern",
+            "DSTObserved": false,
+            "services": [
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "closeTime": "11:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "11:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "11:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "closeTime": "11:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "closeTime": "11:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PO_BOX_DELIVERY_TIME"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LAST_COLLECTION"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PICKUP_ACCOUNTABLE_MAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PO_BOX"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "RETAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LOBBY"
+                },
+                {
+                    "hours": [],
+                    "service": "CARRIER_CALL_REFERRAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PICKUP_HOLD_MAIL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "CALL_REFERRAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "LABEL_BROKER"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "PRIORITY_MAIL_INTERNATIONAL"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BUSINESS_REPLY_MAIL_ACCOUNT_BALANCE"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BUSINESS_REPLY_MAIL_NEW_PERMIT"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "BURIAL_FLAG"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "DUCK_STAMP"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "MONEY_ORDER_DOMESTIC"
+                },
+                {
+                    "hours": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "times": [
+                                {
+                                    "openTime": "08:00:00",
+                                    "closeTime": "16:00:00"
+                                }
+                            ]
+                        }
+                    ],
+                    "service": "MONEY_ORDER_INQUIRY"
+                },
+                {
+                    "hours": [],
+                    "additionalInformation": {
+                        "mailClasses": [
+                            "PRIORITY_MAIL_EXPRESS",
+                            "PRIORITY_MAIL",
+                            "BOUND_PRINTED_MATTER",
+                            "PARCEL_SELECT",
+                            "USPS_GROUND_ADVANTAGE"
+                        ]
+                    },
+                    "service": "HOLD_FOR_PICKUP"
+                }
+            ]
+        }
+    ],
+
+}

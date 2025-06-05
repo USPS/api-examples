@@ -1,0 +1,433 @@
+[
+    {
+        "dropShipmentKey": "K020303",
+        "facilityName": "ATLANTA GA RPDC",
+        "facilityAddress": {
+            "streetAddress": "600 PALMETTO LOGISTICS PKWY",
+            "city": "PALMETTO",
+            "state": "GA",
+            "ZIPCode": "30268",
+            "ZIPPlus4": "9991"
+        },
+        "dropSitePhoneNumber": "4047657578",
+        "destinationZIPCode": "303",
+        "destinationEntryFacilityType": "DESTINATION_NETWORK_DISTRIBUTION_CENTER",
+        "timeZone": "US/Eastern",
+        "dstObserved": true,
+        "acceptedPackageTypes": [
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "FLATS",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "FLATS",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "FLATS",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "PARCEL_SELECT",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_REGIONAL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "PARCEL_SELECT",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_REGIONAL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipAcceptanceTimes": [],
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "width": 10,
+                "depth": 10,
+                "height": 130
+            },
+            "canopyClearance": 0,
+            "liftTypes": {
+                "manualLift": true,
+                "electricGasLift": false,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "ramps": {
+                "numberOfRamps": 0,
+                "widestRamp": 1
+            },
+            "truckManeuveringArea": {
+                "length": 100,
+                "width": 100,
+                "surfaceType": "CONCRETE"
+            },
+            "levelers": {
+                "manualLevelers": 6,
+                "hydraulicLevelers": 6,
+                "scissorLevelers": 0
+            },
+            "doorDetails": {
+                "height": 0,
+                "width": 0,
+                "numberOfSteps": 0
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 0,
+                "lowestOverpass": 0
+            }
+        },
+        "USPSConnectDetails": {
+            "sameDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "nextDayDropOffCutOffTimes": [],
+            "sameDayDropOffCutOffTimes": [],
+            "sameDayCarrierPickupCutOffTimes": [],
+            "SundayDelivery": false
+        }
+    },
+    {
+        "dropShipmentKey": "SX10969",
+        "facilityName": "PEACHTREE CENTER",
+        "facilityAddress": {
+            "streetAddress": "240 PEACHTREE ST NW BSMT",
+            "city": "ATLANTA",
+            "state": "GA",
+            "ZIPCode": "30303",
+            "ZIPPlus4": "9996"
+        },
+        "dropSitePhoneNumber": "4047657578",
+        "destinationZIPCode": "30343",
+        "destinationEntryFacilityType": "DESTINATION_DELIVERY_UNIT",
+        "timeZone": "US/Eastern",
+        "dstObserved": true,
+        "acceptedPackageTypes": [
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "FLATS",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "FLATS",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "FLATS",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "PARCEL_SELECT",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_LOCAL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "PARCEL_SELECT",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_LOCAL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipAcceptanceTimes": [
+            {
+                "dayOfWeek": "MONDAY",
+                "times": [
+                    {
+                        "openTime": "08:30",
+                        "closeTime": "16:30"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "TUESDAY",
+                "times": [
+                    {
+                        "openTime": "08:30",
+                        "closeTime": "16:30"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "WEDNESDAY",
+                "times": [
+                    {
+                        "openTime": "08:30",
+                        "closeTime": "16:30"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "THURSDAY",
+                "times": [
+                    {
+                        "openTime": "08:30",
+                        "closeTime": "16:30"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "FRIDAY",
+                "times": [
+                    {
+                        "openTime": "08:30",
+                        "closeTime": "16:30"
+                    }
+                ]
+            }
+        ],
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "width": 15,
+                "depth": 3,
+                "height": 56
+            },
+            "canopyClearance": 14,
+            "liftTypes": {
+                "manualLift": true,
+                "electricGasLift": true,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "ramps": {
+                "numberOfRamps": 2,
+                "widestRamp": 5
+            },
+            "truckManeuveringArea": {
+                "length": 0,
+                "width": 0,
+                "surfaceType": "ASPHALT"
+            },
+            "levelers": {
+                "manualLevelers": 0,
+                "hydraulicLevelers": 0,
+                "scissorLevelers": 0
+            },
+            "doorDetails": {
+                "height": 0,
+                "width": 0,
+                "numberOfSteps": 0
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 1,
+                "lowestOverpass": 14
+            }
+        },
+        "USPSConnectDetails": {
+            "sameDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "nextDayDropOffCutOffTimes": [],
+            "sameDayDropOffCutOffTimes": [],
+            "sameDayCarrierPickupCutOffTimes": [],
+            "SundayDelivery": false
+        }
+    },
+    {
+        "dropShipmentKey": "K020303",
+        "facilityName": "ATLANTA GA RPDC",
+        "facilityAddress": {
+            "streetAddress": "600 PALMETTO LOGISTICS PKWY",
+            "city": "PALMETTO",
+            "state": "GA",
+            "ZIPCode": "30268",
+            "ZIPPlus4": "9991"
+        },
+        "dropSitePhoneNumber": "4047657578",
+        "destinationZIPCode": "303",
+        "destinationEntryFacilityType": "DESTINATION_SECTIONAL_CENTER_FACILITY",
+        "timeZone": "US/Eastern",
+        "dstObserved": true,
+        "acceptedPackageTypes": [
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "BOUND_PRINTED_MATTER",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "LIBRARY_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "MEDIA_MAIL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "PARCEL_SELECT",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_REGIONAL",
+                "processingCategory": "NONSTANDARD",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "PARCEL_SELECT",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            },
+            {
+                "mailClass": "USPS_CONNECT_REGIONAL",
+                "processingCategory": "MACHINABLE",
+                "palletized": "BOTH"
+            }
+        ],
+        "dropShipAcceptanceTimes": [],
+        "dropShipmentFacilityDetails": {
+            "dock": {
+                "width": 10,
+                "depth": 10,
+                "height": 130
+            },
+            "canopyClearance": 0,
+            "liftTypes": {
+                "manualLift": true,
+                "electricGasLift": false,
+                "cageStackerLift": false,
+                "rollerTableExtenderLift": false
+            },
+            "ramps": {
+                "numberOfRamps": 0,
+                "widestRamp": 1
+            },
+            "truckManeuveringArea": {
+                "length": 100,
+                "width": 100,
+                "surfaceType": "CONCRETE"
+            },
+            "levelers": {
+                "manualLevelers": 6,
+                "hydraulicLevelers": 6,
+                "scissorLevelers": 0
+            },
+            "doorDetails": {
+                "height": 0,
+                "width": 0,
+                "numberOfSteps": 0
+            },
+            "overpassDetails": {
+                "numberOfOverpasses": 0,
+                "lowestOverpass": 0
+            }
+        },
+        "USPSConnectDetails": {
+            "sameDayDelivery": false,
+            "sameDayPickUp": "0000",
+            "nextDayPickUp": "0000",
+            "nextDayDropOffCutOffTimes": [],
+            "sameDayDropOffCutOffTimes": [],
+            "sameDayCarrierPickupCutOffTimes": [],
+            "SundayDelivery": false
+        }
+    }
+]
