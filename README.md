@@ -2,12 +2,7 @@
 The USPS Developer Portal is for software developers who would like to integrate Postal Service functionality into their ecommerce, shipping, or logistics systems. Access and use USPS tools and resources conveniently within your site or application. You have the ability to try out the APIs in our Test environment.
 
 ## Getting Started
-To use the USPS APIs in Production and the Test Environment you must be a registered user.
-1. Apply for a free USPS.com account.
-2. Access the [Business Customer Gateway](https://gateway.usps.com/eAdmin/view/signin) and follow the prompts to create a USPS.com business account.
-3. Using your USPS account, access the [USPS Developer Portal](https://developers.usps.com) by clicking the Sign Up / Login link. 
-4. Registering your application and retrieve your consumer key and consumer secret from the credential section.
-5. Additionally, you will need to have a Customer ID (CRID) and Mailer ID (MID)
+To use the USPS APIs in Production and the Test Environment, please follow the steps on the [USPS Developer Portal Getting Started page](https://developers.usps.com/getting-started).
 
 ## Using the APIs in the USPS Test Environment
 All USPS APIs listed below are Production URL.  To use the API in Test Environment you need to change the URL from https://apis.usps.com to https://apis-tem.usps.com.
