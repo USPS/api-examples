@@ -12,7 +12,7 @@ Your exclusive access to USPS APIs is protected using OAuth 2.0 industry standar
 
 OAuth 2.0 API
 
-OAuth access tokens are used to grant authorized access to USPS APIs. Access tokens will expire, requiring applications to periodically check the expiration time and get new ones. The OAuth 2.0 client credentials grant type is the only OAuth flow presently supported. Other OAuth flows will become supported in future releases. You will need to add an app in the API Developer Portal to get Consumer Key and Consumer Secret values. You will need a valid customer registration ID (CRID) and mailer ID (MID) in order to get an access token. Contact your USPS Business Customer Gateway Business System Administrator (BSA) for this information.
+OAuth access tokens are used to grant authorized access to USPS APIs. Access tokens will expire, requiring applications to periodically check the expiration time and get new ones. The OAuth 2.0 client credentials grant type is the primary OAuth flow supported. You will need to add an app in the API Developer Portal to get Consumer Key and Consumer Secret values. You will need a valid customer registration ID (CRID) and mailer ID (MID) in order to get an access token. Contact your USPS Business Customer Gateway Business System Administrator (BSA) for this information.
 
 Prepare your credentials for use in the following examples:
 ```sh
