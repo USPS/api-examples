@@ -164,7 +164,7 @@ Response:
         "country": null,
         "countryISOCode": null
     },
-    "addressAdditionalInfo": {
+    "additionalInfo": {
         "deliveryPoint": "20",
         "carrierRoute": "C036",
         "DPVConfirmation": "Y",
@@ -173,8 +173,18 @@ Response:
         "centralDeliveryPoint": "N",
         "vacant": "N"
     },
-    "addressCorrections": null,
-    "addressMatches": null
+    "corrections": [
+		{
+			"code": "",
+			"text": ""
+		}
+	],
+	"matches": [
+		{
+			"code": "31",
+			"text": "Single Response - exact match"
+		}
+	]
 }
 ```
 ###  City and State
