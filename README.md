@@ -2023,6 +2023,66 @@ Response:
 }
 ```
 
+## Tracking 3.2
+This API allows users to retrieve detailed information about a specific USPS® package or item with trackable services and barcodes. Using the USPS® Tracking Request, users can view the delivery status of a given tracking number, including Priority Mail®, Priority Mail Express®, and Package Services (including Bound Printed Matter, Library Mail, and Media Mail®) that have USPS® Tracking.
+
+Revision 2 of the API will direct you to the new, modernized version of the Product Tracking platform. There are some differences between the Tracking API v3 and v3r2; other tracking channels, like USPS.com and Informed Delivery that are still using the official system of record v3 API will have some different messaging, information and sometimes events than v3r2. The distinctions are documented at the sites listed below. All documents can be found on the Product Tracking and Reporting (PTR) Postal Pro site.
+
+By registering for the USPS® Tracking by Email service, users can receive email notifications about their package tracking events. This service allows customers to submit their email address to be notified of current or future tracking activity. Users can choose to receive notifications for all updates, delivery date updates only, or delivery activity only. Whenever a mail piece receives an email notifiable event, an email with the relevant information will be generated and sent. With the new request type, users can make multiple requests for a single mail piece in a single request. Tracking status can be obtained using just the IMpb, and if multiple items are found, users can include additional details in the request.
+
+```sh
+curl 	-X 'GET' 'https://apis.usps.com/tracking/v3r2/tracking/ \
+		--header 'Authorization: Bearer $TOKEN' \
+		--data '[
+		{
+		"trackingNumber": "XXXXXXXXXXXXXXXXXXXX",
+		"mailingDate": "2023-08-02",
+		"destinationZIPCode": "52404"
+		}
+		]'
+
+```
+Response:
+```json
+{
+    "destinationCity": "CEDAR RAPIDS",
+    "destinationState": "IA",
+    "destinationZIP": "52404",
+    "emailEnabled": "true",
+    "kahalaIndicator": "false",
+    "mailClass": "Priority Mail<SUP>&reg;</SUP>",
+    "mailType": "DM",
+    "originCity": "RICHMOND",
+    "originState": "VA",
+    "originZIP": "23227",
+    "proofOfDeliveryEnabled": "false",
+    "restoreEnabled": "false",
+    "services": ["USPS Tracking<SUP>&#174;</SUP>","Up to $100 insurance included"],
+    "serviceTypeCode": "14",
+    "status": "USPS in possession of item",
+    "statusCategory": "Accepted",
+    "statusSummary": "USPS is now in possession of your item as of 7:31 am on August 2, 2023 in RICHMOND, VA 23227.",
+    "trackingEvents": [
+		{
+			"eventType": "USPS in possession of item",
+			"eventTimestamp": "2023-08-02T07:31:00Z",
+			"eventCountry": null,
+			"eventCity": "RICHMOND",
+			"eventState": "VA",
+			"eventZIP": "23227",
+			"firm": null,
+			"name": null,
+			"authorizedAgent": "false",
+			"eventCode": "03",
+			"additionalProp": null
+		}
+	],
+    "trackingNumber": "XXXXXXXXXXXXXXXXXXXX",
+    "accessControl": "IP_AGREEMENT"
+}
+```
+
+
 ## USPS APIs Error Handling
 Please review the [Error Inventory ](https://github.com/USPS/api-examples/tree/main/Error%20Inventory) for an exhaustive list of error messages. 
 
